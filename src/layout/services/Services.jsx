@@ -1,4 +1,4 @@
-import ServiceCard from "../../components/service-card/servicecard"
+import ServiceCard from "../../components/service-card/ServiceCard.jsx";
 import { FaCode, FaMobileAlt, FaDatabase } from "react-icons/fa";
 import "./Services.css"
 function Services() {
