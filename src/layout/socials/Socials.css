@@ -1,0 +1,43 @@
+.social-bg{
+  
+background: radial-gradient(circle 1200px at 50% -600px,
+            rgba(98, 99, 101, 0.5) 0%,
+            rgba(58, 59, 62, 0.25) 15%,
+            rgba(42, 42, 45, 0.9) 20%,
+            #000 100%),
+        linear-gradient(to bottom, #000);
+    height: auto;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 5rem;
+
+}
+.social-text{
+    padding-top: 1rem;
+}
+.social-text h2{
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+        font-weight: 600;
+}
+.social-text span{
+    color: var(--cobalt);
+}
+.card{
+    padding: 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+.image-bg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

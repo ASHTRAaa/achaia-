@@ -1,0 +1,29 @@
+.sidebar {
+    position: absolute;
+    top: 100%;
+    right: -260px;
+    width: 260px;
+    height: 100vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 40px 30px;
+    transition: 0.4s ease;
+   
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.mobile-btn {
+    margin-top: 1rem;
+    
+}

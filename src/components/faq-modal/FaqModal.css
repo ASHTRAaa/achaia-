@@ -1,0 +1,86 @@
+.faq-card {
+    width: 100%;
+    padding: 20px 24px;
+    border-radius: 16px;
+
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0.15),
+            rgba(255, 255, 255, 0.02));
+
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    overflow: hidden;
+    transition: border 0.3s ease, transform 0.3s ease;
+}
+
+
+
+.faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-header h3 {
+    font-size: 0.95rem;
+    color: #e8e8e8;
+    font-weight: 500;
+}
+
+
+
+.faq-toggle {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+
+.faq-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.45s ease;
+
+}
+
+
+
+.faq-body p {
+    overflow: hidden;
+
+    font-size: 0.85rem;
+    color: #cfcfcf;
+    line-height: 1.6;
+
+    padding-top: 0.5rem;
+    padding-right: 4rem;
+}
+
+
+
+.faq-card.open .faq-body {
+    grid-template-rows: 1fr;
+}
+
+.faq-card.open .faq-toggle {
+    transform: rotate(180deg);
+}
+
+
+
+.faq-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}

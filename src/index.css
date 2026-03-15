@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+img,
+picture,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+textarea {
+  resize: vertical;
+}
+
+:root{
+  --bg:#1C1C1C;
+  --surface:#242424;
+  --cobalt:#193497;
+  --cobalt-light:#2545CC;
+  --text:#F5F5F5;
+  --text-muted:#BBBBBB
+}
