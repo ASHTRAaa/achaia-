@@ -1,6 +1,6 @@
 .contact-section {
     background: #000;
-    padding: 100px 24px;
+    
 }
 .contact-container {
 
@@ -164,4 +164,22 @@
         gap: 60px;
     }
 
+}
+
+@media (min-width:1024px){
+    .contact-section{
+        padding: 3rem 5rem;
+    }
+}
+
+@media (min-width:600px) and (max-width:1024px) {
+    .contact-section {
+        padding: 3rem 5rem;
+    }
+}
+
+@media(max-width:599px){
+    .contact-section{
+        padding:3rem 1.5rem
+    }
 }

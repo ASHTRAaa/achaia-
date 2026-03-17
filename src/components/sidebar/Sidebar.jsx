@@ -9,10 +9,10 @@ const Sidebar = ({openMenu,setOpenMenu}) => {
       <NavLink to="/about-us" onClick={() => setOpenMenu(false)}>
         About Us
       </NavLink>
-      <NavLink to="/our-work" onClick={() => setOpenMenu(false)}>
+      <NavLink to="/work" onClick={() => setOpenMenu(false)}>
         Our Work
       </NavLink>
-      <NavLink to="/contact-us" onClick={() => setOpenMenu(false)}>
+      <NavLink to="/contact" onClick={() => setOpenMenu(false)}>
         Contact Us
       </NavLink>
 

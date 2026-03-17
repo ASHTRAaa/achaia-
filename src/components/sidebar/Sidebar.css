@@ -7,10 +7,11 @@
     background: white;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     gap: 0.1rem;
     padding: 40px 30px;
     transition: 0.4s ease;
-   
+    font-size: o.9rem;
 }
 
 .sidebar.active {
@@ -24,6 +25,13 @@
 }
 
 .mobile-btn {
-    margin-top: 1rem;
-    
+   margin-top: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.7rem 0.6rem;
+}
+
+@media(min-width:901px){
+    .sidebar{
+        display: none;
+    }
 }

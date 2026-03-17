@@ -14,9 +14,6 @@ const Navbar = () => {
   },[openMenu]);
   return (
     <div className="nav">
-      {openMenu && (
-        <div className="overlay" onClick={() => setOpenMenu(false)}></div>
-      )}
       <div className="compName">
         <h1>AgENCY</h1>
       </div>
@@ -62,7 +59,7 @@ const Navbar = () => {
       <button className="hamburger" onClick={() => setOpenMenu(!openMenu)}>
         {openMenu ? <FaTimes /> : <FaBars />}
       </button>
-      <Sidebar openMenu={openMenu} setOpenMenu={setOpenMenu} />
+      <Sidebar  openMenu={openMenu} setOpenMenu={setOpenMenu} />
     </div>
   );
 };

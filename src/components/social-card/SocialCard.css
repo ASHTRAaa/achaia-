@@ -1,6 +1,6 @@
 .testimonial-card {
     position: relative;
-    width:420px;
+    max-width:420px;
 
     padding: 36px 40px;
 
