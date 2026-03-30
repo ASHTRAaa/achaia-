@@ -4,6 +4,7 @@ import Home from "./pages/home/Home.jsx"
 import AboutUs from "./pages/about-us/AboutUs.jsx"
 import Contact from "./pages/contact/Contact.jsx"
 import Work from "./pages/work/Work.jsx"
+import Cyp from "./pages/cost-your-project/Cyp.jsx"
 function App() {
   return (
     <Routes>
@@ -12,6 +13,7 @@ function App() {
         <Route path="about-us" element={<AboutUs />} />
         <Route path="contact" element={<Contact />} />
         <Route path="work" element={<Work />} />
+        <Route path="cyp" element={<Cyp/>} />
       </Route>
     </Routes>
   );

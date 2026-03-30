@@ -28,14 +28,6 @@ const Navbar = () => {
           Home
         </NavLink>
         <NavLink
-          to="/about-us"
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "navlink"
-          }
-        >
-          About Us
-        </NavLink>
-        <NavLink
           to="/work"
           className={({ isActive }) =>
             isActive ? "nav-link active" : "navlink"
@@ -53,13 +45,15 @@ const Navbar = () => {
         </NavLink>
       </nav>
       <div className="button">
-        <button className="cta-btn">COST YOUR PROJECT</button>
+        <NavLink to="/cyp">
+          <button className="cta-btn">COST YOUR PROJECT</button>
+        </NavLink>
       </div>
 
       <button className="hamburger" onClick={() => setOpenMenu(!openMenu)}>
         {openMenu ? <FaTimes /> : <FaBars />}
       </button>
-      <Sidebar  openMenu={openMenu} setOpenMenu={setOpenMenu} />
+      <Sidebar openMenu={openMenu} setOpenMenu={setOpenMenu} />
     </div>
   );
 };

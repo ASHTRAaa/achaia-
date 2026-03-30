@@ -1,0 +1,95 @@
+.footer-section {
+    background-color: black;
+    color: #fff;
+    display: flex;
+    padding: 5rem 5rem 0 5rem;
+    white-space: nowrap;
+    width: 100%;
+    gap: 30%;
+    height: 50vh;
+}
+
+.cont-socials {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.socials a {
+    color: inherit;
+    font-size: 3rem;
+}
+
+.contact-business {
+    display: flex;
+    gap: 5rem;
+    padding-top: 1.5rem;
+
+}
+
+.business {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.business-link {
+    display: flex;
+    flex-direction: column;
+}
+
+.business a {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.business a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background: #fff;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.business a:hover::after {
+    transform: scaleX(1);
+}
+
+h6 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
+}
+
+.cont span {
+    font-size: 2rem;
+    line-height: 45px;
+
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: #fff;
+}
+
+.copyright {
+    border-top: 1px solid white;
+    margin: 0 45px;
+    padding: 1rem 0 2rem 0;
+    font-size: 1.2rem;
+}

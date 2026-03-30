@@ -1,0 +1,193 @@
+.cyp-bg{
+    background-color: #000;
+    height: auto;
+    color: #fff;
+    padding: 6rem 0rem;
+}
+.cyp-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.cyp-text h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 600;
+}
+
+.cyp-text p {
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    font-weight: 300;
+    line-height: 1.3;
+}
+.form-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 40px;
+    background: #0f1115;
+    border-radius: 12px;
+    color: #eaeaea;
+}
+
+
+
+.subtext {
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+input,
+textarea,
+select,
+.react-tel-input .form-control {
+    width: 100%;
+    padding: 12px;
+    background: #181b20;
+    border: 1px solid #2a2f36;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+}
+.react-tel-input .form-control {
+    padding-left: 4rem !important;
+    
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.react-tel-input .form-control:focus
+{
+    outline: none;
+    border-color: #4c8dff;
+}
+
+.react-tel-input .country-list {
+    background: #181b20;
+    border: 1px solid #2a2f36;
+    color: #fff;
+    
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.react-tel-input .country-list .country {
+    padding: 10px;
+}
+
+
+.react-tel-input .country-list .country:hover {
+    background: #1a5bb8;
+}
+
+.react-tel-input .country-list .search-box {
+    width: 100%;
+    padding: 10px;
+    background: #101214;
+    border: 1px solid #2a2f36;
+    color: #f8f6f6;
+}
+.react-tel-input .country-list .country.highlight {
+    background: #2a2f36 !important;
+    color: #fff !important;
+}
+.react-tel-input .country-list .search {
+    background: #181b20 !important;
+}
+
+
+.react-tel-input .flag-dropdown, .react-tel-input .selected-flag:active {
+    background: #181b20;
+    border: 1px solid #2a2f36;
+    border-radius: 8px 0 0 8px;
+}
+
+.react-tel-input .selected-flag:active,
+.react-tel-input .flag-dropdown.open .selected-flag {
+    background: #181b20 !important;
+    outline: none !important;
+}
+
+.react-tel-input .selected-flag {
+    background: transparent;
+    padding-left: 10px;
+}
+.react-tel-input .selected-flag:hover,
+.react-tel-input .flag-dropdown.open .selected-flag.active{
+    background: transparent;
+}
+
+
+.services label {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: block;
+   font-weight: 400;
+    
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    background: #181b20;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #2a2f36;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.checkbox-group input {
+    margin-right: 6px;
+}
+.budget label{
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.budget-row {
+    display: flex;
+    gap: 10px;
+    padding-top: 0.5rem ;
+    padding-bottom: 0.5rem;
+}
+
+
+.budget-row select {
+    width: 120px;
+}
+
+.start-button {
+    background: #4c8dff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.start-button:hover {
+    background: #3a73d9;
+}
