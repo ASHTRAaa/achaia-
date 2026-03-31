@@ -39,8 +39,8 @@ const Footer = () => {
           <div className="contact">
             <h6>contact us</h6>
             <ul>
-              <li>Email:ksksks@gmail.com</li>
-              <li>Phone: 22244555</li>
+              <li>Email:achaialabs@gmail.com</li>
+              <li>Phone: 7761029458</li>
             </ul>
           </div>
         </div>

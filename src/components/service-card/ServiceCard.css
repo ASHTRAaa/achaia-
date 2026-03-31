@@ -77,19 +77,19 @@
     gap: 0.5rem
 }
 .content h3{
-    font-size: 1rem;
-    color: rgb(217, 202, 202);
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    color:white;
     font-weight: 600;
 }
 
 .content p {
-    font-size: 0.8rem;
+    font-size: clamp(0.8rem, 1vw, 1rem);
     line-height: 1.5;
     opacity: 0.8;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
      overflow: hidden;
-     color: #c1bcbc;
-     font-weight: 300;
+     color: #e2e2e2;
+     font-weight: 400;
 }
