@@ -6,17 +6,15 @@ const Sidebar = ({openMenu,setOpenMenu}) => {
       <NavLink to="/" onClick={() => setOpenMenu(false)}>
         Home
       </NavLink>
-      <NavLink to="/about-us" onClick={() => setOpenMenu(false)}>
-        About Us
-      </NavLink>
       <NavLink to="/work" onClick={() => setOpenMenu(false)}>
         Our Work
       </NavLink>
       <NavLink to="/contact" onClick={() => setOpenMenu(false)}>
         Contact Us
       </NavLink>
-
-      <button className="cta-btn mobile-btn">COST YOUR PROJECT</button>
+      <NavLink to="/cyp" onClick={()=>setOpenMenu(false)}>
+        <button className="cta-btn mobile-btn">COST YOUR PROJECT</button>
+      </NavLink>
     </div>
   );
 }

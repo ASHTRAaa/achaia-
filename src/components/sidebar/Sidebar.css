@@ -2,14 +2,14 @@
     position: absolute;
     top: 100%;
     right: -260px;
-    width: 260px;
+    width: 240px;
     height: 100vh;
     background: white;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 0.1rem;
-    padding: 40px 30px;
+    padding: 40px 30px 40px 0px;
     transition: 0.4s ease;
     font-size: o.9rem;
 }
