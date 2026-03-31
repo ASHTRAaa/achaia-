@@ -49,7 +49,9 @@ const Navbar = () => {
           <button className="cta-btn">COST YOUR PROJECT</button>
         </NavLink>
       </div>
-
+      {openMenu && (
+        <div className="overlay" onClick={() => setOpenMenu(false)} />
+      )}
       <button className="hamburger" onClick={() => setOpenMenu(!openMenu)}>
         {openMenu ? <FaTimes /> : <FaBars />}
       </button>

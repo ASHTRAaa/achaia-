@@ -81,7 +81,18 @@
     cursor: pointer;
     background: none;
 }
-
+.overlay {
+    position: fixed;
+    inset: 0;
+    background:none;
+    z-index: 5;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
 
 @media (max-width:900px) {
 
