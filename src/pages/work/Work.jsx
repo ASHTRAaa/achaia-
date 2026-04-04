@@ -9,7 +9,7 @@ import CardFilter from "../../components/cardfilter/CardFilter";
    {
      id: 1,
      title: "PR Company",
-     category: "Website",
+     category: "website",
      tags: "Web design · SaaS design",
      image: foxwing,
      link: "https://www.foxwingmedia.com/",
@@ -17,7 +17,7 @@ import CardFilter from "../../components/cardfilter/CardFilter";
    {
      id: 2,
      title: "B2B Solution Website",
-     category: "Website",
+     category: "website",
      tags: "Mobile app · UI UX",
      image: divineEnt,
      link: "https://www.divineenterprisesgroup.in/",
