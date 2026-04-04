@@ -1,35 +1,36 @@
 import { useState } from "react";
 import "./Work.css";
 import image from "../../assets/heroimg.png"
+import foxwing from "../../assets/work-assets/foxwing.png";
+import divineEnt from "../../assets/work-assets/divineEnt.png"
 import ProjectCard from "../../components/projectcard/ProjectCard.jsx";
 import CardFilter from "../../components/cardfilter/CardFilter";
- const projects = 
-   [
-     {
-       id: 1,
-       title: "E-commerce Store Builder",
-       category: "website",
-       tags: "Web design · SaaS design",
-       image: image,
-       link: "#",
-     },
-     {
-       id: 2,
-       title: "Food Delivery App",
-       category: "app",
-       tags: "Mobile app · UI UX",
-       image: image,
-       link: "#",
-     },
-     {
-       id: 3,
-       title: "AI Chatbot",
-       category: "ai",
-       tags: "AI product · SaaS",
-       image: image,
-       link: "#",
-     },
-   ];
+ const projects = [
+   {
+     id: 1,
+     title: "PR Company",
+     category: "Website",
+     tags: "Web design · SaaS design",
+     image: foxwing,
+     link: "https://www.foxwingmedia.com/",
+   },
+   {
+     id: 2,
+     title: "B2B Solution Website",
+     category: "Website",
+     tags: "Mobile app · UI UX",
+     image: divineEnt,
+     link: "https://www.divineenterprisesgroup.in/",
+   },
+   {
+     id: 3,
+     title: "AI Chatbot",
+     category: "ai",
+     tags: "AI product · SaaS",
+     image: image,
+     link: "#",
+   },
+ ];
 
 const Work = () => {
   const [category, setCategory] = useState("all");
