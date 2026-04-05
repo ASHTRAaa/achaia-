@@ -191,3 +191,7 @@ select:focus,
 .start-button:hover {
     background: #3a73d9;
 }
+.status{
+    color: white;
+    margin: 10px;
+}

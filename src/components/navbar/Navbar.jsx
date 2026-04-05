@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import {useState,useEffect} from "react";
 import Sidebar from "../sidebar/Sidebar";
 import {FaBars,FaTimes} from "react-icons/fa";
+import Logo from "../../assets/logo.svg?react"
 const Navbar = () => {
   const [openMenu,setOpenMenu] = useState(false);
   useEffect(()=>{
@@ -15,7 +16,8 @@ const Navbar = () => {
   return (
     <div className="nav">
       <div className="compName">
-        <h1>AgENCY</h1>
+        <Logo className="logo"/>
+        
       </div>
       <nav className="navbar">
         <NavLink

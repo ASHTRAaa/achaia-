@@ -1,11 +1,78 @@
-
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import "./Cyp.css";
 import { useState } from "react";
+
 const Cyp = () => {
-    const [currency, setCurrency] = useState("INR");
-    const [phone, setPhone] = useState("");
+  const [currency, setCurrency] = useState("INR");
+  const [phone, setPhone] = useState("");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    services: "",
+    budget: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+
+  // handle text inputs
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // handle checkboxes
+  const handleCheckbox = (e) => {
+    const { value, checked } = e.target;
+
+    if (checked) {
+      setFormData({
+        ...formData,
+        services: [...formData.services, value],
+      });
+    } else {
+      setFormData({
+        ...formData,
+        services: formData.services.filter((item) => item !== value),
+      });
+    }
+  };
+
+  // submit
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setStatus("Sending...");
+
+  const form = new FormData();
+
+  form.append("name", formData.name);
+  form.append("email", formData.email);
+  form.append("phone", phone);
+ form.append("services", JSON.stringify(formData.services.join(",")));
+  form.append("budget", `${currency} ${formData.budget}`);
+  form.append("message", formData.message);
+
+  const res = await fetch("https://achaia-labs-backend.vercel.app/api/submit", {
+    method: "POST",
+    body: form, 
+  });
+
+  if (res.ok) {
+    setStatus("Message sent successfully");
+    setFormData({
+      name: "",
+      email: "",
+      services: "",
+      budget: "",
+      message: "",
+    });
+    setPhone("");
+  } else {
+    setStatus("Something went wrong ");
+  }
+};
+
   return (
     <div className="cyp-bg">
       <div className="cyp-text">
@@ -14,16 +81,32 @@ const Cyp = () => {
           Just share what you're thinking — we’ll figure out the rest together.
         </p>
       </div>
+
       <div className="form-container">
-        <form className="form">
+        <form onSubmit={handleSubmit} className="form">
           {/* Name */}
-          <input type="text" placeholder="Your name" required />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
 
           {/* Email */}
-          <input type="email" placeholder="Your email" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
 
+          {/* Phone */}
           <PhoneInput
-            country={"in"} // default country
+            country={"in"}
             value={phone}
             onChange={(phone) => setPhone(phone)}
             inputProps={{
@@ -38,16 +121,40 @@ const Cyp = () => {
             <label>Select what you need</label>
             <div className="checkbox-group">
               <label>
-                <input type="checkbox" /> Website
+                <input
+                  type="checkbox"
+                  name="services"
+                  value="Website"
+                  onChange={handleCheckbox}
+                />{" "}
+                Website
               </label>
               <label>
-                <input type="checkbox" /> Mobile App
+                <input
+                  type="checkbox"
+                  name="services"
+                  value="Mobile App"
+                  onChange={handleCheckbox}
+                />{" "}
+                Mobile App
               </label>
               <label>
-                <input type="checkbox" /> Custom Software
+                <input
+                  type="checkbox"
+                  name="services"
+                  value="Custom Software"
+                  onChange={handleCheckbox}
+                />{" "}
+                Custom Software
               </label>
               <label>
-                <input type="checkbox" /> AI Integration
+                <input
+                  type="checkbox"
+                  name="services"
+                  value="AI Integration"
+                  onChange={handleCheckbox}
+                />{" "}
+                AI Integration
               </label>
             </div>
           </div>
@@ -58,6 +165,7 @@ const Cyp = () => {
 
             <div className="budget-row">
               <select
+                name="currency"
                 value={currency}
                 onChange={(e) => setCurrency(e.target.value)}
               >
@@ -67,29 +175,35 @@ const Cyp = () => {
 
               <input
                 type="number"
+                name="budget"
                 min="0"
-                placeholder={currency === "INR" ? "e.g. 50000" : "e.g. 1000"}
-                onInput={(e) => {
-                  if (e.target.value < 0) e.target.value = 0;
-                }}
+                value={formData.budget}
+                placeholder={currency === "INR" ? "50000" : "e.g. 1000"}
+                onChange={handleChange}
               />
             </div>
           </div>
 
           {/* Message */}
           <textarea
+            name="message"
             placeholder="Briefly describe your idea or problem"
             rows="4"
+            value={formData.message}
+            onChange={handleChange}
           />
 
           {/* Submit */}
           <button className="start-button" type="submit">
             Start Conversation
           </button>
+
+          {/* Status */}
+          <p>{status}</p>
         </form>
       </div>
     </div>
   );
-}
+};
 
-export default Cyp
+export default Cyp;

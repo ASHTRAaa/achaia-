@@ -14,13 +14,13 @@ const Footer = () => {
             </span>
           </div>
           <div className="socials">
-            <a href="">
+            <a href="https://www.instagram.com/achaialabs?igsh=MTF5ZXVxbDEyZnlrOQ==">
               <FaInstagram />
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/search/results/all/?keywords=achaia%20labs&origin=RICH_QUERY_SUGGESTION&spellCorrectionEnabled=false&heroEntityKey=urn%3Ali%3Aorganization%3A112998902&position=0">
               <FaLinkedin />
             </a>
-            <a href="">
+            <a href="https://x.com/achaialabs">
               <FaTwitter />
             </a>
           </div>
