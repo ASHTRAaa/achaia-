@@ -64,9 +64,9 @@ textarea {
 }
 
 :root{
-  --bg:#1C1C1C;
+  --bg:#000;
   --surface:#242424;
-  --cobalt:#193497;
+  --green:#547e07;
   --cobalt-light:#2545CC;
   --text:#F5F5F5;
   --text-muted:#BBBBBB

@@ -71,7 +71,7 @@ select:focus,
 .react-tel-input .form-control:focus
 {
     outline: none;
-    border-color: #4c8dff;
+    border-color: var(--green);
 }
 
 .react-tel-input .country-list {
@@ -89,7 +89,7 @@ select:focus,
 
 
 .react-tel-input .country-list .country:hover {
-    background: #1a5bb8;
+    background: var(--green);
 }
 
 .react-tel-input .country-list .search-box {
@@ -178,7 +178,7 @@ select:focus,
 }
 
 .start-button {
-    background: #4c8dff;
+    background: var(--green);
     border: none;
     padding: 14px;
     border-radius: 8px;
@@ -188,10 +188,14 @@ select:focus,
     transition: 0.2s ease;
 }
 
-.start-button:hover {
-    background: #3a73d9;
+.budget-row select:hover{
+    border-color: var(--green);
 }
+
 .status{
     color: white;
     margin: 10px;
+}
+.checkbox-group input[type="checkbox"] {
+    accent-color: var(--green);
 }

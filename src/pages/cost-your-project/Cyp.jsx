@@ -44,32 +44,37 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   setStatus("Sending...");
 
-  const form = new FormData();
+  try {
+    const form = new FormData();
 
-  form.append("name", formData.name);
-  form.append("email", formData.email);
-  form.append("phone", phone);
- form.append("services", JSON.stringify(formData.services.join(",")));
-  form.append("budget", `${currency} ${formData.budget}`);
-  form.append("message", formData.message);
+    form.append("name", formData.name);
+    form.append("email", formData.email);
+    form.append("phone", phone);
+    form.append("services", formData.services.join(","));
+    form.append("budget", `${currency} ${formData.budget}`);
+    form.append("message", formData.message);
 
-  const res = await fetch("https://achaia-labs-backend.vercel.app/api/submit", {
-    method: "POST",
-    body: form, 
-  });
+    const res = await fetch("https://www.sendmyform.live/api/f/contact-us", {
+      method: "POST",
+      body: form,
+    });
 
-  if (res.ok) {
-    setStatus("Message sent successfully");
+    if (res.ok) {
+      setStatus("Message sent successfully");
+    } else {
+      setStatus("Something went wrong");
+    }
+  } catch (err) {
+    setStatus("Network error");
+  } finally {
     setFormData({
       name: "",
       email: "",
-      services: "",
+      services: [],
       budget: "",
       message: "",
     });
     setPhone("");
-  } else {
-    setStatus("Something went wrong ");
   }
 };
 
