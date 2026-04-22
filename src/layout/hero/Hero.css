@@ -77,6 +77,16 @@
     margin-bottom: 22px;
 
 }
+
+
+.animated-word {
+    color: var(--green);
+    position: relative;
+    height: 1em;
+    overflow: hidden;
+    
+}
+
 .hero-content p {
 
     font-size: 1.05rem;
@@ -87,6 +97,9 @@
 
     margin-bottom: 32px;
 
+}
+.hero-para span {
+    display: inline-block;
 }
 .hero-buttons {
 
