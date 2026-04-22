@@ -16,6 +16,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  background-color: var(--bg);
 }
 
 button,
@@ -66,7 +67,7 @@ textarea {
 :root{
   --bg:#000;
   --surface:#242424;
-  --green:#547e07;
+  --green:#a0d600;
   --cobalt-light:#2545CC;
   --text:#F5F5F5;
   --text-muted:#BBBBBB

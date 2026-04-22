@@ -41,7 +41,9 @@ const FirstForm = () => {
               <option>UI/UX Design</option>
             </select>
 
-            <button type="submit">Send Message</button>
+            <button className="contact-form-button" type="submit">
+              Send Message
+            </button>
           </form>
         </div>
       </div>

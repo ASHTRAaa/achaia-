@@ -8,8 +8,9 @@
     margin: 0 auto;
     padding: 10px 30px;
     width: 100%;
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 100;
+    color: #fff;
     
 
 }
@@ -18,7 +19,7 @@
     width: 200px;
     height: auto;
     display: block;
-    color: #547e07;
+    color: var(--green);
 }
 .navbar {
     display: flex;
@@ -42,7 +43,7 @@
     left: 0;
     top: 100%;
     width: 100%;
-    background: #282bdc;
+    background: var(--green);
     height: 2px;
     transform: scaleX(0);
     transform-origin: left;
@@ -62,7 +63,7 @@
     font-size: 18px;
     line-height: 1em;
     padding: 0.8em 2em 0.8em 2em;
-    background-color: #bffb4f;
+    background-color: var(--green);
     border-radius: 15px;
     border: none;
     box-shadow: 0.125em 0.125em 0 0 #8342fb,

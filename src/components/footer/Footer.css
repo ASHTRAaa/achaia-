@@ -75,7 +75,7 @@
     left: 0;
     top: 100%;
     width: 100%;
-    background: #fff;
+    background: var(--green);
     height: 2px;
     transform: scaleX(0);
     transform-origin: left;

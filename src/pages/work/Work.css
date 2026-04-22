@@ -45,7 +45,7 @@ display: flex;
 }
 
 .category-filter button.active {
-    background: #c6ff00;
+    background: var(--green);
     color: black;
 }
 

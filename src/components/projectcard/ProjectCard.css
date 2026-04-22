@@ -70,7 +70,7 @@
     align-items: center;
     justify-content: center;
 
-    background: #c6ff00;
+    background: var(--green);
     color: black;
 
     font-size: 18px;

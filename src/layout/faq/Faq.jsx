@@ -3,11 +3,6 @@ import { useState } from 'react';
 import FaqModal from '../../components/faq-modal/FaqModal.jsx';
 const faqs = [
   {
-    question: "What services do you offer?",
-    answer:
-      "We provide end-to-end digital solutions including website development, responsive UI design, backend systems, and performance optimization to help businesses build reliable and scalable digital products.",
-  },
-  {
     question: "How does your development process work?",
     answer:
       "Our process typically involves four steps: understanding your requirements, designing the user interface, developing the product, and finally testing and launching the solution.",
@@ -27,24 +22,18 @@ const faqs = [
     answer:
       " Yes. We offer ongoing support and maintenance services to ensure your website stays secure, updated, and performing well.",
   },
-  ,
+  
   {
     question: "Can you redesign an existing website?",
     answer:
       " Absolutely. We can improve the design, performance, and functionality of your current website while keeping your existing content and structure if needed.",
   },
-  ,
+  
   {
     question: "Do you work with clients remotely?",
     answer:
       "Yes. We work with clients globally and collaborate through online meetings, messaging, and project management tools. ",
-  },
-  ,
-  {
-    question: "How can we start working together?",
-    answer:
-      " You can reach out through our contact form or schedule a consultation to discuss your project requirements.",
-  },
+  }
   ,
   {
     question: "Still have questions?",

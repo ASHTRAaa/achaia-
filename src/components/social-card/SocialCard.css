@@ -11,7 +11,7 @@
             rgba(15, 15, 15, 0.9));
 
     
-    border-top: 1px solid rgb(84, 77, 221) ;
+    border-top: 1px solid var(--green) ;
     backdrop-filter: blur(20px);
 
     color: white;
