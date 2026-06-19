@@ -1,0 +1,20 @@
+.home-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card-home {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s ease;
+}
+
+.product-card-home:hover {
+  transform: translateY(-8px);
+  border-color: var(--secondary-fixed);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.text-lime {
+  color: var(--secondary-fixed);
+}

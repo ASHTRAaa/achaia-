@@ -1,0 +1,18 @@
+.not-found-page {
+  position: relative;
+  min-height: calc(100vh - 100px);
+}
+
+.headline-404 {
+  font-size: 32px;
+}
+
+@media (min-width: 768px) {
+  .headline-404 {
+    font-size: 56px;
+  }
+}
+
+.text-lime {
+  color: var(--secondary-fixed);
+}

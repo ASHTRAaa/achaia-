@@ -1,125 +1,67 @@
-import "./Hero.css"
-import heroimg from "../../assets/heroimg.png";
-import herovideo from "../../assets/herobg.mp4"
-import { NavLink } from "react-router-dom";
-import {motion,AnimatePresence} from "framer-motion";
-import {useState,useEffect} from "react";
+import { Link } from "react-router-dom";
 
-const words = ["Websites", "Mobile Apps", "AI Products"];
-const variants = {
-  enter: { y: 20, opacity: 0.3, filter: "blur(5px)" },
-  center: { y: 0, opacity: 1, filter: "blur(0px)" },
-  exit: { y: -20, opacity: 0, filter: "blur(5px)" },
-};
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const child = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-    filter: "blur(6px)",
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.4,
-      ease: "easeOut",
-    },
-  },
-};
 const Hero = () => {
-
-    const [index, setIndex] = useState(0);
-    const [isPaused, setIsPaused] = useState(false);
-
-    useEffect(() => {
-      if (isPaused) return;
-
-      const interval = setInterval(() => {
-        setIndex((prev) => (prev + 1) % words.length);
-      }, 2200);
-
-      return () => clearInterval(interval);
-    }, [isPaused]);
-
-    
   return (
-    <section className="hero">
-      <img src={heroimg} alt="" className="hero-image" />
-
+    <header className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 md:px-margin-mobile pt-24 pb-16 overflow-hidden">
+      {/* Video Background */}
       <video
-        className="hero-video"
         autoPlay
-        muted
         loop
+        muted
         playsInline
-        preload="none"
+        className="absolute inset-0 w-full h-full object-cover -z-10"
       >
-        <source src={herovideo} type="video/mp4" />
+        <source src="/hero.webm" type="video/webm" />
+        Your browser does not support the video tag.
       </video>
 
-      <div className="hero-overlay"></div>
+      {/* Dark overlay gradient to blend with black background at the bottom and keep text highly readable */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black -z-10" />
 
-      <div className="hero-content">
-        <h1>
-          Build{" "}
-          <span
-            className="animated-word"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={words[index]}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {words[index]}
-              </motion.span>
-            </AnimatePresence>
-          </span>{" "}
-          That Scale
+      <div className="max-w-4xl space-y-8 relative z-10">
+        <h1 className="font-display-xl text-display-xl text-white">
+          Engineering Digital{" "}
+          <span className="text-secondary-fixed">Excellence</span>
         </h1>
-
-        <motion.p
-          className="hero-para"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          {`We design and develop high-performance web apps, mobile apps, and AI solutions for startups and growing businesses.`
-            .split(" ")
-            .map((word, i) => (
-              <motion.span key={i} variants={child}>
-                {word}&nbsp;
-              </motion.span>
-            ))}
-        </motion.p>
-
-        <div className="hero-buttons">
-          <NavLink to="/work">
-            <button className="btn-primary">View Work</button>
-          </NavLink>
-          <NavLink to="/cyp">
-            <button className="btn-secondary">Start a Project</button>
-          </NavLink>
+        <p className="font-subheading text-subheading text-white/90 max-w-2xl mx-auto">
+          We build the future of SaaS, AI, and mobile experiences through precise technical craftsmanship and visionary design.
+        </p>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 pt-4">
+          <Link
+            to="/products"
+            className="bg-secondary-fixed text-on-secondary-fixed px-10 py-4 rounded-full font-label-caps text-label-caps font-extrabold glow-hover transition-all duration-300"
+          >
+            Explore Products
+          </Link>
+          <Link
+            to="/work"
+            className="border border-secondary-fixed text-secondary-fixed hover:bg-secondary-fixed/10 px-10 py-4 rounded-full font-label-caps text-label-caps font-extrabold transition-all duration-300 shadow-[0_0_15px_rgba(160,214,0,0.15)]"
+          >
+            View Work
+          </Link>
         </div>
       </div>
-    </section>
-  );
-}
 
-export default Hero
+      {/* Modern Neon Glow Bottom Chips */}
+      <div className="mt-28 flex flex-wrap justify-center gap-4 max-w-4xl px-4 relative z-10">
+        {[
+          { label: "SaaS", icon: "rocket_launch" },
+          { label: "Mobile Apps", icon: "smartphone" },
+          { label: "Agentic AI", icon: "psychology" },
+          { label: "Web Platforms", icon: "desktop_windows" },
+          { label: "SEO", icon: "search" }
+        ].map((chip) => (
+          <div
+            key={chip.label}
+            className="flex items-center gap-2 px-6 py-2.5 rounded-full border border-secondary-fixed/20 bg-black/55 backdrop-blur-md shadow-[0_0_15px_rgba(160,214,0,0.1)] text-white/90 font-label-caps text-[10px] tracking-widest uppercase hover:border-secondary-fixed/50 hover:shadow-[0_0_20px_rgba(160,214,0,0.25)] transition-all duration-300"
+          >
+            <span className="material-symbols-outlined text-secondary-fixed text-sm">{chip.icon}</span>
+            <span>{chip.label}</span>
+          </div>
+        ))}
+      </div>
+    </header>
+  );
+};
+
+export default Hero;

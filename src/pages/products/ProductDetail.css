@@ -1,0 +1,194 @@
+.product-detail-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-hero {
+  padding-top: 160px;
+}
+
+.detail-headline {
+  font-size: 36px;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .detail-headline {
+    font-size: 64px;
+  }
+}
+
+.btn-detail-primary {
+  display: inline-block;
+  background-color: var(--secondary-fixed);
+  color: var(--on-secondary-fixed);
+  padding: 16px 36px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-detail-primary:hover {
+  transform: scale(1.05);
+}
+
+.btn-detail-secondary {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--on-surface);
+  padding: 16px 36px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-detail-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: scale(1.05);
+}
+
+.preview-frame {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  perspective: 1000px;
+}
+
+.preview-image {
+  transform: rotateX(2deg);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.preview-frame:hover .preview-image {
+  transform: rotateX(0deg);
+}
+
+.feat-icon {
+  font-size: 36px;
+  color: var(--secondary-fixed);
+}
+
+.bg-background-layer {
+  background: rgba(10, 5, 21, 0.5);
+}
+
+.lime-edge {
+  border-color: var(--secondary-fixed);
+}
+
+.red-dot {
+  background-color: #ffb4ab;
+}
+
+.yellow-dot {
+  background-color: #ffe082;
+}
+
+.lime-dot {
+  background-color: #A0D600;
+}
+
+.telemetry-time {
+  font-size: 10px;
+  color: var(--on-surface-variant);
+  opacity: 0.8;
+}
+
+.telemetry-card {
+  padding: 24px;
+}
+
+.telemetry-label {
+  font-size: 10px;
+  color: var(--on-surface-variant);
+}
+
+.telemetry-value {
+  font-size: 24px;
+  margin-top: 12px;
+}
+
+.progress-bar-container {
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--secondary-fixed);
+}
+
+.progress-bar-fill-short {
+  height: 100%;
+  background-color: var(--secondary-fixed);
+}
+
+.telemetry-card-large {
+  grid-column: span 2;
+  min-height: 160px;
+}
+
+.topology-icon {
+  font-size: 80px;
+  color: var(--secondary-fixed);
+}
+
+.telemetry-console {
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--on-surface-variant);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bg-glow-spec {
+  background: radial-gradient(circle at center, rgba(160, 214, 0, 0.08) 0%, transparent 70%);
+}
+
+.specs-visual-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.specs-image {
+  filter: grayscale(0.5);
+  transition: filter 0.8s ease;
+}
+
+.specs-visual-card:hover .specs-image {
+  filter: grayscale(0);
+}
+
+.text-lime {
+  color: var(--secondary-fixed);
+}
+
+@media (max-width: 768px) {
+  .detail-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-detail-primary,
+  .btn-detail-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,68 @@
+.case-study-detail-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-hero {
+  padding-top: 160px;
+}
+
+.cs-headline {
+  font-size: 36px;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .cs-headline {
+    font-size: 60px;
+  }
+}
+
+.cs-section-label {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.text-lime {
+  color: var(--secondary-fixed);
+}
+
+.btn-detail-primary {
+  display: inline-block;
+  background-color: var(--secondary-fixed);
+  color: var(--on-secondary-fixed);
+  padding: 16px 36px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-detail-primary:hover {
+  transform: scale(1.05);
+}
+
+.btn-detail-secondary {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--on-surface);
+  padding: 16px 36px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-detail-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: scale(1.05);
+}
