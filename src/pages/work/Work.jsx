@@ -66,7 +66,7 @@ const Work = () => {
               <img
                 alt="Gaurav Synthetics"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                src="../work-assets/gauravsyn.png"
+                src="/work-assets/gauravsyn.png"
               />
             </Link>
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
@@ -114,7 +114,7 @@ const Work = () => {
               <img
                 alt="Fox Wing Media"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                src="../work-assets/foxwing.png"
+                src="/work-assets/foxwing.png"
               />
             </Link>
             <div className="px-2">
@@ -144,7 +144,7 @@ const Work = () => {
               <img
                 alt="Divine Enterprises"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                src="../work-assets/divineEnt.png"
+                src="/work-assets/divineEnt.png"
               />
             </Link>
             <div className="px-2">
