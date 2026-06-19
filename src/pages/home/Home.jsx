@@ -108,7 +108,7 @@ const Home = () => {
                 <img
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
                   alt="Gaurav Synthetics website and Ramraj Cotton showroom project"
-                  src="src/assets/work-assets/gauravsyn.png"
+                  src="../work-assets/gauravsyn.png"
                 />
               </div>
 
@@ -168,11 +168,10 @@ const Home = () => {
                 <img
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
                   alt="Fox Wing Media website and branding project"
-                  src="src/assets/work-assets/foxwing.png"
+                  src="../work-assets/foxwing.png"
                 />
               </div>
             </div>
-            {/*Project 3 */}
 
           </div>
         </div>

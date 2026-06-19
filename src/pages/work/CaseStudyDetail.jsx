@@ -8,7 +8,7 @@ const caseStudies = {
       "Gaurav Synthetics: Building a trusted online presence for a legacy textile business.",
     subtitle:
       "We turned an offline wholesale brand into a discoverable, lead-generating digital presence with local search, marketplace visibility, and a website built to scale.",
-    heroImg: "/src/assets/work-assets/gauravsyn.png",
+    heroImg: "../work-assets/gauravsyn.png",
     liveUrl: "https://www.gauravsynthetics.in/",
     challengeTitle:
       "A respected offline business needed a stronger online presence to capture demand, build trust, and convert inquiries into sales.",
@@ -37,10 +37,10 @@ const caseStudies = {
     gallerySubtitle:
       "A full-stack presence designed for discovery, trust, and conversion.",
     gallery: {
-      main: "/src/assets/work-assets/gs_ramraj.png",
-      side1: "/src/assets/work-assets/gs_cat.png",
-      side2: "/src/assets/work-assets/gs_coll.png",
-      side3: "/src/assets/work-assets/gs_blogs.png",
+      main: "../work-assets/gs_ramraj.png",
+      side1: "../work-assets/gs_cat.png",
+      side2: "../work-assets/gs_coll.png",
+      side3: "../work-assets/gs_blogs.png",
     },
   },
 
@@ -50,7 +50,7 @@ const caseStudies = {
       "Fox Wing Media: Positioning a modern PR brand for authority and inbound growth.",
     subtitle:
       "We designed a premium digital presence that makes an AI-powered PR story feel credible, clear, and easy to buy into.",
-    heroImg: "/src/assets/work-assets/foxwing.png",
+    heroImg: "../work-assets/foxwing.png",
     liveUrl: "https://foxwingmedia.com/",
     challengeTitle:
       "The agency needed to feel premium, trustworthy, and immediately understandable to first-time visitors.",
@@ -79,10 +79,10 @@ const caseStudies = {
     gallerySubtitle:
       "A polished presentation for a modern PR and growth agency.",
     gallery: {
-      main: "/src/assets/work-assets/foxwing_main.png",
-      side1: "/src/assets/work-assets/foxwing_side1.png",
-      side2: "/src/assets/work-assets/foxwing_gal.png",
-      side3: "/src/assets/work-assets/foxwing_side2.png",
+      main: "../work-assets/foxwing_main.png",
+      side1: "../work-assets/foxwing_side1.png",
+      side2: "../work-assets/foxwing_gal.png",
+      side3: "../work-assets/foxwing_side2.png",
     },
   },
 
@@ -92,7 +92,7 @@ const caseStudies = {
       "Divine Enterprises: Creating a credible B2B supply platform for institutional buyers.",
     subtitle:
       "We built a trust-led digital presence for a Bihar-based supply business serving education, office, industrial, textile, and manpower needs.",
-    heroImg: "/src/assets/work-assets/divineEnt.png",
+    heroImg: "../work-assets/divineEnt.png",
     challengeTitle:
       "Institutional buyers needed a clear, professional way to understand the company’s range and trust the process quickly.",
     challengeDesc:
@@ -119,10 +119,10 @@ const caseStudies = {
     galleryTitle: "Procurement-ready presence",
     gallerySubtitle: "Designed to support serious B2B buying decisions.",
     gallery: {
-      main: "/src/assets/work-assets/divineEnt.png",
-      side1: "/src/assets/work-assets/gs_coll.png",
-      side2: "/src/assets/work-assets/gs_cat.png",
-      side3: "/src/assets/work-assets/gs_blogs.png",
+      main: "../work-assets/divineEnt.png",
+      side1: "../work-assets/gs_coll.png",
+      side2: "../work-assets/gs_cat.png",
+      side3: "../work-assets/gs_blogs.png",
     },
   },
 };
