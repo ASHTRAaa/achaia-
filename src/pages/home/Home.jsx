@@ -27,7 +27,7 @@ const Home = () => {
         <div className="mb-12 flex items-end justify-between">
           <div className="space-y-2">
             <span className="text-secondary-fixed font-label-caps text-label-caps">IN-HOUSE</span>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface">Featured Products</h2>
+            <h2 className="font-headline-lg text-3xl sm:text-headline-lg text-on-surface">Featured Products</h2>
           </div>
           <Link to="/products" className="hidden md:flex items-center gap-2 text-on-surface-variant hover:text-secondary-fixed transition-colors">
             <span className="font-label-caps text-label-caps">ALL PRODUCTS</span>
@@ -37,7 +37,7 @@ const Home = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
           {/* Product 1 */}
-          <Link to="/products/helios" className="glass-card p-10 flex flex-col justify-between group h-[420px]">
+          <Link to="/products/helios" className="glass-card p-6 sm:p-8 md:p-10 flex flex-col justify-between group h-auto min-h-[360px] md:h-[420px]">
             <div>
               <span className="font-label-caps text-[10px] text-secondary-fixed mb-4 block">AI PLATFORM</span>
               <h3 className="font-headline-lg text-3xl mb-4 text-on-surface">Helios</h3>
@@ -54,7 +54,7 @@ const Home = () => {
           </Link>
 
           {/* Product 2 */}
-          <Link to="/products/sendmyform" className="glass-card p-10 flex flex-col justify-between group h-[420px]">
+          <Link to="/products/sendmyform" className="glass-card p-6 sm:p-8 md:p-10 flex flex-col justify-between group h-auto min-h-[360px] md:h-[420px]">
             <div>
               <span className="font-label-caps text-[10px] text-secondary-fixed mb-4 block">SERVICE</span>
               <h3 className="font-headline-lg text-3xl mb-4 text-on-surface">SendMyForm</h3>
@@ -71,7 +71,7 @@ const Home = () => {
           </Link>
 
           {/* Product 3 */}
-          <Link to="/products/holdon" className="glass-card p-10 flex flex-col justify-between group h-[420px]">
+          <Link to="/products/holdon" className="glass-card p-6 sm:p-8 md:p-10 flex flex-col justify-between group h-auto min-h-[360px] md:h-[420px]">
             <div>
               <span className="font-label-caps text-[10px] text-secondary-fixed mb-4 block">PRODUCT</span>
               <h3 className="font-headline-lg text-3xl mb-4 text-on-surface">Hold On</h3>
@@ -91,7 +91,7 @@ const Home = () => {
 
       {/* ── Selected Work Editorial ── */}
       <section className="py-section-gap bg-surface-container-lowest">
-        <div className="max-w-7xl mx-auto px-6 md:px-margin-desktop">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-margin-desktop">
           <div className="mb-24 text-center max-w-2xl mx-auto space-y-4">
             <span className="text-secondary-fixed font-label-caps text-label-caps">PORTFOLIO</span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface">Selected Work</h2>
@@ -104,7 +104,7 @@ const Home = () => {
           <div className="space-y-40">
             {/* Project 1 */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center reveal-on-scroll">
-              <div className="md:col-span-7 aspect-video relative overflow-hidden rounded-xl border border-white/10">
+              <div className="md:col-span-7 aspect-[4/3] md:aspect-video relative overflow-hidden rounded-xl border border-white/10">
                 <img
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
                   alt="Gaurav Synthetics website and Ramraj Cotton showroom project"
@@ -164,7 +164,7 @@ const Home = () => {
                 </Link>
               </div>
 
-              <div className="md:col-span-7 aspect-video relative overflow-hidden rounded-xl border border-white/10 order-1 md:order-2">
+              <div className="md:col-span-7 aspect-[4/3] md:aspect-video relative overflow-hidden rounded-xl border border-white/10 order-1 md:order-2">
                 <img
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
                   alt="Fox Wing Media website and branding project"
@@ -180,7 +180,7 @@ const Home = () => {
       {/* ── Capabilities Grid ── */}
       <section className="py-section-gap px-6 md:px-margin-desktop max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-headline-lg text-3xl text-on-surface">Capabilities</h2>
+          <h2 className="font-headline-lg text-3xl sm:text-4xl text-on-surface">Capabilities</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-y-12">
           {[
@@ -203,12 +203,12 @@ const Home = () => {
 
       {/* ── Why Achaia Value Cards ── */}
       <section className="py-section-gap px-6 md:px-margin-desktop max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           <div className="lg:col-span-3">
             <span className="text-secondary-fixed font-label-caps text-label-caps">
               OUR VALUES
             </span>
-            <h4 className="font-headline-lg text-5xl lg:text-6xl leading-none text-on-surface max-w-xs">
+            <h4 className="font-headline-lg text-4xl sm:text-5xl lg:text-6xl leading-none text-on-surface max-w-xs">
               Why Achaia Works?
             </h4>
             <p className="text-on-surface-variant text-base lg:text-lg leading-relaxed max-w-sm">
@@ -255,8 +255,8 @@ const Home = () => {
 
       {/* ── Contact CTA ── */}
       <section className="py-section-gap">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <div className="glass-card p-16 md:p-24 rounded-3xl relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+          <div className="glass-card p-10 sm:p-16 md:p-24 rounded-3xl relative overflow-hidden">
             <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-secondary-fixed/10 blur-[120px] pointer-events-none" />
             <div className="relative z-10 space-y-8">
               <h2 className="font-display-xl text-headline-lg md:text-display-xl text-on-surface">Ready to start a conversation?</h2>

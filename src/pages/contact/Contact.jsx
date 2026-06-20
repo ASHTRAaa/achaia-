@@ -57,14 +57,14 @@ const Contact = () => {
       <div className="fixed top-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full pointer-events-none z-0" style={{ background: "rgba(189,245,0,0.03)", filter: "blur(120px)" }} />
       <div className="fixed bottom-[10%] right-[-5%] w-[30%] h-[30%] rounded-full pointer-events-none z-0" style={{ background: "rgba(205,194,219,0.04)", filter: "blur(120px)" }} />
 
-      <main className="relative z-10 pt-40 pb-section-gap px-6 md:px-margin-desktop max-w-7xl mx-auto">
+      <main className="relative z-10 pt-16 pb-14 sm:pt-20 md:pt-24 px-6 md:px-margin-desktop max-w-7xl mx-auto">
         {/* Hero */}
-        <section className="mb-gutter md:mb-20 max-w-4xl">
+        <section className="mb-10 md:mb-16 max-w-4xl text-left">
           <span className="font-label-caps text-label-caps text-secondary-fixed tracking-widest uppercase mb-4 block">Inquiry & Collaboration</span>
-          <h1 className="font-display-xl text-4xl md:text-display-xl mb-6">
+          <h1 className="font-display-xl text-4xl md:text-display-xl mb-6 font-semibold tracking-tight">
             Let's build a new <br /><span className="text-on-surface-variant opacity-60">technological reality.</span>
           </h1>
-          <p className="font-subheading text-subheading text-on-surface-variant max-w-2xl">
+          <p className="font-subheading text-subheading text-on-surface-variant max-w-2xl leading-relaxed">
             We don't just build software. We engineer high-performance digital ecosystems for visionaries. Let's start a conversation about your next breakthrough.
           </p>
         </section>

@@ -93,16 +93,16 @@ const Cyp = () => {
     <main className="page-container cyp-page">
       <div className="fixed top-[-10%] right-[-5%] w-[40%] h-[40%] bg-secondary-fixed/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
       
-      <section className="cyp-hero text-center max-w-3xl mx-auto pt-32 mb-16">
+      <section className="cyp-hero text-center max-w-3xl mx-auto pt-16 sm:pt-20 md:pt-24 mb-12 sm:mb-16">
         <span className="label-caps cyp-tag text-lime font-bold tracking-widest block mb-4">Laboratory Scoping</span>
-        <h1 className="display-xl cyp-headline mb-6">Cost Your Project</h1>
-        <p className="subheading cyp-subtitle text-on-surface-variant">
+        <h1 className="display-xl cyp-headline mb-6 font-semibold leading-tight">Cost Your Project</h1>
+        <p className="subheading cyp-subtitle text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
           Select your operational parameters below. Our architecture team will analyze your requirements and assemble a formal technical proposal.
         </p>
       </section>
 
-      <section className="cyp-form-section max-w-3xl mx-auto">
-        <div className="glass-card cyp-form-card p-10 md:p-12 relative overflow-hidden">
+      <section className="cyp-form-section max-w-3xl w-full mx-auto px-4 sm:px-6">
+        <div className="glass-card cyp-form-card p-6 sm:p-8 md:p-12 relative overflow-hidden rounded-2xl mx-auto w-full">
           <div className="absolute top-0 left-0 w-64 h-64 bg-secondary-fixed/5 blur-[100px] pointer-events-none"></div>
 
           {status.success ? (

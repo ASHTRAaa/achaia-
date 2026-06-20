@@ -169,15 +169,15 @@ const CaseStudyDetail = () => {
       />
 
       {/* ── Hero ── */}
-      <header className="pt-24 pb-section-gap px-6 md:px-margin-desktop max-w-7xl mx-auto">
-        <div className="flex flex-col items-start gap-6 mb-16">
+      <header className="pt-16 pb-14 sm:pt-20 md:pt-24 px-6 md:px-margin-desktop max-w-7xl mx-auto">
+        <div className="flex flex-col items-start gap-6 mb-12 sm:mb-16">
           <span className="font-label-caps text-label-caps text-secondary-fixed tracking-widest uppercase">
             {cs.tag}
           </span>
-          <h1 className="font-display-xl text-display-xl max-w-4xl">
+          <h1 className="font-display-xl text-display-xl max-w-4xl font-semibold tracking-tight">
             {cs.title}
           </h1>
-          <p className="font-subheading text-subheading text-on-surface-variant max-w-2xl">
+          <p className="font-subheading text-subheading text-on-surface-variant max-w-2xl leading-relaxed">
             {cs.subtitle}
           </p>
           {cs.liveUrl && (

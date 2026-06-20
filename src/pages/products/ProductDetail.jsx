@@ -114,18 +114,18 @@ const ProductDetail = () => {
   return (
     <div className="bg-background text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed overflow-x-hidden">
       {/* Hero */}
-      <section className="relative flex flex-col items-center justify-center pt-32 pb-section-gap px-6 md:px-margin-desktop text-center overflow-hidden">
+      <section className="relative flex flex-col items-start justify-center pt-16 pb-14 sm:pt-20 md:pt-24 px-6 md:px-margin-desktop text-left overflow-hidden">
         <div ref={bgGlowRef} className="absolute inset-0 -z-10 transition-all duration-300"
           style={{ background: "radial-gradient(circle at center, rgba(160, 214, 0, 0.05) 0%, transparent 70%)" }} />
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-4xl space-y-6">
           <span className="font-label-caps text-label-caps text-secondary-fixed tracking-[0.2em]">{prod.tag}</span>
-          <h1 className="font-display-xl text-display-xl max-md:text-headline-lg-mobile text-on-surface">
+          <h1 className="font-display-xl text-display-xl max-md:text-headline-lg-mobile text-on-surface font-semibold tracking-tight">
             {prod.title} <span className="text-secondary-fixed">{prod.titleHighlight}</span>
           </h1>
-          <p className="font-subheading text-subheading text-on-surface-variant max-w-2xl mx-auto">
+          <p className="font-subheading text-subheading text-on-surface-variant max-w-2xl leading-relaxed">
             {prod.subtitle}
           </p>
-          <div className="pt-8 flex flex-wrap justify-center gap-4">
+          <div className="pt-6 flex flex-wrap justify-start gap-4">
             {prod.liveUrl ? (
               <a href={prod.liveUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps rounded-full hover:scale-105 transition-all glow-hover flex items-center gap-2">
                 <span>Check Live Site</span>

@@ -19,7 +19,7 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   html {
@@ -34,6 +34,7 @@
   img, picture, canvas, svg {
     display: block;
     max-width: 100%;
+    height: auto;
   }
 
   button {
@@ -43,12 +44,36 @@
     font: inherit;
   }
 
+  html, body {
+    width: 100%;
+    overflow-x: clip;
+  }
+
+  #root {
+    width: 100%;
+  }
+
   input, textarea, select {
     font: inherit;
   }
 
   #root {
     isolation: isolate;
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      opacity: 0.75;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+  }
+
+  .loader-logo {
+    animation: shimmer 1.8s ease-in-out infinite;
   }
 
   .material-symbols-outlined {

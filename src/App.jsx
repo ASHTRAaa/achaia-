@@ -1,15 +1,21 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
+import Loader from "./components/common/loader.jsx";
 import MainLayout from "./layout/main-layout/MainLayout.jsx";
-import Home from "./pages/home/Home.jsx";
-import AboutUs from "./pages/about-us/AboutUs.jsx";
-import Contact from "./pages/contact/Contact.jsx";
-import Work from "./pages/work/Work.jsx";
-import CaseStudyDetail from "./pages/work/CaseStudyDetail.jsx";
-import Products from "./pages/products/Products.jsx";
-import ProductDetail from "./pages/products/ProductDetail.jsx";
-import Cyp from "./pages/cost-your-project/Cyp.jsx";
-import NotFound from "./pages/not-found/NotFound.jsx";
+
+const Home = lazy(() => import("./pages/home/Home.jsx"));
+const AboutUs = lazy(() => import("./pages/about-us/AboutUs.jsx"));
+const Contact = lazy(() => import("./pages/contact/Contact.jsx"));
+const Work = lazy(() => import("./pages/work/Work.jsx"));
+const CaseStudyDetail = lazy(() =>
+  import("./pages/work/CaseStudyDetail.jsx")
+);
+const Products = lazy(() => import("./pages/products/Products.jsx"));
+const ProductDetail = lazy(() =>
+  import("./pages/products/ProductDetail.jsx")
+);
+const Cyp = lazy(() => import("./pages/cost-your-project/Cyp.jsx"));
+const NotFound = lazy(() => import("./pages/not-found/NotFound.jsx"));
 
 function App() {
   const location = useLocation();
@@ -23,6 +29,7 @@ function App() {
   }, [location]);
 
   return (
+  <Suspense fallback={<Loader />}>
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
@@ -36,6 +43,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
+  </Suspense>
   );
 }
 
