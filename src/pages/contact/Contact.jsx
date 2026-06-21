@@ -1,9 +1,18 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+
+const scopeOptions = [
+  "Software Engineering",
+  "AI / Machine Learning",
+  "Product Strategy",
+  "Infrastructure",
+  "Platform Support",
+];
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", scope: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+  const [isScopeOpen, setIsScopeOpen] = useState(false);
+  const scopeDropdownRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,7 +38,32 @@ const Contact = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  useEffect(() => {
+    const handlePointerDown = (e) => {
+      if (!scopeDropdownRef.current?.contains(e.target)) {
+        setIsScopeOpen(false);
+      }
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsScopeOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   const handleChange = (e) => setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
+  const handleScopeSelect = (scope) => {
+    setFormData((p) => ({ ...p, scope }));
+    setIsScopeOpen(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,18 +111,18 @@ const Contact = () => {
               <div className="space-y-12">
                 <div>
                   <span className="material-symbols-outlined text-secondary-fixed mb-2" style={{ fontSize: "24px" }}>lan</span>
-                  <h4 className="font-subheading text-on-surface mb-1">Direct Liaison</h4>
-                  <p className="text-on-surface-variant">hello@achaia-labs.com</p>
+                  <h4 className="font-subheading text-on-surface mb-1">Direct Contact</h4>
+                  <p className="text-on-surface-variant">contact@achaialabs.tech</p>
                 </div>
                 <div>
                   <span className="material-symbols-outlined text-secondary-fixed mb-2" style={{ fontSize: "24px" }}>hub</span>
                   <h4 className="font-subheading text-on-surface mb-1">Operational Center</h4>
-                  <p className="text-on-surface-variant leading-relaxed">480 Tech Plaza, Floor 12<br />San Francisco, CA 94103</p>
+                  <p className="text-on-surface-variant leading-relaxed">Tower 3, Panache City<br />Kolkata, West Bengal - 700102</p>
                 </div>
                 <div>
                   <span className="material-symbols-outlined text-secondary-fixed mb-2" style={{ fontSize: "24px" }}>schedule</span>
-                  <h4 className="font-subheading text-on-surface mb-1">Availability</h4>
-                  <p className="text-on-surface-variant">Mon — Fri: 09:00 — 18:00 PST</p>
+                  <h4 className="font-subheading text-on-surface mb-1">Reach Us</h4>
+                  <p className="text-on-surface-variant">+91 77610 29458</p>
                 </div>
               </div>
               <div className="mt-16 pt-8 border-t border-white/5 flex gap-4">
@@ -108,7 +142,7 @@ const Contact = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <p className="font-label-caps text-label-caps text-secondary-fixed">Lab Alpha-01</p>
+                <p className="font-label-caps text-label-caps text-secondary-fixed">Our Team</p>
               </div>
             </div>
           </aside>
@@ -142,13 +176,35 @@ const Contact = () => {
                   </div>
                   <div className="field-group space-y-2">
                     <label className="font-label-caps text-label-caps text-on-surface-variant/70 block ml-1 transition-colors">Vision / Scope</label>
-                    <select name="scope" value={formData.scope} onChange={handleChange} className="form-input appearance-none cursor-pointer">
-                      <option value="">Select project category</option>
-                      <option>Software Engineering</option>
-                      <option>AI / Machine Learning</option>
-                      <option>Product Strategy</option>
-                      <option>Infrastructure</option>
-                    </select>
+                    <div className="scope-select" ref={scopeDropdownRef}>
+                      <button
+                        type="button"
+                        className={`form-input scope-select__trigger ${isScopeOpen ? "scope-select__trigger--open" : ""} ${formData.scope ? "" : "scope-select__trigger--placeholder"}`}
+                        aria-haspopup="listbox"
+                        aria-expanded={isScopeOpen}
+                        onClick={() => setIsScopeOpen((open) => !open)}
+                      >
+                        <span>{formData.scope || "Select project category"}</span>
+                        <span className="material-symbols-outlined scope-select__icon">keyboard_arrow_down</span>
+                      </button>
+                      <input type="hidden" name="scope" value={formData.scope} />
+                      {isScopeOpen && (
+                        <div className="scope-select__pane" role="listbox" aria-label="Vision / Scope">
+                          {scopeOptions.map((scope) => (
+                            <button
+                              key={scope}
+                              type="button"
+                              role="option"
+                              aria-selected={formData.scope === scope}
+                              className="scope-select__option"
+                              onClick={() => handleScopeSelect(scope)}
+                            >
+                              {scope}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                   <div className="field-group space-y-2">
                     <label className="font-label-caps text-label-caps text-on-surface-variant/70 block ml-1 transition-colors">The Discussion</label>
@@ -173,7 +229,7 @@ const Contact = () => {
             </div>
             {/* Trust strip */}
             <div className="mt-12 flex flex-wrap gap-12 items-center opacity-30 grayscale hover:opacity-50 transition-opacity">
-              {["FORGE TECH", "NEXUS.CORE", "STRATUM", "ORBITAL"].map((b) => (
+              {["AI NATIVE", "HUMAN", "BUILD", "GROWTH"].map((b) => (
                 <span key={b} className="font-label-caps text-label-caps tracking-[0.4em]">{b}</span>
               ))}
             </div>
