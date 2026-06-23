@@ -33,7 +33,7 @@ function App() {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
-        <Route path="about-us" element={<AboutUs />} />
+        <Route path="about" element={<AboutUs />} />
         <Route path="contact" element={<Contact />} />
         <Route path="work" element={<Work />} />
         <Route path="work/:id" element={<CaseStudyDetail />} />

@@ -97,7 +97,7 @@ const Navbar = () => {
               : "opacity-100 pointer-events-auto scale-100"
           } ${isHome && isDesktopOrTablet ? "px-4 sm:px-6 lg:px-10" : ""}`}
         >
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center" aria-label="Achaia Labs home">
             <Logo className="h-5 w-auto sm:h-6 text-[#A0D600]" />
           </Link>
 

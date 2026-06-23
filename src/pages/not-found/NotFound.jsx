@@ -1,47 +1,52 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const NotFound = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
+    <div className="min-h-[90vh] flex flex-col items-center justify-center text-center px-6 relative overflow-hidden py-16">
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none -z-10"
-        style={{ background: "radial-gradient(circle, rgba(189,245,0,0.04) 0%, transparent 70%)", filter: "blur(80px)" }} />
+        style={{ background: "radial-gradient(circle, rgba(160, 214, 0, 0.05) 0%, transparent 70%)", filter: "blur(100px)" }} />
 
-      <div className="space-y-8 max-w-2xl">
-        <span className="font-label-caps text-label-caps text-secondary-fixed tracking-widest block">SYSTEM ERROR 404</span>
-        <h1 className="font-display-xl text-display-xl text-on-surface text-glow">
-          Lost in the <span className="text-secondary-fixed">Digital Void</span>
-        </h1>
-        <p className="font-subheading text-subheading text-on-surface-variant">
-          The signal you sent cannot be located within the lab's network topology. This sector of the grid remains unmapped.
-        </p>
-
-        {/* Diagnostic cards */}
-        <div className="grid grid-cols-3 gap-4 my-12">
-          {[
-            { label: "SIGNAL LOSS", val: "100%" },
-            { label: "SCAN DEPTH", val: "∞" },
-            { label: "LAB STATUS", val: "ACTIVE" },
-          ].map(({ label, val }) => (
-            <div key={label} className="glass-card p-6 rounded-xl !transform-none">
-              <p className="text-secondary-fixed font-bold text-2xl">{val}</p>
-              <p className="font-label-caps text-[10px] text-on-surface-variant mt-1">{label}</p>
-            </div>
-          ))}
+      <div className="flex flex-col items-center max-w-xl space-y-6">
+        {/* Large Centered Lottie Animation */}
+        <div className="w-72 h-72 sm:w-96 sm:h-96 md:w-[420px] md:h-[420px] flex items-center justify-center">
+          <DotLottieReact
+            src="/notfound.lottie"
+            loop
+            autoplay
+          />
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="space-y-4">
+          <span className="font-label-caps text-label-caps text-secondary-fixed tracking-[0.2em] block uppercase">
+            Page Not Found
+          </span>
+          <h1 className="font-display-xl text-3xl sm:text-4xl md:text-5xl text-on-surface font-semibold tracking-tight leading-tight">
+            Curiosity found a <span className="text-secondary-fixed">dead end!</span>
+          </h1>
+          <p className="font-subheading text-base sm:text-lg text-on-surface-variant max-w-md mx-auto leading-relaxed">
+            The page you are looking for doesn't exist or has been moved. You can head back to safety or get in touch with our team.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 w-full sm:w-auto">
           <Link
             to="/"
-            className="bg-secondary-fixed text-on-secondary-fixed px-8 py-4 rounded-full font-label-caps text-label-caps font-bold hover:scale-105 glow-hover transition-all"
+            className="w-full sm:w-auto bg-secondary-fixed text-on-secondary-fixed px-8 py-4 rounded-full font-label-caps text-label-caps font-bold hover:scale-105 glow-hover transition-all text-center"
           >
-            Return to Base
+            Return Home
           </Link>
           <Link
             to="/contact"
-            className="border border-white/20 text-white px-8 py-4 rounded-full font-label-caps text-label-caps font-bold hover:bg-white/5 transition-all"
+            className="w-full sm:w-auto border border-white/20 text-white hover:bg-white/5 px-8 py-4 rounded-full font-label-caps text-label-caps font-bold transition-all text-center"
           >
-            Contact Lab
+            Contact Support
           </Link>
         </div>
       </div>
