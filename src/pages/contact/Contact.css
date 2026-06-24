@@ -1,120 +1,100 @@
-.contact-bg{
-background: #000;
-    height: 100vh;
-    padding: 80px 5%;
-    color: #fff;
-    
-}
-.contact-text{
-     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 1rem;
-}   
-.contact-text h2 {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 600;
+.contact-page {
+  position: relative;
 }
 
-.contact-text p {
-    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
-    font-weight: 300;
-    line-height: 1.3;
+.contact-hero {
+  max-width: 800px;
+  margin-bottom: 60px;
 }
 
-/* FORM WRAPPER */
-
-.contact-form-wrapper {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.contact-headline {
+  font-size: 36px;
+  line-height: 1.1;
 }
 
-/* FORM CARD */
-
-.contact-form {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
-    padding: 30px;
-    border-radius: 20px;
-
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+@media (min-width: 768px) {
+  .contact-headline {
+    font-size: 60px;
+  }
 }
 
-/* INPUTS */
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    transition: 0.3s;
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+  align-items: start;
 }
 
-/* PLACEHOLDER */
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: #888;
+@media (min-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 4fr 8fr;
+  }
 }
 
-/* FOCUS EFFECT */
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--green);
-    box-shadow: 0 0 0 1px var(--green);
+.contact-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter);
 }
 
-/* BUTTON */
-
-.contact-form button {
-    margin-top: 10px;
-    padding: 12px;
-    border: none;
-    border-radius: 12px;
-    background: var(--green);
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+.sidebar-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.contact-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(131, 66, 251, 0.4);
+.info-block span {
+  font-size: 24px;
 }
 
-/* RESPONSIVE */
+.sidebar-img-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-@media (max-width:600px) {
+.form-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-    .contact-bg {
-        padding: 5rem 1.8rem;
-    }
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 16px 0;
+  color: var(--on-surface);
+  font-family: inherit;
+  font-size: 16px;
+  transition: border-bottom-color 0.3s ease;
+}
 
-    .contact-form {
-        padding: 1.8rem;
-    }
+.form-input:focus {
+  outline: none;
+  border-bottom-color: var(--secondary-fixed);
+}
 
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.form-textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.success-overlay {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--secondary-fixed);
+}
+
+.success-icon {
+  font-size: 64px;
+}
+
+.error-message {
+  color: #ffb4ab;
+}
+
+.red-dot {
+  color: #ffb4ab;
 }

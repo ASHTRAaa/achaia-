@@ -1,201 +1,209 @@
-.cyp-bg{
-    background-color: #000;
-    height: auto;
-    color: #fff;
-    padding: 6rem 0rem;
-}
-.cyp-text {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 1rem;
+.cyp-page {
+  position: relative;
 }
 
-.cyp-text h2 {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 600;
+.cyp-hero {
+  max-width: 800px;
+  margin-bottom: 60px;
 }
 
-.cyp-text p {
-    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
-    font-weight: 300;
-    line-height: 1.3;
-}
-.form-container {
-    max-width: 700px;
-    margin: auto;
-    padding: 40px;
-    background: #0f1115;
-    border-radius: 12px;
-    color: #eaeaea;
+.cyp-headline {
+  font-size: 36px;
+  line-height: 1.1;
 }
 
-
-
-.subtext {
-    color: #888;
-    margin-bottom: 25px;
+@media (min-width: 768px) {
+  .cyp-headline {
+    font-size: 60px;
+  }
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+.cyp-form-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-input,
-textarea,
-select,
-.react-tel-input .form-control {
-    width: 100%;
-    padding: 12px;
-    background: #181b20;
-    border: 1px solid #2a2f36;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-}
-.react-tel-input .form-control {
-    padding-left: 4rem !important;
-    
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 16px 0;
+  color: var(--on-surface);
+  font-family: inherit;
+  font-size: 16px;
+  transition: border-bottom-color 0.3s ease;
 }
 
-input:focus,
-textarea:focus,
-select:focus,
-.react-tel-input .form-control:focus
-{
-    outline: none;
-    border-color: var(--green);
+.form-input:focus {
+  outline: none;
+  border-bottom-color: var(--secondary-fixed);
 }
 
-.react-tel-input .country-list {
-    background: #181b20;
-    border: 1px solid #2a2f36;
-    color: #fff;
-    
-    max-height: 200px;
-    overflow-y: auto;
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
 }
 
-.react-tel-input .country-list .country {
-    padding: 10px;
+.form-textarea {
+  resize: none;
+  min-height: 120px;
 }
 
-
-.react-tel-input .country-list .country:hover {
-    background: var(--green);
+/* Phone input styling overrides */
+.phone-group .react-tel-input .form-control {
+  width: 100% !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  height: 52px !important;
+  color: var(--on-surface) !important;
+  font-size: 16px !important;
+  padding-left: 58px !important;
+  font-family: inherit !important;
 }
 
-.react-tel-input .country-list .search-box {
-    width: 100%;
-    padding: 10px;
-    background: #101214;
-    border: 1px solid #2a2f36;
-    color: #f8f6f6;
-}
-.react-tel-input .country-list .country.highlight {
-    background: #2a2f36 !important;
-    color: #fff !important;
-}
-.react-tel-input .country-list .search {
-    background: #181b20 !important;
+.phone-group .react-tel-input .form-control:focus {
+  border-color: var(--secondary-fixed) !important;
+  outline: none !important;
 }
 
-
-.react-tel-input .flag-dropdown, .react-tel-input .selected-flag:active {
-    background: #181b20;
-    border: 1px solid #2a2f36;
-    border-radius: 8px 0 0 8px;
+.phone-group .react-tel-input .flag-dropdown {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px 0 0 8px !important;
 }
 
-.react-tel-input .selected-flag:active,
-.react-tel-input .flag-dropdown.open .selected-flag {
-    background: #181b20 !important;
-    outline: none !important;
+.phone-group .react-tel-input .selected-flag {
+  background: transparent !important;
+  width: 48px !important;
+  padding-left: 12px !important;
 }
 
-.react-tel-input .selected-flag {
-    background: transparent;
-    padding-left: 10px;
-}
-.react-tel-input .selected-flag:hover,
-.react-tel-input .flag-dropdown.open .selected-flag.active{
-    background: transparent;
+.phone-group .react-tel-input .selected-flag:hover,
+.phone-group .react-tel-input .selected-flag.open {
+  background: rgba(255, 255, 255, 0.05) !important;
 }
 
-
-.services label {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    display: block;
-   font-weight: 400;
-    
+.phone-group .react-tel-input .country-list {
+  background: #0a0515 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: var(--on-surface) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 8px !important;
+  margin-top: 4px !important;
+  z-index: 100 !important;
 }
 
-.checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+.phone-group .react-tel-input .country-list .country:hover {
+  background: rgba(160, 214, 0, 0.1) !important;
+  color: var(--on-surface) !important;
 }
 
-.checkbox-group label {
-    background: #181b20;
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #2a2f36;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    font-size: 0.9rem;
-    font-weight: 300;
+.phone-group .react-tel-input .country-list .country.highlight {
+  background: var(--secondary-fixed) !important;
+  color: var(--on-secondary-fixed) !important;
 }
 
-.checkbox-group input {
-    margin-right: 6px;
-}
-.budget label{
-    font-size: 1.1rem;
-    font-weight: 400;
+.phone-group .react-tel-input .country-list .search-box {
+  width: calc(100% - 20px) !important;
+  margin: 10px !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: var(--on-surface) !important;
+  border-radius: 6px !important;
 }
 
+/* Checkbox Grid Styling */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .checkbox-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.checkbox-label:hover {
+  border-color: rgba(160, 214, 0, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.checkbox-input {
+  accent-color: var(--secondary-fixed);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checkbox-text {
+  color: var(--on-surface-variant);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.checkbox-label:has(.checkbox-input:checked) {
+  border-color: var(--secondary-fixed);
+  background: rgba(160, 214, 0, 0.05);
+}
+
+.checkbox-label:has(.checkbox-input:checked) .checkbox-text {
+  color: var(--on-surface);
+}
+
+/* Budget Row */
 .budget-row {
-    display: flex;
-    gap: 10px;
-    padding-top: 0.5rem ;
-    padding-bottom: 0.5rem;
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
 }
 
-
-.budget-row select {
-    width: 120px;
+.budget-currency-select {
+  background: rgba(255, 255, 255, 0.02);
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 16px 8px;
+  color: var(--on-surface);
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-bottom-color 0.3s ease;
 }
 
-.start-button {
-    background: var(--green);
-    border: none;
-    padding: 14px;
-    border-radius: 8px;
-    color: white;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.2s ease;
+.budget-currency-select:focus {
+  outline: none;
+  border-bottom-color: var(--secondary-fixed);
 }
 
-.budget-row select:hover{
-    border-color: var(--green);
+.budget-currency-select option {
+  background: #0a0515;
+  color: var(--on-surface);
 }
 
-.status{
-    color: white;
-    margin: 10px;
+.budget-input {
+  flex-grow: 1;
 }
-.checkbox-group input[type="checkbox"] {
-    accent-color: var(--green);
+
+.success-overlay {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--secondary-fixed);
+}
+
+.success-icon {
+  font-size: 64px;
 }

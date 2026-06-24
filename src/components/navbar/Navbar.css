@@ -1,121 +1,124 @@
-.nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding: 10px 30px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
-    color: #fff;
-    
-
+.nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(19, 19, 19, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
-.logo{
-    width: 200px;
-    height: auto;
-    display: block;
-    color: var(--green);
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px var(--margin-mobile);
 }
+
+@media (min-width: 768px) {
+  .nav-container {
+    padding: 24px var(--margin-desktop);
+  }
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--on-surface);
+  text-decoration: none;
+}
+
 .navbar {
-    display: flex;
-    gap: 30px;
-    font-size: 18px;
-    font-weight: 400;
-    
-
+  display: flex;
+  gap: var(--gutter);
+  align-items: center;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: inherit;
-    position: relative;
-    user-select: none;
+.nav-link {
+  font-size: 12px;
+  line-height: 1.0;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.navbar a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 100%;
-    width: 100%;
-    background: var(--green);
-    height: 2px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s ease;
-
+.nav-link:hover {
+  color: var(--on-surface);
 }
 
-.navbar a:hover::after {
-    transform: scaleX(1);
+.nav-link.active {
+  color: var(--secondary-fixed);
+  border-bottom-color: var(--secondary-fixed);
 }
 
-.nav-link.active::after {
-    transform: scaleX(1);
+.nav-cta {
+  display: block;
 }
 
-.cta-btn {
-    font-size: 18px;
-    line-height: 1em;
-    padding: 0.8em 2em 0.8em 2em;
-    background-color: var(--green);
-    border-radius: 15px;
-    border: none;
-    box-shadow: 0.125em 0.125em 0 0 #8342fb,
-        0.25em 0.25em 0 0 #8342fb,
-        0.25em 0.25em 0 0 #8342fb;
-    transition: translate 0.3s ease, box-shadow 0.3s ease;
-
+.nav-cta .cta-btn {
+  display: inline-block;
+  background-color: var(--secondary-fixed);
+  color: var(--on-secondary-fixed);
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-size: 12px;
+  line-height: 1.0;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.cta-btn:hover {
-    translate: 2px 2px;
-    box-shadow: 0.009em 0.009em 0 0 #8342fb,
-        0.12em 0.12em 0 0 #8342fb,
-        0.12em 0.12em 0 0 #8342fb;
+.nav-cta .cta-btn:hover {
+  transform: scale(1.05);
+}
 
+.nav-cta .cta-btn:active {
+  transform: scale(0.95);
 }
 
 .hamburger {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    background: none;
+  display: none;
+  color: var(--on-surface);
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 101;
 }
+
 .overlay {
-    position: fixed;
-    inset: 0;
-    background:none;
-    z-index: 5;
-}
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 10;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 98;
 }
 
-@media (max-width:900px) {
+@media (max-width: 900px) {
+  .navbar {
+    display: none;
+  }
 
-    .navbar {
-        display: none;
-    }
+  .nav-cta {
+    display: none;
+  }
 
-    .button {
-        display: none;
-    }
-
-    .hamburger {
-        display: block;
-    }
-    .logo{
-        width: 120px;
-
-    }
+  .hamburger {
+    display: block;
+  }
 }
+
 

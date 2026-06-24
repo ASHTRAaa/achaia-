@@ -1,15 +1,20 @@
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer.jsx";
-import { Outlet } from "react-router-dom"
+import Hero from "../hero/Hero.jsx";
+import { Outlet, useLocation } from "react-router-dom";
 
 const MainLayout = () => {
+  const location = useLocation();
+  const showHero = location.pathname === "/";
+
   return (
     <>
-    <Navbar/>
-    <Outlet/>
-    <Footer/>
+      <Navbar />
+      {showHero && <Hero />}
+      <Outlet />
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;
