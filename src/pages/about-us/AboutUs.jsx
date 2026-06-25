@@ -5,11 +5,12 @@ import teamShowcaseImg from "/team-assets/team.webp";
 import manishPhoto from "/team-assets/manish.webp";
 import gurujeetPhoto from "/team-assets/gurujeet.webp";
 import ayushPhoto from "/team-assets/ayush.webp";
+import sushantPhoto from "/team-assets/sushant.webp";
 import "./AboutUs.css";
 
 const AboutUs = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [expanded, setExpanded] = useState({ gurujeet: false, manish: false, ayush: false });
+  const [expanded, setExpanded] = useState({ gurujeet: false, manish: false, ayush: false, sushant: false });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -49,7 +50,7 @@ const AboutUs = () => {
     {
       id: "gurujeet",
       name: "Gurujeet Kumar",
-      role: "CFO",
+      role: "CFO • COO",
       bio: "Works close to market trends, SEO, operations, and finances. Tries to keep product decisions grounded in what users actually need.",
       linkedin: "https://www.linkedin.com/in/imgurujeet/",
       x: "https://x.com/imgurujeet",
@@ -69,11 +70,21 @@ const AboutUs = () => {
     {
       id: "ayush",
       name: "Ayush Aman",
-      role: "CTO • COO",
+      role: "CTO",
       bio: "Works on engineering, AI, DevOps, and architecture. Likes building things that feel solid, fast, and dependable.",
       linkedin: "https://www.linkedin.com/in/ayushaman24/",
       x: "https://x.com/aman_ayush4",
       photo: ayushPhoto,
+      position: "right",
+    },
+    {
+      id: "sushant",
+      name: "Sushant Kumar",
+      role: "Marketing Head",
+      bio: "Works on marketing, outreach, and business growth.",
+      linkedin: "https://www.linkedin.com/in/sushant-kumar-69b41a268/",
+      x: "https://x.com/Sushant_h1",
+      photo: sushantPhoto,
       position: "right",
     },
   ];
@@ -92,7 +103,7 @@ const AboutUs = () => {
       >
         <div className="relative z-10 max-w-4xl mx-auto space-y-8 flex flex-col items-center">
           <span className="font-label-caps text-label-caps text-secondary-fixed tracking-[0.2em] uppercase">
-            ABOUT SAFETY
+            ABOUT ACHAIA LABS
           </span>
           <h1 className="font-display-xl text-4xl sm:text-5xl md:text-6xl lg:text-[72px] text-on-surface font-bold tracking-tight leading-tight">
             We build products around <span className="text-secondary-fixed">people</span>, not trends.
@@ -101,7 +112,7 @@ const AboutUs = () => {
             Most digital products fail because they solve imagined problems.
             <br />
             <br />
-            At Safety, we start with real users, real business challenges, and real market demand. By combining engineering, AI, product strategy, and customer insight, we create solutions that deliver measurable impact—not just impressive features.
+            At Achaia Labs, we start with real users, real business challenges, and real market demand. By combining engineering, AI, product strategy, and customer insight, we create solutions that deliver measurable impact—not just impressive features.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
             <button
@@ -147,7 +158,7 @@ const AboutUs = () => {
                 <br />
                 Growth becomes unpredictable.
               </p>
-              <p>Safety was created to bridge that gap.</p>
+              <p>Achaia Labs was created to bridge that gap.</p>
               <p className="pt-4 font-semibold text-white">Our mission is simple:</p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Understand people deeply.</li>
@@ -221,7 +232,7 @@ const AboutUs = () => {
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <div className="space-y-4">
             <span className="font-label-caps text-label-caps text-secondary-fixed tracking-[0.2em] uppercase">
-              THE PEOPLE BEHIND SAFETY
+              THE PEOPLE BEHIND ACHAIA LABS
             </span>
             <h2 className="font-headline-lg text-3xl sm:text-4xl md:text-5xl text-on-surface font-semibold tracking-tight">
               Different minds. <span className="text-secondary-fixed">One vision.</span>
@@ -239,7 +250,7 @@ const AboutUs = () => {
             <div className="relative rounded-2xl overflow-hidden aspect-video border border-white/5 bg-black/40">
               <img
                 src={teamShowcaseImg}
-                alt="Safety Team Collaboration Showcase"
+                alt="Achaia Labs Team Collaboration Showcase"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 md:p-8 text-left">
@@ -259,7 +270,7 @@ const AboutUs = () => {
               We're a focused team of builders, strategists, and operators who work directly on every product.
             </p>
             <p>
-              When you work with Safety, you're working with the people making decisions, writing code, solving
+              When you work with Achaia Labs, you're working with the people making decisions, writing code, solving
               problems, and driving results.
             </p>
             <div className="flex flex-wrap justify-center gap-6 pt-4 font-label-caps text-xs text-secondary-fixed">
@@ -301,23 +312,17 @@ const AboutUs = () => {
             </p>
           </div>
 
-          {/* 3D Liquid Glass Card Layout */}
-          <div className="team-3d-layout flex flex-col md:flex-row md:items-stretch md:justify-center gap-8 md:gap-0 relative min-h-[550px] pt-8">
+          {/* Responsive Equal-Width Card Grid Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 max-w-7xl mx-auto items-stretch">
             {teamMembers.map((member) => {
               const isExpanded = expanded[member.id];
               return (
                 <div
                   key={member.id}
-                  className={`team-3d-card-wrapper transition-all duration-500 ease-out ${
-                    member.position === "left"
-                      ? "team-card-left md:absolute md:left-[5%] lg:left-[10%] md:top-8"
-                      : member.position === "right"
-                      ? "team-card-right md:absolute md:right-[5%] lg:right-[10%] md:top-8"
-                      : "team-card-center md:relative md:z-20"
-                  } ${isExpanded ? "md:z-30 card-expanded" : ""}`}
+                  className={`w-full transition-all duration-500 ease-out ${isExpanded ? "z-30" : ""}`}
                 >
                   <div
-                    className={`glass-card team-member-card flex flex-col justify-between p-8 rounded-3xl border transition-all duration-350 h-full ${
+                    className={`glass-card team-member-card flex flex-col justify-between p-8 rounded-3xl border transition-all duration-350 min-h-[460px] h-full ${
                       isExpanded
                         ? "border-secondary-fixed bg-surface-container-highest shadow-[0_0_35px_rgba(160,214,0,0.15)] scale-[1.03]"
                         : "border-white/10 hover:border-secondary-fixed/50 hover:shadow-[0_0_30px_rgba(160,214,0,0.1)] hover:-translate-y-2 bg-surface/40 backdrop-blur-xl"

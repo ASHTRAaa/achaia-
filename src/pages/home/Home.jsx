@@ -35,15 +35,15 @@ const Home = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <div className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-x-visible pb-6 md:pb-0 gap-4 md:gap-gutter snap-x snap-mandatory scrollbar-none -mx-6 px-6 md:mx-0 md:px-0">
           {/* Product 1 */}
-          <Link to="/products/helios" className="glass-card p-6 sm:p-8 md:p-10 flex flex-col justify-between group h-auto min-h-[360px] md:h-[420px]">
+          <Link to="/products/helios" className="glass-card p-6 md:p-10 flex flex-col justify-between group h-[300px] md:h-[420px] w-[80vw] max-w-[320px] md:w-auto shrink-0 md:shrink snap-start">
             <div>
               <span className="font-label-caps text-[10px] text-secondary-fixed mb-4 block">AI PLATFORM</span>
-              <h3 className="font-headline-lg text-3xl mb-4 text-on-surface">Helios</h3>
-              <p className="text-on-surface-variant leading-relaxed">AI Prompts From Across the Galaxy.</p>
+              <h3 className="font-headline-lg text-2xl md:text-3xl mb-2 md:mb-4 text-on-surface">Helios</h3>
+              <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">AI Prompts From Across the Galaxy.</p>
             </div>
-            <div className="flex items-center justify-between mt-8">
+            <div className="flex items-center justify-between mt-4 md:mt-8">
               <span className="material-symbols-outlined text-4xl text-white/20 group-hover:text-secondary-fixed transition-colors">lightbulb</span>
               <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-secondary-fixed group-hover:text-black transition-all">
                 <span className="material-symbols-outlined transition-transform duration-300 group-hover:rotate-45">
@@ -54,13 +54,13 @@ const Home = () => {
           </Link>
 
           {/* Product 2 */}
-          <Link to="/products/sendmyform" className="glass-card p-6 sm:p-8 md:p-10 flex flex-col justify-between group h-auto min-h-[360px] md:h-[420px]">
+          <Link to="/products/sendmyform" className="glass-card p-6 md:p-10 flex flex-col justify-between group h-[300px] md:h-[420px] w-[80vw] max-w-[320px] md:w-auto shrink-0 md:shrink snap-start">
             <div>
               <span className="font-label-caps text-[10px] text-secondary-fixed mb-4 block">SERVICE</span>
-              <h3 className="font-headline-lg text-3xl mb-4 text-on-surface">SendMyForm</h3>
-              <p className="text-on-surface-variant leading-relaxed">A serverless platform to handle form submissions.</p>
+              <h3 className="font-headline-lg text-2xl md:text-3xl mb-2 md:mb-4 text-on-surface">SendMyForm</h3>
+              <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">A serverless platform to handle form submissions.</p>
             </div>
-            <div className="flex items-center justify-between mt-8">
+            <div className="flex items-center justify-between mt-4 md:mt-8">
               <span className="material-symbols-outlined text-4xl text-white/20 group-hover:text-secondary-fixed transition-colors">mail</span>
               <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-secondary-fixed group-hover:text-black transition-all">
                 <span className="material-symbols-outlined transition-transform duration-300 group-hover:rotate-45">
@@ -71,13 +71,13 @@ const Home = () => {
           </Link>
 
           {/* Product 3 */}
-          <Link to="/products/holdon" className="glass-card p-6 sm:p-8 md:p-10 flex flex-col justify-between group h-auto min-h-[360px] md:h-[420px]">
+          <Link to="/products/holdon" className="glass-card p-6 md:p-10 flex flex-col justify-between group h-[300px] md:h-[420px] w-[80vw] max-w-[320px] md:w-auto shrink-0 md:shrink snap-start">
             <div>
               <span className="font-label-caps text-[10px] text-secondary-fixed mb-4 block">PRODUCT</span>
-              <h3 className="font-headline-lg text-3xl mb-4 text-on-surface">Hold On</h3>
-              <p className="text-on-surface-variant leading-relaxed">An app for anti-theft alarm for you phone.</p>
+              <h3 className="font-headline-lg text-2xl md:text-3xl mb-2 md:mb-4 text-on-surface">Hold On</h3>
+              <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">An app for anti-theft alarm for you phone.</p>
             </div>
-            <div className="flex items-center justify-between mt-8">
+            <div className="flex items-center justify-between mt-4 md:mt-8">
               <span className="material-symbols-outlined text-4xl text-white/20 group-hover:text-secondary-fixed transition-colors">security</span>
               <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-secondary-fixed group-hover:text-black transition-all">
                 <span className="material-symbols-outlined transition-transform duration-300 group-hover:rotate-45">

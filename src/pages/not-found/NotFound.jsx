@@ -28,7 +28,7 @@ const NotFound = () => {
             Page Not Found
           </span>
           <h1 className="font-display-xl text-3xl sm:text-4xl md:text-5xl text-on-surface font-semibold tracking-tight leading-tight">
-            Curiosity found a <span className="text-secondary-fixed">dead end!</span>
+            Oh Shit! Your curiosity found a <span className="text-secondary-fixed">dead end :(</span>
           </h1>
           <p className="font-subheading text-base sm:text-lg text-on-surface-variant max-w-md mx-auto leading-relaxed">
             The page you are looking for doesn't exist or has been moved. You can head back to safety or get in touch with our team.

@@ -26,16 +26,16 @@ const Hero = () => {
         <p className="font-subheading text-base sm:text-subheading text-white/90 max-w-2xl mx-auto">
           We build the future of SaaS, AI, and mobile experiences through precise technical craftsmanship and visionary design.
         </p>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 pt-4">
+        <div className="flex flex-row items-center justify-center gap-3 pt-4 px-2 max-w-md mx-auto w-full">
           <Link
             to="/products"
-            className="w-full sm:w-auto bg-secondary-fixed text-on-secondary-fixed px-8 sm:px-10 py-3 sm:py-4 rounded-full font-label-caps text-label-caps font-extrabold glow-hover transition-all duration-300"
+            className="w-1/2 sm:w-auto bg-secondary-fixed text-on-secondary-fixed px-4 sm:px-10 py-3 sm:py-4 rounded-full font-label-caps text-[11px] sm:text-label-caps font-extrabold glow-hover transition-all duration-300 whitespace-nowrap text-center"
           >
             Explore Products
           </Link>
           <Link
             to="/work"
-            className="w-full sm:w-auto border border-secondary-fixed text-secondary-fixed hover:bg-secondary-fixed/10 px-8 sm:px-10 py-3 sm:py-4 rounded-full font-label-caps text-label-caps font-extrabold transition-all duration-300 shadow-[0_0_15px_rgba(160,214,0,0.15)]"
+            className="w-1/2 sm:w-auto border border-secondary-fixed text-secondary-fixed hover:bg-secondary-fixed/10 px-4 sm:px-10 py-3 sm:py-4 rounded-full font-label-caps text-[11px] sm:text-label-caps font-extrabold transition-all duration-300 shadow-[0_0_15px_rgba(160,214,0,0.15)] whitespace-nowrap text-center"
           >
             View Work
           </Link>
