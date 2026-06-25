@@ -134,6 +134,18 @@ const Navbar = () => {
             >
               Work
             </NavLink>
+
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-secondary-fixed border-b-2 border-secondary-fixed pb-1 font-label-caps text-label-caps"
+                  : "text-on-surface-variant hover:text-on-surface transition-colors font-label-caps text-label-caps"
+              }
+            >
+              About Us
+            </NavLink>
+
             <NavLink
               to="/contact"
               className={({ isActive }) =>
