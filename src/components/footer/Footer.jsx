@@ -244,6 +244,15 @@ const Footer = () => {
                   </Link>
                 </li>
 
+                <li>
+                  <Link
+                    to="/join-our-team"
+                    className="text-white/60 hover:text-[#A0D600] transition-colors"
+                  >
+                    Join Our Team
+                  </Link>
+                </li>
+
               </ul>
             </div>
 
