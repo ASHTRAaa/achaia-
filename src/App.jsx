@@ -15,6 +15,7 @@ const ProductDetail = lazy(() =>
   import("./pages/products/ProductDetail.jsx")
 );
 const Cyp = lazy(() => import("./pages/cost-your-project/Cyp.jsx"));
+const JoinTeam = lazy(() => import("./pages/join-team/JoinTeam.jsx"));
 const NotFound = lazy(() => import("./pages/not-found/NotFound.jsx"));
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path="products" element={<Products />} />
         <Route path="products/:id" element={<ProductDetail />} />
         <Route path="cyp" element={<Cyp />} />
+        <Route path="join-our-team" element={<JoinTeam />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
