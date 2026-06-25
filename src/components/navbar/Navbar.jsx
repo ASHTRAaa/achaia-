@@ -246,6 +246,17 @@ const Navbar = () => {
               Work
             </NavLink>
             <NavLink
+              to="/about"
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-3xl font-semibold text-secondary-fixed"
+                  : "text-3xl font-semibold text-on-surface hover:text-secondary-fixed transition-colors"
+              }
+            >
+              About Us
+            </NavLink>
+            <NavLink
               to="/contact"
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>

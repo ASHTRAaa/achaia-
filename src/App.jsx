@@ -16,6 +16,8 @@ const ProductDetail = lazy(() =>
 );
 const Cyp = lazy(() => import("./pages/cost-your-project/Cyp.jsx"));
 const JoinTeam = lazy(() => import("./pages/join-team/JoinTeam.jsx"));
+const Privacy = lazy(() => import("./pages/privacy/Privacy.jsx"));
+const Terms = lazy(() => import("./pages/terms/Terms.jsx"));
 const NotFound = lazy(() => import("./pages/not-found/NotFound.jsx"));
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
         <Route path="products/:id" element={<ProductDetail />} />
         <Route path="cyp" element={<Cyp />} />
         <Route path="join-our-team" element={<JoinTeam />} />
+        <Route path="privacy" element={<Privacy />} />
+        <Route path="terms" element={<Terms />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

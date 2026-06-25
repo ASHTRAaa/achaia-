@@ -163,8 +163,8 @@ const JoinTeam = () => {
               </div>
               <div className="mt-16 pt-8 border-t border-white/5 flex flex-col gap-4">
                 <h4 className="font-label-caps text-label-caps text-on-surface-variant opacity-50">Direct Pitch</h4>
-                <a href="mailto:careers@achaialabs.com" className="text-[#A0D600] hover:underline text-sm font-semibold">
-                  careers@achaialabs.com
+                <a href="mailto:contact@achaialabs.tech" className="text-[#A0D600] hover:underline text-sm font-semibold">
+                  contact@achaialabs.tech
                 </a>
               </div>
             </div>
