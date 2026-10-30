@@ -95,7 +95,7 @@
 }
 
 .phone-group .react-tel-input .country-list .country:hover {
-  background: rgba(160, 214, 0, 0.1) !important;
+  background: rgba(49, 94, 251, 0.1) !important;
   color: var(--on-surface) !important;
 }
 
@@ -140,7 +140,7 @@
 }
 
 .checkbox-label:hover {
-  border-color: rgba(160, 214, 0, 0.3);
+  border-color: rgba(49, 94, 251, 0.35);
   background: rgba(255, 255, 255, 0.04);
 }
 
@@ -159,7 +159,7 @@
 
 .checkbox-label:has(.checkbox-input:checked) {
   border-color: var(--secondary-fixed);
-  background: rgba(160, 214, 0, 0.05);
+  background: rgba(49, 94, 251, 0.08);
 }
 
 .checkbox-label:has(.checkbox-input:checked) .checkbox-text {

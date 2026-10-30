@@ -61,7 +61,7 @@
 }
 
 .work-card:hover {
-  border-color: rgba(160, 214, 0, 0.3);
+  border-color: rgba(49, 94, 251, 0.4);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
   background: rgba(255, 255, 255, 0.04);
 }

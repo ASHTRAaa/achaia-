@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useSEO } from "../../hooks/useSEO";
 
 const products = [
   {
@@ -99,54 +100,50 @@ const ProductDetail = () => {
   const prod = products.find((p) => p.id === id) || products[0];
   const bgGlowRef = useRef(null);
 
+  useSEO({
+    title: `${prod.name} — ${prod.tag.replace("INTRODUCING ", "")}`,
+    description: prod.subtitle,
+    path: `/products/${prod.id}`,
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    const handleMouseMove = (e) => {
-      if (!bgGlowRef.current) return;
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      bgGlowRef.current.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(160, 214, 0, 0.08) 0%, transparent 70%)`;
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [id]);
 
   return (
-    <div className="bg-background text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed overflow-x-hidden">
+    <div className="bg-[#111111] text-[#F5F5F3] min-h-screen overflow-x-hidden">
       {/* Hero */}
       <section className="relative flex flex-col items-start justify-center pt-16 pb-14 sm:pt-20 md:pt-24 px-6 md:px-margin-desktop text-left overflow-hidden">
-        <div ref={bgGlowRef} className="absolute inset-0 -z-10 transition-all duration-300"
-          style={{ background: "radial-gradient(circle at center, rgba(160, 214, 0, 0.05) 0%, transparent 70%)" }} />
         <div className="max-w-4xl space-y-6">
-          <span className="font-label-caps text-label-caps text-secondary-fixed tracking-[0.2em]">{prod.tag}</span>
-          <h1 className="font-display-xl text-display-xl max-md:text-headline-lg-mobile text-on-surface font-semibold tracking-tight">
-            {prod.title} <span className="text-secondary-fixed">{prod.titleHighlight}</span>
+          <span className="font-mono text-xs font-semibold text-[#315EFB] tracking-widest uppercase">{prod.tag}</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl text-[#F5F5F3] font-semibold tracking-tight leading-tight">
+            {prod.title} <span className="text-[#315EFB]">{prod.titleHighlight}</span>
           </h1>
-          <p className="font-subheading text-subheading text-on-surface-variant max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-[#A6A6A6] max-w-2xl leading-relaxed">
             {prod.subtitle}
           </p>
           <div className="pt-6 flex flex-wrap justify-start gap-4">
             {prod.liveUrl ? (
-              <a href={prod.liveUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps rounded-full hover:scale-105 transition-all glow-hover flex items-center gap-2">
+              <a href={prod.liveUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-[#315EFB] hover:bg-[#254EDB] text-white font-semibold text-sm rounded-full transition-all shadow-md active:scale-95 flex items-center gap-2">
                 <span>Check Live Site</span>
                 <span className="material-symbols-outlined text-sm">open_in_new</span>
               </a>
             ) : (
-              <Link to="/contact" className="px-8 py-4 bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps rounded-full hover:scale-105 transition-all glow-hover">
+              <Link to="/contact" className="px-8 py-4 bg-[#315EFB] hover:bg-[#254EDB] text-white font-semibold text-sm rounded-full transition-all shadow-md active:scale-95">
                 Request Early Access
               </Link>
             )}
-            <Link to="/contact" className="px-8 py-4 glass-card text-on-surface font-label-caps text-label-caps rounded-full hover:bg-white/10 transition-all !transform-none hover:!transform-none">
+            <Link to="/contact" className="px-8 py-4 bg-[#181818] hover:bg-[#202020] border border-[#303030] hover:border-[#444444] text-[#F5F5F3] font-semibold text-sm rounded-full transition-all">
               Get in Touch
             </Link>
           </div>
         </div>
         {/* Product Preview */}
-        <div className="mt-20 w-full max-w-6xl mx-auto">
-          <div className="glass-card rounded-xl p-2 shadow-2xl">
+        <div className="mt-16 w-full max-w-6xl mx-auto">
+          <div className="p-3 bg-[#181818] border border-[#303030] rounded-3xl shadow-2xl">
             <img
               alt={`${prod.name} Preview`}
-              className="w-full rounded-lg shadow-inner border border-white/5 grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
+              className="w-full rounded-2xl shadow-inner border border-white/5"
               src={prod.heroImg}
             />
           </div>
@@ -154,109 +151,109 @@ const ProductDetail = () => {
       </section>
 
       {/* Key Features */}
-      <section className="py-section-gap px-6 md:px-margin-desktop max-w-7xl mx-auto">
-        <div className="mb-20 text-left">
-          <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">Precision Engineering.</h2>
-          <p className="font-body-md text-body-md text-on-surface-variant max-w-xl">Every module is crafted for maximum performance and security, ensuring a premium user experience.</p>
+      <section className="py-20 md:py-28 px-6 md:px-margin-desktop max-w-7xl mx-auto">
+        <div className="mb-16 text-left">
+          <span className="text-[#315EFB] font-mono text-xs uppercase tracking-widest block font-semibold mb-2">Capabilities</span>
+          <h2 className="text-3xl sm:text-4xl text-[#F5F5F3] font-semibold mb-4">Precision Engineering.</h2>
+          <p className="text-[#A6A6A6] text-base sm:text-lg max-w-xl">Every module is crafted for maximum performance and security, ensuring a premium user experience.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {prod.features[0] && (
-            <div className="glass-card p-10 rounded-xl flex flex-col gap-6 neon-glow group">
-              <span className="material-symbols-outlined text-secondary-fixed text-4xl group-hover:scale-110 transition-transform">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#181818] border border-[#303030] flex flex-col gap-6 shadow-md">
+              <span className="material-symbols-outlined text-[#315EFB] text-4xl">
                 {prod.features[0].icon}
               </span>
-              <h3 className="font-subheading text-subheading font-bold">{prod.features[0].title}</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">{prod.features[0].desc}</p>
+              <h3 className="text-xl font-semibold text-[#F5F5F3]">{prod.features[0].title}</h3>
+              <p className="text-[#A6A6A6] text-sm leading-relaxed">{prod.features[0].desc}</p>
             </div>
           )}
           {/* Large card */}
           {prod.features[1] && (
-            <div className="md:col-span-2 glass-card p-10 rounded-xl flex flex-col md:flex-row gap-10 neon-glow group overflow-hidden relative">
+            <div className="md:col-span-2 p-8 sm:p-10 rounded-3xl bg-[#181818] border border-[#303030] flex flex-col md:flex-row gap-10 shadow-md overflow-hidden relative">
               <div className="flex-1 space-y-6">
-                <span className="material-symbols-outlined text-secondary-fixed text-4xl">
+                <span className="material-symbols-outlined text-[#315EFB] text-4xl">
                   {prod.features[1].icon}
                 </span>
-                <h3 className="font-subheading text-subheading font-bold">{prod.features[1].title}</h3>
-                <p className="font-body-md text-body-md text-on-surface-variant">{prod.features[1].desc}</p>
+                <h3 className="text-xl font-semibold text-[#F5F5F3]">{prod.features[1].title}</h3>
+                <p className="text-[#A6A6A6] text-sm leading-relaxed">{prod.features[1].desc}</p>
               </div>
-              <div className="flex-1 h-48 md:h-full relative opacity-50 group-hover:opacity-100 transition-opacity">
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10" />
-                <img alt={prod.features[1].title} className="h-full w-full object-cover rounded-lg" src={prod.features[1].img} />
+              <div className="flex-1 h-48 md:h-full relative opacity-60 hover:opacity-100 transition-opacity">
+                <img alt={prod.features[1].title} className="h-full w-full object-cover rounded-xl" src={prod.features[1].img} />
               </div>
             </div>
           )}
           {prod.features.slice(2, 5).map(({ icon, title, desc }) => (
-            <div key={icon} className="glass-card p-10 rounded-xl flex flex-col gap-6 neon-glow group">
-              <span className="material-symbols-outlined text-secondary-fixed text-4xl">{icon}</span>
-              <h3 className="font-subheading text-subheading font-bold">{title}</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">{desc}</p>
+            <div key={icon} className="p-8 sm:p-10 rounded-3xl bg-[#181818] border border-[#303030] flex flex-col gap-6 shadow-md">
+              <span className="material-symbols-outlined text-[#315EFB] text-4xl">{icon}</span>
+              <h3 className="text-xl font-semibold text-[#F5F5F3]">{title}</h3>
+              <p className="text-[#A6A6A6] text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Interactive Demo Section */}
-      <section className="py-section-gap bg-surface-container-lowest relative">
+      <section className="py-20 md:py-24 bg-[#141414] border-y border-[#262626]">
         <div className="px-6 md:px-margin-desktop max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-20 items-center">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2 space-y-8">
-              <h2 className="font-headline-lg text-headline-lg text-on-surface">Experience the <span className="text-secondary-fixed">Live Interaction</span>.</h2>
+              <h2 className="text-3xl sm:text-4xl font-semibold text-[#F5F5F3]">Experience the <span className="text-[#315EFB]">Live Interaction</span>.</h2>
               <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 glass-card rounded-lg border-l-4 border-secondary-fixed !transform-none">
-                  <span className="material-symbols-outlined text-secondary-fixed">check_circle</span>
-                  <p className="font-body-md text-body-md">{prod.demoItems[0]?.text || "Easy visual setup and configuration."}</p>
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#181818] border border-[#303030] border-l-4 border-l-[#315EFB]">
+                  <span className="material-symbols-outlined text-[#315EFB]">check_circle</span>
+                  <p className="text-sm sm:text-base text-[#F5F5F3] font-medium">{prod.demoItems[0]?.text || "Easy visual setup and configuration."}</p>
                 </div>
                 {prod.demoItems.slice(1).map(({ icon, text }) => (
-                  <div key={icon} className="flex items-center gap-4 p-4 hover:bg-white/5 transition-colors rounded-lg">
-                    <span className="material-symbols-outlined text-on-surface-variant">{icon}</span>
-                    <p className="font-body-md text-body-md">{text}</p>
+                  <div key={icon} className="flex items-center gap-4 p-4 rounded-2xl bg-[#181818] border border-[#303030]">
+                    <span className="material-symbols-outlined text-[#A6A6A6]">{icon}</span>
+                    <p className="text-sm sm:text-base text-[#CCCCCC]">{text}</p>
                   </div>
                 ))}
               </div>
               {prod.liveUrl ? (
-                <a href={prod.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps rounded-full hover:scale-105 transition-all">
+                <a href={prod.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-[#315EFB] hover:bg-[#254EDB] text-white font-semibold text-sm rounded-full transition-all shadow-md active:scale-95">
                   {prod.demoCTA}
                 </a>
               ) : (
-                <Link to="/contact" className="inline-block px-8 py-4 bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps rounded-full hover:scale-105 transition-all">
+                <Link to="/contact" className="inline-block px-8 py-4 bg-[#315EFB] hover:bg-[#254EDB] text-white font-semibold text-sm rounded-full transition-all shadow-md active:scale-95">
                   {prod.demoCTA}
                 </Link>
               )}
             </div>
             {/* Live Dashboard Mockup */}
-            <div className="lg:w-1/2 w-full aspect-square relative glass-card rounded-2xl overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 p-8 flex flex-col gap-6 bg-background/50">
-                <div className="flex justify-between items-center border-b border-white/10 pb-4">
+            <div className="lg:w-1/2 w-full aspect-square relative bg-[#181818] border border-[#303030] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 p-8 flex flex-col gap-6 bg-[#181818]">
+                <div className="flex justify-between items-center border-b border-[#262626] pb-4">
                   <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-error" />
-                    <div className="w-3 h-3 rounded-full bg-secondary-container" />
-                    <div className="w-3 h-3 rounded-full bg-secondary-fixed" />
+                    <div className="w-3 h-3 rounded-full bg-red-500" />
+                    <div className="w-3 h-3 rounded-full bg-amber-500" />
+                    <div className="w-3 h-3 rounded-full bg-emerald-500" />
                   </div>
-                  <span className="font-label-caps text-[10px] text-on-surface-variant">LIVE SESSION: ACTIVE</span>
+                  <span className="font-mono text-[10px] text-[#A6A6A6] uppercase tracking-wider">LIVE SESSION: ACTIVE</span>
                 </div>
                 <div className="flex-1 grid grid-cols-2 gap-4">
-                  <div className="glass-card rounded-lg p-4 flex flex-col justify-between !transform-none">
-                    <span className="text-[10px] font-label-caps text-on-surface-variant">AVAILABILITY</span>
-                    <div className="text-2xl font-bold text-secondary-fixed">{prod.id === "sendmyform" ? "99.9%" : prod.id === "helios" ? "99.0%" : "Always On"}</div>
-                    <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-secondary-fixed w-3/4 animate-pulse" />
+                  <div className="bg-[#141414] border border-[#303030] rounded-2xl p-5 flex flex-col justify-between">
+                    <span className="text-[10px] font-mono font-semibold text-[#777777] uppercase tracking-wider">AVAILABILITY</span>
+                    <div className="text-2xl font-bold text-[#315EFB]">{prod.id === "sendmyform" ? "99.9%" : prod.id === "helios" ? "99.0%" : "Always On"}</div>
+                    <div className="h-1 bg-[#262626] rounded-full overflow-hidden">
+                      <div className="h-full bg-[#315EFB] w-3/4" />
                     </div>
                   </div>
-                  <div className="glass-card rounded-lg p-4 flex flex-col justify-between !transform-none">
-                    <span className="text-[10px] font-label-caps text-on-surface-variant">SECURITY</span>
-                    <div className="text-2xl font-bold text-secondary-fixed">{prod.id === "helios" ? "SSL / Local" : prod.id === "sendmyform" ? "Spam Filter" : "Biometrics"}</div>
-                    <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-secondary-fixed w-1/4" />
+                  <div className="bg-[#141414] border border-[#303030] rounded-2xl p-5 flex flex-col justify-between">
+                    <span className="text-[10px] font-mono font-semibold text-[#777777] uppercase tracking-wider">SECURITY</span>
+                    <div className="text-2xl font-bold text-[#315EFB]">{prod.id === "helios" ? "SSL / Local" : prod.id === "sendmyform" ? "Spam Filter" : "Biometrics"}</div>
+                    <div className="h-1 bg-[#262626] rounded-full overflow-hidden">
+                      <div className="h-full bg-[#315EFB] w-1/4" />
                     </div>
                   </div>
-                  <div className="col-span-2 glass-card rounded-lg p-4 h-full relative !transform-none flex flex-col justify-between">
-                    <span className="text-[10px] font-label-caps text-on-surface-variant">PRODUCT HIGHLIGHT</span>
-                    <div className="flex-1 flex items-center justify-center opacity-30">
-                      <span className="material-symbols-outlined text-8xl text-secondary-fixed">
+                  <div className="col-span-2 bg-[#141414] border border-[#303030] rounded-2xl p-5 h-full relative flex flex-col justify-between">
+                    <span className="text-[10px] font-mono font-semibold text-[#777777] uppercase tracking-wider">PRODUCT HIGHLIGHT</span>
+                    <div className="flex-1 flex items-center justify-center opacity-40">
+                      <span className="material-symbols-outlined text-8xl text-[#315EFB]">
                         {prod.id === "helios" ? "auto_awesome" : prod.id === "sendmyform" ? "terminal" : "security"}
                       </span>
                     </div>
-                    <p className="text-xs text-on-surface-variant text-center mt-2">{prod.subtitle}</p>
+                    <p className="text-xs text-[#A6A6A6] text-center mt-2">{prod.subtitle}</p>
                   </div>
                 </div>
               </div>
@@ -266,26 +263,26 @@ const ProductDetail = () => {
       </section>
 
       {/* Tech Specs */}
-      <section className="py-section-gap px-6 md:px-margin-desktop max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <section className="py-20 md:py-28 px-6 md:px-margin-desktop max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-8">Technical Foundations</h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mb-12">Designed to perform with extreme reliability and seamless integration.</p>
-            <dl className="space-y-6">
+            <span className="text-[#315EFB] font-mono text-xs uppercase tracking-widest block font-semibold mb-2">Architecture</span>
+            <h2 className="text-3xl sm:text-4xl text-[#F5F5F3] font-semibold mb-4">Technical Foundations</h2>
+            <p className="text-[#A6A6A6] text-base leading-relaxed mb-10">Designed to perform with extreme reliability and seamless integration.</p>
+            <dl className="space-y-4">
               {prod.specs.map(({ key, val }) => (
-                <div key={key} className="flex justify-between border-b border-white/5 pb-4 group">
-                  <dt className="font-label-caps text-on-surface-variant group-hover:text-secondary-fixed transition-colors">{key}</dt>
-                  <dd className="font-body-md text-on-surface">{val}</dd>
+                <div key={key} className="flex justify-between border-b border-[#262626] pb-4">
+                  <dt className="text-xs font-mono font-semibold text-[#777777] uppercase tracking-wider">{key}</dt>
+                  <dd className="text-sm font-semibold text-[#F5F5F3]">{val}</dd>
                 </div>
               ))}
             </dl>
           </div>
           <div className="relative">
-            <div className="absolute -inset-10 -z-10 rounded-full blur-3xl opacity-50" style={{ background: "radial-gradient(circle at center, rgba(160, 214, 0, 0.05) 0%, transparent 70%)" }} />
-            <div className="glass-card p-8 rounded-2xl">
+            <div className="p-3 bg-[#181818] border border-[#303030] rounded-3xl shadow-xl">
               <img
                 alt="Technical specs overview"
-                className="rounded-xl grayscale-[0.5] hover:grayscale-0 transition-all duration-700 w-full object-cover h-[400px]"
+                className="rounded-2xl w-full object-cover h-[380px]"
                 src={prod.heroImg}
               />
             </div>
@@ -294,21 +291,22 @@ const ProductDetail = () => {
       </section>
 
       {/* All Products List */}
-      <section className="py-section-gap px-6 md:px-margin-desktop max-w-7xl mx-auto">
+      <section className="py-16 md:py-24 px-6 md:px-margin-desktop max-w-7xl mx-auto border-t border-[#262626]">
         <div className="mb-12">
-          <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">All Products</h2>
-          <p className="font-body-md text-body-md text-on-surface-variant">The full Achaia Labs in-house ecosystem.</p>
+          <span className="text-[#315EFB] font-mono text-xs uppercase tracking-widest block font-semibold mb-2">Ecosystem</span>
+          <h2 className="text-3xl sm:text-4xl text-[#F5F5F3] font-semibold mb-3">All Products</h2>
+          <p className="text-[#A6A6A6] text-base">The full Achaia Labs in-house ecosystem.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {products.map((p) => (
-            <Link key={p.id} to={`/products/${p.id}`} className="glass-card p-8 rounded-xl flex flex-col justify-between h-[250px] group">
+            <Link key={p.id} to={`/products/${p.id}`} className="p-8 rounded-3xl bg-[#181818] border border-[#303030] hover:border-[#444444] flex flex-col justify-between h-[250px] transition-all shadow-md group">
               <div>
-                <span className="font-label-caps text-[10px] text-secondary-fixed mb-2 block">{p.tag.replace("INTRODUCING ", "")}</span>
-                <h3 className="font-headline-lg text-xl text-on-surface mb-2">{p.name}</h3>
-                <p className="text-on-surface-variant text-sm line-clamp-3 leading-relaxed">{p.subtitle}</p>
+                <span className="font-mono text-[10px] text-[#315EFB] font-bold uppercase tracking-wider mb-2 block">{p.tag.replace("INTRODUCING ", "")}</span>
+                <h3 className="text-xl font-semibold text-[#F5F5F3] mb-2">{p.name}</h3>
+                <p className="text-[#A6A6A6] text-xs sm:text-sm line-clamp-3 leading-relaxed">{p.subtitle}</p>
               </div>
-              <div className="flex items-center gap-2 text-secondary-fixed mt-4">
-                <span className="font-label-caps text-xs">EXPLORE</span>
+              <div className="flex items-center gap-2 text-[#315EFB] font-semibold text-xs tracking-wider uppercase mt-4">
+                <span>EXPLORE</span>
                 <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </Link>
@@ -317,22 +315,22 @@ const ProductDetail = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-section-gap px-6 md:px-margin-desktop bg-surface-container-low">
-        <div className="max-w-4xl mx-auto text-center space-y-10">
-          <h2 className="font-headline-lg text-headline-lg text-on-surface">Ready to build the future?</h2>
-          <p className="font-subheading text-subheading text-on-surface-variant">Connect with our engineering team for an architectural consultation, or get started immediately with our live products.</p>
-          <div className="flex flex-wrap justify-center gap-6">
+      <section className="py-20 px-6 md:px-margin-desktop bg-[#141414] border-t border-[#262626]">
+        <div className="max-w-3xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-[#F5F5F3]">Ready to partner on your next build?</h2>
+          <p className="text-[#A6A6A6] text-base leading-relaxed">Connect with our engineering team for an architectural consultation, or get started immediately with our live products.</p>
+          <div className="flex flex-wrap justify-center gap-4">
             {prod.liveUrl ? (
-              <a href={prod.liveUrl} target="_blank" rel="noopener noreferrer" className="px-12 py-5 bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps rounded-full hover:scale-105 shadow-lg shadow-secondary-fixed/20 transition-all">
+              <a href={prod.liveUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-[#315EFB] hover:bg-[#254EDB] text-white font-semibold text-sm rounded-full transition-all shadow-md active:scale-95">
                 Access {prod.name} Live
               </a>
             ) : (
-              <Link to="/contact" className="px-12 py-5 bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps rounded-full hover:scale-105 shadow-lg shadow-secondary-fixed/20 transition-all">
+              <Link to="/contact" className="px-8 py-4 bg-[#315EFB] hover:bg-[#254EDB] text-white font-semibold text-sm rounded-full transition-all shadow-md active:scale-95">
                 Request Early Access
               </Link>
             )}
-            <Link to="/contact" className="px-12 py-5 glass-card text-on-surface font-label-caps text-label-caps rounded-full hover:bg-white/10 transition-all !transform-none">
-              Contact Enterprise Sales
+            <Link to="/contact" className="px-8 py-4 bg-[#181818] hover:bg-[#202020] border border-[#303030] hover:border-[#444444] text-[#F5F5F3] font-semibold text-sm rounded-full transition-all">
+              Discuss a Project
             </Link>
           </div>
         </div>

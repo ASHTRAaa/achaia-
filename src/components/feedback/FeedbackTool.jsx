@@ -126,6 +126,73 @@ const FeedbackTool = () => {
 
   const containerRef = useRef(null);
 
+  // Vertical position state (percentage of viewport height, clamped between 12% and 88%)
+  const [topPercent, setTopPercent] = useState(() => {
+    try {
+      const saved = localStorage.getItem("achaia-feedback-top-y");
+      return saved ? Math.min(Math.max(parseFloat(saved), 12), 88) : 50;
+    } catch {
+      return 50;
+    }
+  });
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartYRef = useRef(0);
+  const initialTopPercentRef = useRef(50);
+  const hasMovedRef = useRef(false);
+
+  const handlePointerDown = (e) => {
+    if (e.button !== 0 && e.pointerType === "mouse") return;
+    dragStartYRef.current = e.clientY;
+    initialTopPercentRef.current = topPercent;
+    hasMovedRef.current = false;
+    setIsDragging(true);
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e) => {
+    if (!isDragging) return;
+    const deltaY = e.clientY - dragStartYRef.current;
+    if (Math.abs(deltaY) > 4) {
+      hasMovedRef.current = true;
+    }
+    const percentDelta = (deltaY / window.innerHeight) * 100;
+    const newPercent = Math.min(
+      Math.max(initialTopPercentRef.current + percentDelta, 12),
+      88
+    );
+    setTopPercent(newPercent);
+  };
+
+  const handlePointerUp = (e) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {}
+    if (hasMovedRef.current) {
+      try {
+        localStorage.setItem("achaia-feedback-top-y", topPercent.toFixed(1));
+      } catch {}
+    }
+  };
+
+  const handlePointerCancel = (e) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {}
+  };
+
+  const handleButtonClick = (e) => {
+    if (hasMovedRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    toggleOpen();
+  };
+
   // Toggle feedback panel open/close
   const toggleOpen = () => {
     setIsOpen(!isOpen);
@@ -248,18 +315,50 @@ const FeedbackTool = () => {
   return (
     <div
       ref={containerRef}
-      className="fixed top-1/2 right-0 -translate-y-1/2 z-50 flex items-center transition-all duration-500 ease-out"
+      className={`fixed right-0 z-50 flex items-center ${
+        isDragging ? "select-none" : "transition-transform duration-500 ease-out"
+      }`}
       style={{
-        transform: isOpen ? "translateX(0)" : "translateX(360px)",
+        top: `${topPercent}%`,
+        transform: isOpen
+          ? "translateY(-50%) translateX(0)"
+          : "translateY(-50%) translateX(360px)",
       }}
     >
       {/* Feedback Tab Button */}
       <button
-        onClick={toggleOpen}
-        className="bg-tertiary text-white flex flex-col items-center gap-3 py-6 px-3 rounded-l-2xl shadow-[-4px_0_15px_rgba(0,0,0,0.15)] hover:bg-[#722fee] transition-colors duration-300 select-none cursor-pointer focus:outline-none"
+        type="button"
+        onClick={handleButtonClick}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerCancel}
+        title="Drag vertically to reposition • Click to open"
+        aria-label="Feedback tool (drag vertically to move, click to toggle)"
+        className={`bg-tertiary text-white flex flex-col items-center gap-2.5 py-5 px-3 rounded-l-2xl shadow-[-4px_0_15px_rgba(0,0,0,0.2)] hover:bg-[#722fee] select-none focus:outline-none touch-none ${
+          isDragging
+            ? "cursor-grabbing shadow-[-6px_0_25px_rgba(114,47,238,0.45)] scale-[1.03]"
+            : "cursor-grab active:cursor-grabbing hover:scale-[1.02] transition-transform duration-200"
+        }`}
       >
+        {/* Subtle vertical drag grip indicator */}
+        <div className="flex flex-col gap-0.5 opacity-60 hover:opacity-100 transition-opacity mb-0.5 pointer-events-none">
+          <div className="flex gap-1">
+            <span className="w-1 h-1 rounded-full bg-white/80" />
+            <span className="w-1 h-1 rounded-full bg-white/80" />
+          </div>
+          <div className="flex gap-1">
+            <span className="w-1 h-1 rounded-full bg-white/80" />
+            <span className="w-1 h-1 rounded-full bg-white/80" />
+          </div>
+          <div className="flex gap-1">
+            <span className="w-1 h-1 rounded-full bg-white/80" />
+            <span className="w-1 h-1 rounded-full bg-white/80" />
+          </div>
+        </div>
+
         <span
-          className="uppercase tracking-widest text-[11px] font-bold"
+          className="uppercase tracking-widest text-[11px] font-bold pointer-events-none"
           style={{
             writingMode: "vertical-rl",
             textOrientation: "mixed",
@@ -268,7 +367,7 @@ const FeedbackTool = () => {
           Feedback
         </span>
         <svg
-          className={`w-3.5 h-3.5 transition-transform duration-300 ${
+          className={`w-3.5 h-3.5 transition-transform duration-300 pointer-events-none ${
             isOpen ? "rotate-180" : ""
           }`}
           fill="none"

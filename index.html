@@ -2,16 +2,77 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <meta name="theme-color" content="#111111" />
     <link rel="icon" type="image/svg+xml" href="/achaia.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
       rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Achaia Labs builds high-performance SaaS, AI, mobile, and web platforms for teams that need reliable digital products." />
-    <title>Achaia Labs | Engineering Digital Excellence</title>
+    
+    <title>Achaia Labs — Product Engineering & Business Automation</title>
+    <meta name="description" content="Achaia Labs builds Shopify stores, custom ERP systems, Android & mobile applications, and AI workflow automations with end-to-end delivery and ongoing engineering ownership." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.achaialabs.tech/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.achaialabs.tech/" />
+    <meta property="og:title" content="Achaia Labs — Product Engineering & Business Automation" />
+    <meta property="og:description" content="We build Shopify stores, custom ERP systems, mobile applications, and AI workflow automations with end-to-end delivery." />
+    <meta property="og:image" content="https://www.achaialabs.tech/work-assets/achaia_showcase_poster.png" />
+    <meta property="og:site_name" content="Achaia Labs" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.achaialabs.tech/" />
+    <meta name="twitter:title" content="Achaia Labs — Product Engineering & Business Automation" />
+    <meta name="twitter:description" content="We build Shopify stores, custom ERP systems, mobile applications, and AI workflow automations with end-to-end delivery." />
+    <meta name="twitter:image" content="https://www.achaialabs.tech/work-assets/achaia_showcase_poster.png" />
+    <meta name="twitter:creator" content="@achaialabs" />
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.achaialabs.tech/#organization",
+          "name": "Achaia Labs",
+          "url": "https://www.achaialabs.tech/",
+          "logo": "https://www.achaialabs.tech/achaia.svg",
+          "description": "Product engineering and business automation company building Shopify stores, custom ERPs, Android applications, and AI automations.",
+          "email": "contact@achaialabs.tech",
+          "telephone": "+916202589421",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Godrej Waterside, Salt Lake City",
+            "addressLocality": "Kolkata",
+            "addressRegion": "West Bengal",
+            "postalCode": "700091",
+            "addressCountry": "IN"
+          },
+          "sameAs": [
+            "https://x.com/achaialabs",
+            "https://www.linkedin.com/company/achaialabs",
+            "https://www.instagram.com/achaialabs"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.achaialabs.tech/#website",
+          "url": "https://www.achaialabs.tech/",
+          "name": "Achaia Labs",
+          "publisher": {
+            "@id": "https://www.achaialabs.tech/#organization"
+          }
+        }
+      ]
+    }
+    </script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EP8Y3C2Z1L"></script>
@@ -19,7 +80,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       
-      // Default to denied unless explicitly accepted
       const savedConsent = localStorage.getItem('achaia_cookie_consent');
       gtag('consent', 'default', {
         'analytics_storage': savedConsent === 'accepted' ? 'granted' : 'denied',

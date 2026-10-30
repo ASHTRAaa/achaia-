@@ -1,101 +1,121 @@
 import { useEffect } from "react";
+import { useSEO } from "../../hooks/useSEO";
 
 const Privacy = () => {
+  useSEO({
+    title: "Privacy Policy",
+    description: "Achaia Labs Website Privacy Policy - Learn how we collect, protect, and handle data transmitted through our website.",
+    path: "/privacy",
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="font-body-md text-on-surface selection:bg-secondary-fixed selection:text-on-secondary-fixed min-h-screen">
-      {/* Ambient Background Blooms */}
+    <div className="relative bg-[#0A0A0C] text-[#A6A6A6] min-h-screen">
+      {/* Ambient Top Glow matching micro1 */}
       <div
-        className="fixed top-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full pointer-events-none z-0"
-        style={{ background: "rgba(189,245,0,0.03)", filter: "blur(120px)" }}
-      />
-      <div
-        className="fixed bottom-[10%] right-[-5%] w-[30%] h-[30%] rounded-full pointer-events-none z-0"
-        style={{ background: "rgba(131,66,251,0.04)", filter: "blur(120px)" }}
+        className="absolute inset-x-0 top-0 h-96 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(66, 66, 76, 0.22), transparent 75%)",
+        }}
       />
 
-      <main className="relative z-10 pt-16 pb-14 sm:pt-20 md:pt-24 px-6 md:px-margin-desktop max-w-4xl mx-auto">
-        {/* Hero */}
-        <section className="mb-10 md:mb-16 text-left">
-          <span className="font-label-caps text-label-caps text-secondary-fixed tracking-widest uppercase mb-4 block">
-            Compliance & Transparency
-          </span>
-          <h1 className="font-display-xl text-4xl md:text-display-xl mb-6 font-semibold tracking-tight">
-            Privacy Policy
+      <main className="relative z-10 max-w-3xl mx-auto px-6 sm:px-8 pt-24 pb-32 md:pt-32 md:pb-40">
+        {/* Centered Page Header */}
+        <div className="text-center mb-14 md:mb-20">
+          <h1 className="text-xl sm:text-5xl md:text-6xl font-medium text-[#F5F5F3] tracking-tight mb-3">
+            Website Privacy Policy
           </h1>
-          <p className="font-subheading text-subheading text-on-surface-variant leading-relaxed max-w-2xl">
-            Last Updated: June 26, 2026. Achaia Labs values your privacy. This policy describes how we collect, protect, and handle data transmitted through our website.
+          <p className="text-sm text-[#888888]">
+            Last Updated: July 21, 2026
           </p>
-        </section>
+        </div>
 
-        {/* Content Card */}
-        <section className="glass-card p-8 md:p-12 rounded-xl relative overflow-hidden space-y-10 leading-relaxed text-on-surface-variant">
-          <div
-            className="absolute top-0 right-0 w-64 h-64 pointer-events-none"
-            style={{ background: "rgba(189,245,0,0.02)", filter: "blur(100px)" }}
-          />
+        {/* Clean Open Editorial Content - matching micro1 inspiration directly on the background */}
+        <div className="text-sm sm:text-base text-[#A6A6A6] leading-relaxed space-y-6">
+          <p>
+            This Website Privacy Policy describes the data privacy practices of Achaia Labs (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) with respect to information we collect and use when you access or use our website (https://achaialabs.tech), or when we otherwise interact with you in connection with the website or our software engineering activities (the website and related activities are collectively referred to herein as the &quot;Site&quot;).
+          </p>
+          <p className="text-xs uppercase tracking-wider text-[#888888] font-mono font-medium">
+            PLEASE READ THIS PRIVACY POLICY CAREFULLY TO UNDERSTAND HOW WE HANDLE YOUR INFORMATION.
+          </p>
 
-          <div className="space-y-4">
-            <h2 className="text-white text-xl md:text-2xl font-semibold tracking-tight border-b border-white/5 pb-2">
+          <div className="pt-4">
+            <h2 className="text-xl sm:text-2xl font-medium text-[#F5F5F3] tracking-tight mb-4">
               1. Information We Collect
             </h2>
-            <p>
-              We collect personal details that you voluntarily submit to us when interacting with our contact forms, team application forms, or project cost scoping forms. This information may include:
+            <h3 className="text-base sm:text-lg font-medium text-[#D4D4D8] mb-3">
+              Information You Provide to Us
+            </h3>
+            <p className="mb-4">
+              We collect information that you provide directly to us when you use the Site. For example, we collect information from you when you fill out a form on the Site, contact us via email, request a project scope estimate, respond to a survey, or apply to join our engineering team:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm">
-              <li>Contact details such as your Name and Email Address.</li>
-              <li>Professional references, portfolio, or GitHub links when applying to join our team.</li>
-              <li>Project scope, budget constraints, services requested, and business descriptions.</li>
+            <ul className="list-disc pl-6 space-y-2 text-sm text-[#888888]">
+              <li>Contact information, including your name, email address, and phone number.</li>
+              <li>Professional information, such as your job title, company name, portfolio, or GitHub profile.</li>
+              <li>Project scoping parameters, budget requirements, technical specifications, and architectural goals.</li>
+              <li>Records and copies of your correspondence when you reach out to our team.</li>
             </ul>
           </div>
 
-          <div className="space-y-4">
-            <h2 className="text-white text-xl md:text-2xl font-semibold tracking-tight border-b border-white/5 pb-2">
-              2. How We Use Your Data
+          <div className="pt-4">
+            <h2 className="text-xl sm:text-2xl font-medium text-[#F5F5F3] tracking-tight mb-4">
+              2. How We Use Your Information
             </h2>
-            <p>
-              The information we gather is used specifically for operations relating to your inquiry:
+            <p className="mb-4">
+              We use the information we collect to operate, provide, and enhance our services:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm">
-              <li>To evaluate project scopes and compile tailored cost proposals.</li>
-              <li>To contact you regarding potential collaborations, support requests, or employment applications.</li>
-              <li>To perform site optimization and track general visitors' metrics via analytics software.</li>
+            <ul className="list-disc pl-6 space-y-2 text-sm text-[#888888]">
+              <li>To evaluate project scopes, prepare architectural proposals, and provide transparent cost estimates.</li>
+              <li>To communicate with you regarding client inquiries, technical consultations, or job applications.</li>
+              <li>To maintain, analyze, and optimize the speed, security, and performance of our web infrastructure.</li>
+              <li>To prevent fraudulent transactions, monitor against security incidents, and protect user rights.</li>
             </ul>
           </div>
 
-          <div className="space-y-4">
-            <h2 className="text-white text-xl md:text-2xl font-semibold tracking-tight border-b border-white/5 pb-2">
-              3. Data Submission & Storage
+          <div className="pt-4">
+            <h2 className="text-xl sm:text-2xl font-medium text-[#F5F5F3] tracking-tight mb-4">
+              3. Data Security & Storage
             </h2>
             <p>
-              For our contact and team submission forms, we leverage <strong className="text-secondary-fixed">SendMyForm.live</strong>, a secure form processing service. Data transmitted through these forms is securely encrypted in transit (HTTPS) and stored in accordance with modern security standards. We do not sell, rent, or distribute your personal data to third parties.
+              We implement industry-standard administrative, technical, and physical safeguards to protect the personal information we receive. Data submitted through our web forms is encrypted in transit using Transport Layer Security (TLS/HTTPS). We do not sell, rent, or trade your personal information to third-party data brokers.
             </p>
           </div>
 
-          <div className="space-y-4">
-            <h2 className="text-white text-xl md:text-2xl font-semibold tracking-tight border-b border-white/5 pb-2">
-              4. Analytics & Tracking
+          <div className="pt-4">
+            <h2 className="text-xl sm:text-2xl font-medium text-[#F5F5F3] tracking-tight mb-4">
+              4. Analytics & Tracking Technologies
             </h2>
             <p>
-              We monitor anonymous visitors' interactions through basic web analytics utilities to improve user experience, page speed, and navigation layouts. These scripts do not record personally identifying information without your consent.
+              We use privacy-respecting analytics tools (such as Google Analytics 4) to monitor aggregate, anonymous traffic trends and system health. These tools record telemetry such as browser type, referring pages, and session duration without associating individual identities. For more details on cookie management, please consult our Cookie Policy.
             </p>
           </div>
 
-          <div className="space-y-4">
-            <h2 className="text-white text-xl md:text-2xl font-semibold tracking-tight border-b border-white/5 pb-2">
-              5. Your Choices & Deletion Rights
+          <div className="pt-4">
+            <h2 className="text-xl sm:text-2xl font-medium text-[#F5F5F3] tracking-tight mb-4">
+              5. Your Rights & Choices
             </h2>
             <p>
-              You have the right to inspect, update, or request the deletion of any personal information you have submitted to us. If you would like us to purge your details from our records, please reach out to us at:
-            </p>
-            <p className="text-secondary-fixed font-semibold">
-              achaialabs@gmail.com
+              Depending on your location, you may have rights under applicable data protection laws, including the right to access, correct, update, or request the deletion of your personal data held by us. To submit a request, please reach out to us at contact@achaialabs.tech.
             </p>
           </div>
-        </section>
+
+          <div className="pt-4">
+            <h2 className="text-xl sm:text-2xl font-medium text-[#F5F5F3] tracking-tight mb-4">
+              6. Contact Us
+            </h2>
+            <p>
+              If you have any questions or feedback about this Privacy Policy or our privacy practices, please contact us at:{" "}
+              <a href="mailto:contact@achaialabs.tech" className="text-[#F5F5F3] hover:underline font-medium">
+                contact@achaialabs.tech
+              </a>{" "}
+              or by mail at Godrej Waterside, Salt Lake City, Kolkata, West Bengal - 700091, India.
+            </p>
+          </div>
+        </div>
       </main>
     </div>
   );

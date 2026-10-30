@@ -1,9 +1,119 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSEO } from "../../hooks/useSEO";
+import ScrollShowcase from "../../components/home/ScrollShowcase";
+import MulticolorConversion from "../../components/home/MulticolorConversion";
+import WorkCardStack from "../../components/home/WorkCardStack";
+
+const featuredProjects = [
+  {
+    id: "moms-and-moon",
+    title: "Moms & Moon",
+    client: "Boutique Occasion Wear & Kids Fashion",
+    vertical: "Shopify & E-Commerce",
+    description:
+      "Designed and engineered a mobile-first Shopify storefront for an occasion wear brand, featuring custom festive collection lookbooks, age/size variant filters, and domestic payment integrations.",
+    deliverables: ["Custom Shopify Theme", "Mobile-First UX", "Payment Gateway Setup"],
+    img: "/work-assets/moni_monu_laptop.webp",
+    link: "/work/moms-and-moon",
+  },
+  {
+    id: "skmt-trust",
+    title: "SKMT Trust",
+    client: "Educational & Fellowship Trust",
+    vertical: "ERP & Business Systems",
+    description:
+      "Built a unified institutional governance portal replacing disconnected spreadsheets to manage fellowship tracks, affiliated institute records, student enrollment cohorts, and fee schedules.",
+    deliverables: ["Governance ERP Portal", "Student Cohort Tracking", "Role-Based Permissions"],
+    img: "/work-assets/skmt_erp_tablet.webp",
+    link: "/work/skmt-trust",
+  },
+  {
+    id: "gaurav-synthetics",
+    title: "Gaurav Synthetics",
+    client: "Textile & Wholesale Dealer (Ramraj Cotton)",
+    vertical: "Catalog & Web Architecture",
+    description:
+      "Engineered a scalable digital catalog and local visibility platform for an exclusive Ramraj Cotton dealership, strengthening buyer discoverability and wholesale inquiry generation.",
+    deliverables: ["Scalable Web Platform", "Product Catalog Architecture", "Inbound Inquiry Funnel"],
+    img: "/work-assets/gauravsyn.webp",
+    link: "/work/gaurav-synthetics",
+  },
+  {
+    id: "helios",
+    title: "Helios",
+    client: "AI Creative Tools Platform",
+    vertical: "Application & Mobile Platform",
+    description:
+      "Engineered a high-speed mobile client and prompt organization ecosystem, enabling creative teams to search, test, and execute multi-parameter AI generation prompts.",
+    deliverables: ["Android Mobile Application", "Prompt Directory Engine", "Fast Local Caching"],
+    img: "/work-assets/helios_mobile.webp",
+    link: "/work/helios",
+  },
+  {
+    id: "fox-wing-media",
+    title: "Fox Wing Media",
+    client: "PR, Media & Ingestion Agency",
+    vertical: "Workflow Automation & Web",
+    description:
+      "Designed and developed a modern digital media architecture and publication workflow system to showcase media placements, client case studies, and editorial achievements.",
+    deliverables: ["Editorial Web Architecture", "Media Placement Showcase", "Lead Generation Ingestion"],
+    img: "/work-assets/foxwing_main.webp",
+    link: "/work/fox-wing-media",
+  },
+  {
+    id: "divine-enterprises",
+    title: "Divine Enterprises",
+    client: "Industrial Equipment & Engineering",
+    vertical: "Industrial Web Platform",
+    description:
+      "Structured and engineered an industrial product catalog and inquiry system for industrial filtration and manufacturing machinery.",
+    deliverables: ["Industrial Specification Engine", "Inquiry Routing Pipeline", "SEO & Technical Architecture"],
+    img: "/work-assets/divineEnt.webp",
+    link: "/work/divine-enterprises",
+  },
+];
+
+const ownershipSteps = [
+  {
+    step: "01",
+    phase: "Discover",
+    title: "Understanding the Business Problem",
+    desc: "We analyze your actual operational workflows, technical dependencies, and commercial goals before recommending or choosing technology.",
+  },
+  {
+    step: "02",
+    phase: "Build",
+    title: "Design & Engineering",
+    desc: "We build the software with clean architecture, modern React and mobile frameworks, robust APIs, and weekly staging milestone reviews.",
+  },
+  {
+    step: "03",
+    phase: "Deploy",
+    title: "Testing & Production Release",
+    desc: "Cross-device QA, edge-case testing, data migration, and production deployment with comprehensive admin handover sessions.",
+  },
+  {
+    step: "04",
+    phase: "Maintain",
+    title: "Ongoing Engineering Ownership",
+    desc: "We don't disappear at launch. We agree on explicit ongoing monitoring, maintenance windows, bug fixes, and iterative improvements.",
+  },
+];
 
 const Home = () => {
-  // Scroll reveal
+  const [workViewMode, setWorkViewMode] = useState("stack");
+
+  useSEO({
+    title: "Achaia Labs — Product Engineering & Business Automation",
+    description:
+      "Achaia Labs builds Shopify stores, custom ERP systems, Android & mobile applications, and AI workflow automations with end-to-end delivery and ongoing engineering ownership.",
+    path: "/",
+  });
+
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -19,252 +129,207 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="font-body-md text-body-md">
-      {/* Hero is rendered by MainLayout */}
+    <div className="bg-[#111111] text-[#F5F5F3]">
+      {/* ── SECTION 2: SCROLL-DRIVEN SERVICE SHOWCASE (MICRO1 INTELLIGENCE REPLICA) ── */}
+      <ScrollShowcase />
 
-      {/* ── Featured Products Bento Grid ── */}
-      <section className="py-section-gap px-6 md:px-margin-desktop max-w-7xl mx-auto">
-        <div className="mb-12 flex items-end justify-between">
-          <div className="space-y-2">
-            <span className="text-secondary-fixed font-label-caps text-label-caps">IN-HOUSE</span>
-            <h2 className="font-headline-lg text-3xl sm:text-headline-lg text-on-surface">Featured Products</h2>
-          </div>
-          <Link to="/products" className="hidden md:flex items-center gap-2 text-on-surface-variant hover:text-secondary-fixed transition-colors">
-            <span className="font-label-caps text-label-caps">ALL PRODUCTS</span>
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
-          </Link>
-        </div>
-
-        <div className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-x-visible pb-6 md:pb-0 gap-4 md:gap-gutter snap-x snap-mandatory scrollbar-none -mx-6 px-6 md:mx-0 md:px-0">
-          {/* Product 1 */}
-          <Link to="/products/helios" className="glass-card p-6 md:p-10 flex flex-col justify-between group h-[300px] md:h-[420px] w-[80vw] max-w-[320px] md:w-auto shrink-0 md:shrink snap-start">
-            <div>
-              <span className="font-label-caps text-[10px] text-secondary-fixed mb-4 block">AI PLATFORM</span>
-              <h3 className="font-headline-lg text-2xl md:text-3xl mb-2 md:mb-4 text-on-surface">Helios</h3>
-              <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">AI Prompts From Across the Galaxy.</p>
-            </div>
-            <div className="flex items-center justify-between mt-4 md:mt-8">
-              <span className="material-symbols-outlined text-4xl text-white/20 group-hover:text-secondary-fixed transition-colors">lightbulb</span>
-              <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-secondary-fixed group-hover:text-black transition-all">
-                <span className="material-symbols-outlined transition-transform duration-300 group-hover:rotate-45">
-                  north_east
-                  </span>
-              </div>
-            </div>
-          </Link>
-
-          {/* Product 2 */}
-          <Link to="/products/sendmyform" className="glass-card p-6 md:p-10 flex flex-col justify-between group h-[300px] md:h-[420px] w-[80vw] max-w-[320px] md:w-auto shrink-0 md:shrink snap-start">
-            <div>
-              <span className="font-label-caps text-[10px] text-secondary-fixed mb-4 block">SERVICE</span>
-              <h3 className="font-headline-lg text-2xl md:text-3xl mb-2 md:mb-4 text-on-surface">SendMyForm</h3>
-              <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">A serverless platform to handle form submissions.</p>
-            </div>
-            <div className="flex items-center justify-between mt-4 md:mt-8">
-              <span className="material-symbols-outlined text-4xl text-white/20 group-hover:text-secondary-fixed transition-colors">mail</span>
-              <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-secondary-fixed group-hover:text-black transition-all">
-                <span className="material-symbols-outlined transition-transform duration-300 group-hover:rotate-45">
-                  north_east
-                  </span>
-              </div>
-            </div>
-          </Link>
-
-          {/* Product 3 */}
-          <Link to="/products/holdon" className="glass-card p-6 md:p-10 flex flex-col justify-between group h-[300px] md:h-[420px] w-[80vw] max-w-[320px] md:w-auto shrink-0 md:shrink snap-start">
-            <div>
-              <span className="font-label-caps text-[10px] text-secondary-fixed mb-4 block">PRODUCT</span>
-              <h3 className="font-headline-lg text-2xl md:text-3xl mb-2 md:mb-4 text-on-surface">Hold On</h3>
-              <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">An app for anti-theft alarm for you phone.</p>
-            </div>
-            <div className="flex items-center justify-between mt-4 md:mt-8">
-              <span className="material-symbols-outlined text-4xl text-white/20 group-hover:text-secondary-fixed transition-colors">security</span>
-              <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-secondary-fixed group-hover:text-black transition-all">
-                <span className="material-symbols-outlined transition-transform duration-300 group-hover:rotate-45">
-                  north_east
-                  </span>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* ── Selected Work Editorial ── */}
-      <section className="py-section-gap bg-surface-container-lowest">
+      {/* ── SECTION 3: SELECTED REAL CLIENT WORK ── */}
+      <section className="py-24 md:py-32 border-t border-[#262626] bg-[#111111]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-margin-desktop">
-          <div className="mb-24 text-center max-w-2xl mx-auto space-y-4">
-            <span className="text-secondary-fixed font-label-caps text-label-caps">PORTFOLIO</span>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface">Selected Work</h2>
-            <p className="text-on-surface-variant">
-              We craft high-performance digital experiences that help ambitious businesses
-              strengthen their online presence, attract customers, and accelerate growth.
-            </p>
-          </div>
-
-          <div className="space-y-40">
-            {/* Project 1 */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center reveal-on-scroll">
-              <div className="md:col-span-7 aspect-[4/3] md:aspect-video relative overflow-hidden rounded-xl border border-white/10">
-                <img
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
-                  alt="Gaurav Synthetics website and Ramraj Cotton showroom project"
-                  src="/work-assets/gauravsyn.webp"
-                />
-              </div>
-
-              <div className="md:col-span-5 md:pl-12">
-                <span className="text-on-surface-variant font-label-caps text-xs">
-                  TEXTILE / 2026
-                </span>
-
-                <h3 className="font-headline-lg text-4xl mt-4 mb-6 text-on-surface">
-                  Gaurav Synthetics
-                </h3>
-
-                <p className="text-on-surface-variant mb-8">
-                  Designed and developed a conversion-focused digital platform for a legacy textile business,
-                  helping Gaurav Synthetics expand its online presence, strengthen discoverability, and
-                  generate more qualified wholesale leads across web and marketplace channels.
-                </p>
-
-                <Link
-                  to="/work/gaurav-synthetics"
-                  className="group flex items-center gap-4 text-secondary-fixed font-bold"
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <h2 className="text-3xl sm:text-5xl font-semibold text-[#F5F5F3] tracking-tight">
+                Selected work from production.
+              </h2>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="inline-flex items-center p-1 rounded-full bg-[#181818] border border-[#303030] text-xs">
+                <button
+                  type="button"
+                  onClick={() => setWorkViewMode("stack")}
+                  className={`px-3 py-1.5 rounded-full font-medium transition-all ${
+                    workViewMode === "stack"
+                      ? "bg-[#315EFB] text-white shadow-sm"
+                      : "text-[#A6A6A6] hover:text-white"
+                  }`}
                 >
-                  <span className="font-label-caps">READ CASE STUDY</span>
-                  <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">
-                    arrow_right_alt
-                  </span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Project 2 */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center reveal-on-scroll">
-              <div className="md:col-span-5 md:pr-12 order-2 md:order-1">
-                <span className="text-on-surface-variant font-label-caps text-xs">
-                  PR / BRANDING / 2025
-                </span>
-
-                <h3 className="font-headline-lg text-4xl mt-4 mb-6 text-on-surface">
-                  Fox Wing Media
-                </h3>
-
-                <p className="text-on-surface-variant mb-8">
-                  Designed and developed a conversion-focused website for Fox Wing Media to
-                  strengthen brand authority, improve service clarity, and support inbound lead
-                  generation through a polished PR and marketing presence.
-                </p>
-
-                <Link to="/work/fox-wing-media" className="group flex items-center gap-4 text-secondary-fixed font-bold">
-                  <span className="font-label-caps">READ CASE STUDY</span>
-                  <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">
-                    arrow_right_alt
-                  </span>
-                </Link>
+                  3D Stack
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setWorkViewMode("grid")}
+                  className={`px-3 py-1.5 rounded-full font-medium transition-all ${
+                    workViewMode === "grid"
+                      ? "bg-[#315EFB] text-white shadow-sm"
+                      : "text-[#A6A6A6] hover:text-white"
+                  }`}
+                >
+                  Grid View
+                </button>
               </div>
 
-              <div className="md:col-span-7 aspect-[4/3] md:aspect-video relative overflow-hidden rounded-xl border border-white/10 order-1 md:order-2">
-                <img
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
-                  alt="Fox Wing Media website and branding project"
-                  src="/work-assets/foxwing.webp"
-                />
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── Capabilities Grid ── */}
-      <section className="py-section-gap px-6 md:px-margin-desktop max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="font-headline-lg text-3xl sm:text-4xl text-on-surface">Capabilities</h2>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-y-12">
-          {[
-            { icon: "auto_awesome", label: "AGENTIC AI" },
-            { icon: "cloud", label: "CLOUD & DEVOPS" },
-            { icon: "code", label: "WEB DEVELOPMENT" },
-            { icon: "apps", label: "APP DEVELOPMENT" },
-            { icon: "search", label: "SEO" },
-            { icon: "design_services", label: "UI/UX DESIGN" },
-          ].map(({ icon, label }) => (
-            <div key={label} className="flex flex-col items-center gap-4 group">
-              <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-secondary-fixed transition-colors">
-                <span className="material-symbols-outlined text-on-surface-variant group-hover:text-secondary-fixed">{icon}</span>
-              </div>
-              <span className="font-label-caps text-xs tracking-widest text-on-surface-variant">{label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Why Achaia Value Cards ── */}
-      <section className="py-section-gap px-6 md:px-margin-desktop max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-          <div className="lg:col-span-3">
-            <span className="text-secondary-fixed font-label-caps text-label-caps">
-              OUR VALUES
-            </span>
-            <h4 className="font-headline-lg text-4xl sm:text-5xl lg:text-6xl leading-none text-on-surface max-w-xs">
-              Why Achaia Works?
-            </h4>
-            <p className="text-on-surface-variant text-base lg:text-lg leading-relaxed max-w-sm">
-              Beyond code, we build partnerships rooted in technical excellence and absolute reliability.
-            </p>
-          </div>
-
-          {[
-            {
-              num: "01",
-              title: "Built to Convert",
-              desc: "Clear layouts, stronger calls to action, and user journeys designed to turn visitors into leads.",
-            },
-            {
-              num: "02",
-              title: "Engineered to Scale",
-              desc: "Modular architecture that grows with the business without turning into a rebuild later.",
-            },
-            {
-              num: "03",
-              title: "Performance First",
-              desc: "Fast-loading, clean, and responsive experiences that feel premium on every device.",
-            },
-          ].map(({ num, title, desc }) => (
-            <div
-              key={num}
-              className="lg:col-span-3 glass-card p-8 rounded-2xl"
-            >
-              <div className="space-y-4">
-                <span className="text-secondary-fixed font-bold text-lg lg:text-xl">
-                  {num}
-                </span>
-                <h5 className="font-semibold text-lg lg:text-xl text-on-surface">
-                  {title}
-                </h5>
-              </div>
-              <p className="text-sm lg:text-base text-on-surface-variant leading-relaxed">
-                {desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Contact CTA ── */}
-      <section className="py-section-gap">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <div className="glass-card p-10 sm:p-16 md:p-24 rounded-3xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-secondary-fixed/10 blur-[120px] pointer-events-none" />
-            <div className="relative z-10 space-y-8">
-              <h2 className="font-display-xl text-headline-lg md:text-display-xl text-on-surface">Ready to start a conversation?</h2>
-              <p className="text-on-surface-variant max-w-lg mx-auto">Let's discuss how we can engineer your next digital breakthrough.</p>
-              <Link to="/contact" className="inline-block bg-secondary-fixed text-on-secondary-fixed px-12 py-5 rounded-full font-label-caps text-label-caps font-extrabold glow-hover hover:scale-105 transition-all">
-                Work with Us
+              <Link
+                to="/work"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#315EFB] hover:text-blue-400 transition-colors px-2 py-1"
+              >
+                <span>View All</span>
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
+          </div>
+
+          {workViewMode === "stack" ? (
+            <div className="py-2">
+              <WorkCardStack />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProjects.map((project) => (
+              <Link
+                key={project.id}
+                to={project.link}
+                className="group rounded-3xl bg-[#181818] border border-[#303030] hover:border-[#444444] transition-all overflow-hidden flex flex-col justify-between shadow-lg"
+              >
+                <div>
+                  <div className="h-56 overflow-hidden bg-[#141414] relative border-b border-[#262626]">
+                    <img
+                      src={project.img}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-semibold text-xl text-[#F5F5F3] group-hover:text-[#315EFB] transition-colors mb-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs text-[#777777] mb-3">{project.client}</p>
+                    <p className="text-xs sm:text-sm text-[#A6A6A6] line-clamp-3 leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#262626]">
+                      {project.deliverables.map((item, dIdx) => (
+                        <span
+                          key={dIdx}
+                          className="px-2.5 py-0.5 rounded-md bg-[#202020] border border-[#2c2c2c] text-[10px] text-[#888888]"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="px-6 py-4 border-t border-[#262626] flex items-center justify-between text-xs font-semibold text-[#315EFB]">
+                  <span>Read Case Study</span>
+                  <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
+                    arrow_forward
+                  </span>
+                </div>
+              </Link>
+            ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── SECTION 4: MEMORABLE MULTICOLOURED CONVERSION MOMENT (MICRO1 REFERENCE C) ── */}
+      <MulticolorConversion />
+
+      {/* ── SECTION 5: END-TO-END OWNERSHIP PROCESS ── */}
+      <section className="py-24 md:py-32 bg-[#111111] border-b border-[#262626]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-margin-desktop">
+          <div className="max-w-3xl mb-16 md:mb-20">
+            <h2 className="text-3xl sm:text-5xl font-semibold text-[#F5F5F3] tracking-tight leading-tight mb-4">
+              Our differentiator: End-to-end engineering ownership.
+            </h2>
+            <p className="text-[#A6A6A6] text-base sm:text-lg leading-relaxed">
+              We do not treat client work as a handoff of templates or unmaintained scripts. We take responsibility for understanding the business problem, building a reliable system, and remaining involved as it runs and evolves according to agreed scope.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ownershipSteps.map((step) => (
+              <div key={step.step} className="rounded-3xl bg-[#181818] border border-[#303030] p-8 flex flex-col justify-between hover:border-[#444444] transition-all shadow-md">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-3xl font-mono font-bold text-[#303030]">{step.step}</span>
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#315EFB] bg-[#315EFB]/10 px-3 py-1 rounded-full border border-[#315EFB]/20">
+                      {step.phase}
+                    </span>
+                  </div>
+                  <h3 className="font-semibold text-lg text-[#F5F5F3] mb-3">{step.title}</h3>
+                  <p className="text-xs sm:text-sm text-[#A6A6A6] leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-[#181818] border border-[#303030] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div className="space-y-1 max-w-2xl">
+              <p className="text-sm font-semibold text-[#F5F5F3]">
+                Transparent SLA & Maintenance Arrangements
+              </p>
+              <p className="text-xs sm:text-sm text-[#888888] leading-relaxed">
+                Support, bug fixes, integration updates, and performance monitoring terms are explicitly agreed prior to launch. We don't disappear after deployment.
+              </p>
+            </div>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-[#315EFB] hover:bg-[#254EDB] text-white text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-full transition-all shrink-0 shadow-md active:scale-95"
+            >
+              <span>Discuss Project Scope</span>
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 6: WHY ACHAIA (PRACTICAL ENGINEERING PRINCIPLES) ── */}
+      <section className="py-24 md:py-32 max-w-7xl mx-auto px-4 sm:px-6 md:px-margin-desktop">
+        <div className="max-w-3xl mb-16">
+          <h2 className="text-3xl sm:text-5xl font-semibold text-[#F5F5F3] tracking-tight mb-4">
+            How we approach engineering.
+          </h2>
+          <p className="text-[#A6A6A6] text-base sm:text-lg leading-relaxed">
+            We avoid generic agency hype. Our engineering principles are grounded in what actually keeps production systems reliable, cost-effective, and easy to maintain.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="rounded-3xl bg-[#181818] border border-[#303030] p-8 hover:border-[#444444] transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#202020] border border-[#303030] text-[#315EFB] flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined text-2xl">target</span>
+            </div>
+            <h3 className="font-semibold text-xl text-[#F5F5F3] mb-3">
+              Understand the business problem first
+            </h3>
+            <p className="text-xs sm:text-sm text-[#A6A6A6] leading-relaxed">
+              We never choose a tech stack or framework before understanding who uses the system, what data must flow, and where current bottlenecks exist. Technology is a means to an operational outcome.
+            </p>
+          </div>
+
+          <div className="rounded-3xl bg-[#181818] border border-[#303030] p-8 hover:border-[#444444] transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#202020] border border-[#303030] text-[#315EFB] flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined text-2xl">precision_manufacturing</span>
+            </div>
+            <h3 className="font-semibold text-xl text-[#F5F5F3] mb-3">
+              Built for real implementation, not just demos
+            </h3>
+            <p className="text-xs sm:text-sm text-[#A6A6A6] leading-relaxed">
+              Pretty mockups that break during peak traffic or fail when network connectivity drops are useless. We engineer database constraints, resilient offline caching, and graceful failure fallbacks.
+            </p>
+          </div>
+
+          <div className="rounded-3xl bg-[#181818] border border-[#303030] p-8 hover:border-[#444444] transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#202020] border border-[#303030] text-[#315EFB] flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined text-2xl">handshake</span>
+            </div>
+            <h3 className="font-semibold text-xl text-[#F5F5F3] mb-3">
+              Clear commitments and defined responsibilities
+            </h3>
+            <p className="text-xs sm:text-sm text-[#A6A6A6] leading-relaxed">
+              We communicate transparently regarding what is in scope, what requires third-party API dependencies, and how post-launch support is structured. Zero surprise invoices or abandoned codebases.
+            </p>
           </div>
         </div>
       </section>

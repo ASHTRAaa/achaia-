@@ -1,67 +1,105 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSEO } from "../../hooks/useSEO";
 
 const products = [
   {
     id: "helios",
     category: "AI PLATFORM",
     name: "Helios",
-    icon: "lightbulb",
-    desc: "Premium AI prompt generation and organization product, branded around a cosmic creative universe.",
+    icon: "psychology",
+    desc: "AI prompt generation, parameter organization, and creative workflow platform built for designers and power users.",
+    link: "https://heliosai.achaialabs.tech/",
   },
   {
     id: "sendmyform",
     category: "DEVELOPER TOOL",
     name: "SendMyForm",
     icon: "mail",
-    desc: "No-backend form submission service built for developers to receive and manage submissions instantly.",
+    desc: "Zero-backend form submission service built for developers and agencies to receive, validate, and manage submissions instantly.",
+    link: "https://sendmyform.com/",
   },
   {
     id: "holdon",
     category: "MOBILE SECURITY",
     name: "Hold On",
     icon: "security",
-    desc: "Anti-theft mobile alarm app designed to protect your phone from theft and tampering in public spaces.",
+    desc: "Anti-theft mobile security alarm application designed to protect smartphones from unauthorized movement and tampering in public spaces.",
+    link: null,
   },
 ];
 
 const Products = () => {
+  useSEO({
+    title: "In-House Products — Software Built by Achaia Labs",
+    description:
+      "Explore software platforms built by Achaia Labs. In-house engineering demonstrating our capabilities in AI, developer infrastructure, and mobile security.",
+    path: "/products",
+  });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="bg-background text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+    <div className="font-body-md text-[#F5F5F3] bg-[#111111] min-h-screen">
       {/* Hero */}
-      <section className="relative flex flex-col items-center justify-center pt-16 pb-16 sm:pt-20 md:pt-24 px-6 md:px-margin-desktop text-center overflow-hidden">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{ background: "radial-gradient(circle at 50% 50%, rgba(160, 214, 0, 0.05) 0%, transparent 70%)" }}
-        />
-        <div className="max-w-3xl space-y-6 flex flex-col items-center">
-          <span className="font-label-caps text-label-caps text-secondary-fixed tracking-[0.2em]">IN-HOUSE ECOSYSTEM</span>
-          <h1 className="font-display-xl text-display-xl text-on-surface font-semibold tracking-tight">
-            Products <span className="text-secondary-fixed">Built to Last</span>
-          </h1>
-          <p className="font-subheading text-subheading text-on-surface-variant max-w-2xl leading-relaxed mx-auto">
-            Our in-house platforms represent the cutting edge of what we build for our clients — available to the world.
-          </p>
-        </div>
+      <section className="pt-16 pb-12 sm:pt-20 md:pt-24 px-4 sm:px-6 md:px-margin-desktop text-center max-w-4xl mx-auto space-y-4">
+        <span className="text-[#315EFB] font-mono text-xs uppercase tracking-widest block font-semibold">
+          In-House Engineering
+        </span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-[#F5F5F3] tracking-tight leading-tight">
+          Software we build and run ourselves.
+        </h1>
+        <p className="text-base sm:text-lg text-[#A6A6A6] max-w-2xl mx-auto leading-relaxed">
+          We don't just engineer systems for clients. We design, deploy, and scale proprietary platforms across AI, developer tools, and mobile security.
+        </p>
       </section>
 
-      <section className="py-section-gap px-6 md:px-margin-desktop max-w-7xl mx-auto">
-        <div className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-x-visible pb-6 md:pb-0 gap-4 md:gap-gutter snap-x snap-mandatory scrollbar-none -mx-6 px-6 md:mx-0 md:px-0">
+      {/* Products Grid */}
+      <section className="py-12 pb-24 max-w-7xl mx-auto px-4 sm:px-6 md:px-margin-desktop">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {products.map((p) => (
-            <Link to={`/products/${p.id}`} key={p.id} className="glass-card p-6 md:p-10 flex flex-col justify-between group h-[300px] md:h-[420px] w-[80vw] max-w-[320px] md:w-auto shrink-0 md:shrink snap-start">
+            <div
+              key={p.id}
+              className="p-8 sm:p-10 rounded-3xl flex flex-col justify-between border border-[#303030] hover:border-[#444444] bg-[#181818] transition-all shadow-md"
+            >
               <div>
-                <span className="font-label-caps text-[10px] text-secondary-fixed mb-4 block">{p.category}</span>
-                <h2 className="font-headline-lg text-2xl md:text-3xl mb-2 md:mb-4 text-on-surface">{p.name}</h2>
-                <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">{p.desc}</p>
-              </div>
-              <div className="flex items-center justify-between mt-4 md:mt-8">
-                <span className="material-symbols-outlined text-4xl text-white/20 group-hover:text-secondary-fixed transition-colors">{p.icon}</span>
-                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-secondary-fixed group-hover:text-black transition-all">
-                  <span className="material-symbols-outlined transition-transform duration-300 group-hover:rotate-45">
-                  north_east
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-xs font-mono font-bold text-[#315EFB] uppercase tracking-wider bg-[#202020] border border-[#303030] px-3 py-1 rounded-full">
+                    {p.category}
                   </span>
+                  <div className="w-10 h-10 rounded-xl bg-[#202020] border border-[#303030] text-[#A6A6A6] flex items-center justify-center">
+                    <span className="material-symbols-outlined text-xl">{p.icon}</span>
+                  </div>
                 </div>
+
+                <h2 className="text-2xl font-semibold text-[#F5F5F3] mb-3">{p.name}</h2>
+                <p className="text-sm text-[#A6A6A6] leading-relaxed mb-6">{p.desc}</p>
               </div>
-            </Link>
+
+              <div className="pt-6 border-t border-[#262626] flex items-center justify-between">
+                <Link
+                  to={`/products/${p.id}`}
+                  className="text-xs font-semibold text-[#315EFB] hover:text-[#5B82FF] inline-flex items-center gap-1 transition-colors"
+                >
+                  <span>Product Details</span>
+                  <span className="material-symbols-outlined text-xs">arrow_forward</span>
+                </Link>
+
+                {p.link && (
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#777777] hover:text-[#F5F5F3] inline-flex items-center gap-1 transition-colors"
+                  >
+                    <span>Launch</span>
+                    <span className="material-symbols-outlined text-xs">open_in_new</span>
+                  </a>
+                )}
+              </div>
+            </div>
           ))}
         </div>
       </section>
