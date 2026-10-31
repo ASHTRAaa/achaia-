@@ -2,9 +2,24 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import "./Cyp.css";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useSEO } from "../../hooks/useSEO";
+
+const serviceList = [
+  { val: "Shopify & E-Commerce", label: "Shopify & E-Commerce Platform" },
+  { val: "ERP & Business Systems", label: "Custom ERP & Business Systems" },
+  { val: "Android & Mobile Apps", label: "Android & Mobile App Development" },
+  { val: "AI & Workflow Automation", label: "AI & Workflow Automation Systems" },
+  { val: "Custom Software Engineering", label: "Custom Software Architecture & APIs" },
+];
 
 const Cyp = () => {
+  useSEO({
+    title: "Project Scope & Estimator — Achaia Labs",
+    description:
+      "Estimate and scope your software development project with Achaia Labs. Custom Shopify stores, business ERPs, mobile applications, and AI workflows.",
+    path: "/cyp",
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -17,13 +32,14 @@ const Cyp = () => {
     email: "",
     services: [],
     budget: "",
+    timeline: "Flexible",
     message: "",
   });
 
   const [status, setStatus] = useState({
     submitting: false,
     success: false,
-    error: null
+    error: null,
   });
 
   const handleChange = (e) => {
@@ -54,9 +70,10 @@ const Cyp = () => {
       const payload = {
         name: formData.name,
         email: formData.email,
-        phone: phone,
-        services: formData.services.join(", "),
-        budget: `${currency} ${formData.budget}`,
+        phone: phone || "Not provided",
+        services: formData.services.length > 0 ? formData.services.join(", ") : "Not specified",
+        budget: formData.budget ? `${currency} ${formData.budget}` : "Not specified (Open for discussion)",
+        timeline: formData.timeline,
         message: formData.message,
       };
 
@@ -64,7 +81,7 @@ const Cyp = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json"
+          Accept: "application/json",
         },
         body: JSON.stringify(payload),
       });
@@ -76,181 +93,245 @@ const Cyp = () => {
           email: "",
           services: [],
           budget: "",
+          timeline: "Flexible",
           message: "",
         });
         setPhone("");
       } else {
         const errData = await res.json();
-        throw new Error(errData.message || "Failed to submit project parameters.");
+        throw new Error(errData.message || "Failed to submit project request.");
       }
     } catch (err) {
       console.error(err);
-      setStatus({ submitting: false, success: false, error: err.message || "Network error. Please try again." });
+      setStatus({
+        submitting: false,
+        success: false,
+        error: err.message || "Network error. Please try again or email us directly.",
+      });
     }
   };
 
   return (
-    <main className="page-container cyp-page">
-      <div className="fixed top-[-10%] right-[-5%] w-[40%] h-[40%] bg-secondary-fixed/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
-      
-      <section className="cyp-hero text-center max-w-3xl mx-auto pt-16 sm:pt-20 md:pt-24 mb-12 sm:mb-16">
-        <span className="label-caps cyp-tag text-lime font-bold tracking-widest block mb-4">Laboratory Scoping</span>
-        <h1 className="display-xl cyp-headline mb-6 font-semibold leading-tight">Cost Your Project</h1>
-        <p className="subheading cyp-subtitle text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
-          Select your operational parameters below. Our architecture team will analyze your requirements and assemble a formal technical proposal.
-        </p>
-      </section>
+    <main className="font-body-md text-[#F5F5F3] bg-[#111111] min-h-screen py-16 sm:py-20 md:py-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-margin-desktop">
+        {/* Header */}
+        <section className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-4">
+          <span className="text-[#315EFB] font-mono text-xs uppercase tracking-widest block font-semibold">
+            Project Scoping Tool
+          </span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#F5F5F3] tracking-tight leading-tight">
+            Scope Your Project
+          </h1>
+          <p className="text-base sm:text-lg text-[#A6A6A6] leading-relaxed">
+            Select the services you need and tell us about your operational requirements. Our technical team will review your specifications and prepare a formal proposal.
+          </p>
+        </section>
 
-      <section className="cyp-form-section max-w-3xl w-full mx-auto px-4 sm:px-6">
-        <div className="glass-card cyp-form-card p-6 sm:p-8 md:p-12 relative overflow-hidden rounded-2xl mx-auto w-full">
-          <div className="absolute top-0 left-0 w-64 h-64 bg-secondary-fixed/5 blur-[100px] pointer-events-none"></div>
-
+        {/* Card Form */}
+        <div className="p-8 sm:p-12 rounded-3xl border border-[#303030] shadow-md bg-[#181818]">
           {status.success ? (
-            <motion.div 
-              className="success-overlay flex flex-col items-center justify-center text-center p-8 glass-card border-lime"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-            >
-              <span className="material-symbols-outlined success-icon text-lime mb-4">check_circle</span>
-              <h3 className="headline-lg text-2xl mb-2">Parameters Logged</h3>
-              <p className="body-md text-on-surface-variant max-w-sm">
-                Project scoping metrics have been recorded. Our system architects will prepare a proposal draft within 24 hours.
-              </p>
-              <button 
-                onClick={() => setStatus({ submitting: false, success: false, error: null })}
-                className="border border-white/20 text-white font-label-caps text-label-caps px-8 py-3 rounded-full hover:bg-white/5 transition-all mt-8"
-              >
-                Submit New Project
-              </button>
-            </motion.div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-10">
-              {/* Contact Metadata */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="input-group">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="form-input"
-                  />
-                </div>
-                <div className="input-group">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="form-input"
-                  />
-                </div>
+            <div className="text-center py-16 space-y-4">
+              <div className="w-16 h-16 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-emerald-400 flex items-center justify-center mx-auto mb-2">
+                <span className="material-symbols-outlined text-3xl">check</span>
               </div>
+              <h2 className="text-2xl font-semibold text-[#F5F5F3]">
+                Project Scope Received
+              </h2>
+              <p className="text-[#A6A6A6] max-w-md mx-auto text-sm sm:text-base leading-relaxed">
+                Thank you. We have received your project parameters. A technical lead will analyze your requirements and follow up with preliminary scoping within 24 hours.
+              </p>
+              <button
+                onClick={() => setStatus({ submitting: false, success: false, error: null })}
+                className="inline-flex items-center gap-2 bg-[#315EFB] text-white px-6 py-3 rounded-full text-xs font-semibold hover:bg-[#254EDB] transition-all mt-4"
+              >
+                Submit Another Project
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-8">
+              {/* Contact Information */}
+              <div>
+                <h2 className="text-xs font-mono font-semibold text-[#777777] uppercase tracking-wider mb-4">
+                  01 • Your Contact Details
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-mono font-semibold uppercase tracking-wider text-[#A6A6A6] block">
+                      Full Name <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="e.g. Rahul Sharma"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="form-input text-sm"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-mono font-semibold uppercase tracking-wider text-[#A6A6A6] block">
+                      Email Address <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="e.g. rahul@company.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="form-input text-sm"
+                    />
+                  </div>
+                </div>
 
-              {/* Phone Input with styled dropdown override */}
-              <div className="input-group phone-group">
-                <label className="label-caps text-on-surface-variant block mb-3">CONTACT PHONE</label>
-                <PhoneInput
-                  country={"us"}
-                  value={phone}
-                  onChange={(phoneVal) => setPhone(phoneVal)}
-                  inputProps={{
-                    name: "phone",
-                    required: true,
-                  }}
-                  enableSearch={true}
-                />
+                <div className="mt-6 space-y-1.5">
+                  <label className="text-xs font-mono font-semibold uppercase tracking-wider text-[#A6A6A6] block">
+                    Phone Number (Optional)
+                  </label>
+                  <PhoneInput
+                    country={"in"}
+                    value={phone}
+                    onChange={(phoneVal) => setPhone(phoneVal)}
+                    inputProps={{
+                      name: "phone",
+                    }}
+                    enableSearch={true}
+                    containerClass="w-full"
+                    inputClass="!w-full !h-[48px] !rounded-xl !border-[#303030] !bg-[#141414] !text-[#F5F5F3]"
+                  />
+                </div>
               </div>
 
               {/* Services Required Checkboxes */}
-              <div className="input-group">
-                <label className="label-caps text-on-surface-variant block mb-6">SERVICES REQUIRED</label>
-                <div className="checkbox-grid">
-                  {[
-                    { val: "Website", label: "Web Platform Development" },
-                    { val: "Mobile App", label: "Mobile App Development" },
-                    { val: "Custom Software", label: "Custom Software Solutions" },
-                    { val: "AI Integration", label: "Cognitive AI Integrations" }
-                  ].map((service) => (
-                    <label key={service.val} className="checkbox-label glass-card">
+              <div className="pt-6 border-t border-[#262626]">
+                <h2 className="text-xs font-mono font-semibold text-[#777777] uppercase tracking-wider mb-4">
+                  02 • Services Required
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {serviceList.map((service) => (
+                    <label
+                      key={service.val}
+                      className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${
+                        formData.services.includes(service.val)
+                          ? "border-[#315EFB] bg-[#202020] text-[#315EFB]"
+                          : "border-[#303030] bg-[#141414] text-[#F5F5F3] hover:border-[#444444]"
+                      }`}
+                    >
                       <input
                         type="checkbox"
                         name="services"
                         value={service.val}
                         checked={formData.services.includes(service.val)}
                         onChange={handleCheckbox}
-                        className="checkbox-input"
+                        className="w-4 h-4 text-[#315EFB] rounded border-[#303030] bg-[#181818] focus:ring-[#315EFB]"
                       />
-                      <span className="checkbox-text body-md">{service.label}</span>
+                      <span className="text-sm font-medium">{service.label}</span>
                     </label>
                   ))}
                 </div>
               </div>
 
-              {/* Approx Budget */}
-              <div className="input-group">
-                <label className="label-caps text-on-surface-variant block mb-4">APPROXIMATE BUDGET</label>
-                <div className="budget-row">
-                  <select
-                    name="currency"
-                    value={currency}
-                    onChange={(e) => setCurrency(e.target.value)}
-                    className="budget-currency-select"
-                  >
-                    <option value="USD">$ USD</option>
-                    <option value="EUR">€ EUR</option>
-                    <option value="GBP">£ GBP</option>
-                    <option value="INR">₹ INR</option>
-                  </select>
+              {/* Budget and Timeline */}
+              <div className="pt-6 border-t border-[#262626]">
+                <h2 className="text-xs font-mono font-semibold text-[#777777] uppercase tracking-wider mb-4">
+                  03 • Budget & Timeline (Optional)
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-mono font-semibold uppercase tracking-wider text-[#A6A6A6] block">
+                      Approximate Budget (Optional)
+                    </label>
+                    <div className="flex gap-2">
+                      <select
+                        name="currency"
+                        value={currency}
+                        onChange={(e) => setCurrency(e.target.value)}
+                        className="w-24 form-input text-sm"
+                      >
+                        <option value="INR">₹ INR</option>
+                        <option value="USD">$ USD</option>
+                        <option value="EUR">€ EUR</option>
+                        <option value="GBP">£ GBP</option>
+                      </select>
+                      <input
+                        type="text"
+                        name="budget"
+                        placeholder="e.g. 50,000 or Flexible"
+                        value={formData.budget}
+                        onChange={handleChange}
+                        className="form-input text-sm flex-1"
+                      />
+                    </div>
+                  </div>
 
-                  <input
-                    type="number"
-                    name="budget"
-                    min="0"
-                    value={formData.budget}
-                    placeholder={currency === "INR" ? "5,00,000" : "15,000"}
-                    onChange={handleChange}
-                    className="form-input budget-input"
-                    required
-                  />
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-mono font-semibold uppercase tracking-wider text-[#A6A6A6] block">
+                      Desired Timeline
+                    </label>
+                    <select
+                      name="timeline"
+                      value={formData.timeline}
+                      onChange={handleChange}
+                      className="form-input text-sm"
+                    >
+                      <option value="Immediate (< 1 month)">Immediate (&lt; 1 month)</option>
+                      <option value="1 - 3 months">1 – 3 months</option>
+                      <option value="3 - 6 months">3 – 6 months</option>
+                      <option value="Flexible">Flexible / Planning Phase</option>
+                    </select>
+                  </div>
                 </div>
               </div>
 
-              {/* Project Details Description */}
-              <div className="input-group">
-                <label className="label-caps text-on-surface-variant block mb-4">PROJECT SYNOPSIS</label>
+              {/* Project Description */}
+              <div className="pt-6 border-t border-[#262626] space-y-1.5">
+                <h2 className="text-xs font-mono font-semibold text-[#777777] uppercase tracking-wider mb-2">
+                  04 • Project Overview
+                </h2>
+                <label className="text-xs font-mono font-semibold uppercase tracking-wider text-[#A6A6A6] block">
+                  Describe what you want to build or automate <span className="text-red-400">*</span>
+                </label>
                 <textarea
                   name="message"
-                  placeholder="Describe your technical challenges, user flow goals, and specific integration points."
-                  rows="4"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="form-input form-textarea"
-                ></textarea>
+                  rows={4}
+                  className="form-input text-sm resize-none"
+                  placeholder="Share details regarding your operational requirements, existing systems, or user workflows..."
+                />
               </div>
 
               {status.error && (
-                <div className="error-message text-red-500 font-semibold text-sm">
+                <div className="p-4 rounded-xl bg-red-950/80 border border-red-800/60 text-red-300 text-xs sm:text-sm">
                   {status.error}
                 </div>
               )}
 
-              <button 
-                type="submit" 
-                disabled={status.submitting}
-                className="w-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps py-4 rounded-full font-bold hover:scale-105 active:scale-95 transition-all glow-hover text-center flex items-center justify-center gap-2"
-              >
-                {status.submitting ? "Transmitting Scope..." : "Submit Project Scope"}
-              </button>
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={status.submitting}
+                  className="inline-flex items-center justify-center gap-2 bg-[#315EFB] hover:bg-[#254EDB] text-white px-9 py-4 rounded-full font-semibold text-sm transition-all shadow-md active:scale-95 disabled:opacity-60"
+                >
+                  {status.submitting ? (
+                    <>
+                      <span className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                      <span>Submitting Scope...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Submit Project Scope</span>
+                      <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                    </>
+                  )}
+                </button>
+              </div>
             </form>
           )}
         </div>
-      </section>
+      </div>
     </main>
   );
 };
