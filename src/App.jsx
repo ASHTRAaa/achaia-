@@ -24,6 +24,8 @@ const JoinTeam = lazy(() => import("./pages/join-team/JoinTeam.jsx"));
 const Privacy = lazy(() => import("./pages/privacy/Privacy.jsx"));
 const Terms = lazy(() => import("./pages/terms/Terms.jsx"));
 const Cookies = lazy(() => import("./pages/cookies/Cookies.jsx"));
+const BlogListing = lazy(() => import("./pages/blog/BlogListing.jsx"));
+const BlogPostDetail = lazy(() => import("./pages/blog/BlogPostDetail.jsx"));
 const Sitemap = lazy(() => import("./pages/sitemap/Sitemap.jsx"));
 const ShowcaseDemo = lazy(() => import("./pages/showcase-demo/ShowcaseDemo.jsx"));
 const NotFound = lazy(() => import("./pages/not-found/NotFound.jsx"));
@@ -55,6 +57,8 @@ function App() {
           <Route path="work/:id" element={<CaseStudyDetail />} />
           <Route path="products" element={<Products />} />
           <Route path="products/:id" element={<ProductDetail />} />
+          <Route path="blog" element={<BlogListing />} />
+          <Route path="blog/:slug" element={<BlogPostDetail />} />
           <Route path="cyp" element={<Cyp />} />
           <Route path="join-our-team" element={<JoinTeam />} />
           <Route path="privacy" element={<Privacy />} />
