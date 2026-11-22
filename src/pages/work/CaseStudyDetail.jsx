@@ -14,7 +14,7 @@ export const caseStudiesData = {
     subtitle:
       "We designed and built a mobile-first Shopify e-commerce presence for a boutique children's fashion brand, featuring custom festive collection lookbooks, age/size variant filters, and domestic payment integrations.",
     heroImg: "/work-assets/mnm_home2.webp",
-    liveUrl: "https://achaialabs.tech",
+    liveUrl: "https://momsnmoon.com",
     context:
       "Moms & Moon designs handcrafted festive and occasion wear for children. The business was expanding from bespoke boutique orders to a direct-to-consumer online brand. They needed a digital storefront that captured the elegance of their garments while delivering frictionless checkout on mobile devices.",
     objectives: [
@@ -81,7 +81,7 @@ export const caseStudiesData = {
     subtitle:
       "We built a centralized governance portal replacing disconnected spreadsheets to manage fellowship tracks, affiliated institute records, student enrollment cohorts, and institutional compliance.",
     heroImg: "/work-assets/skmt_erp_tablet.webp",
-    liveUrl: "https://achaialabs.tech",
+    liveUrl: "https://skmttrust.com",
     context:
       "SKMT Trust oversees multiple affiliated educational institutes and specialized fellowship programs. Leadership and program coordinators were managing student cohorts, attendance records, fee status, and institute affiliations across dozens of manual Google Sheets, creating data discrepancy risks and heavy manual administrative burden.",
     objectives: [
@@ -279,7 +279,7 @@ export const caseStudiesData = {
     subtitle:
       "We built a trust-led digital platform for a regional supply business serving education, office, industrial, textile, and manpower procurement needs.",
     heroImg: "/work-assets/divineEnt.webp",
-    liveUrl: "https://achaialabs.tech",
+    liveUrl: "https://divineenterprisesgroup.in/",
     context:
       "Divine Enterprises is a multi-category institutional supplier based in Bihar, fulfilling government, university, and commercial procurement orders for office furniture, uniform textiles, industrial supplies, and facility manpower. Institutional buyers needed a structured digital portal to verify the firm's supply credentials, browse product categories, and request tender quotations.",
     objectives: [
@@ -410,7 +410,7 @@ export const caseStudiesData = {
     subtitle:
       "We engineered a modern Shopify e-commerce presence and directory for healing crystals and certified gemstones, featuring rapid collection filtering, fast local caching, and seamless domestic checkout.",
     heroImg: "/work-assets/mandala.webp",
-    liveUrl: "https://achaialabs.tech",
+    liveUrl: "https://mandalagoodvibes.com/",
     context:
       "Mandala Good Vibes specializes in authentic energized crystals, gemstone bracelets, and spiritual wellness artifacts. They required a fast, visually captivating online store that could organize hundreds of gemstone variants, provide clear spiritual attributes and certification details, and offer frictionless mobile purchasing.",
     objectives: [
