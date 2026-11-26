@@ -14,10 +14,13 @@ function getRouteMetadata(route) {
   if (route === "/") {
     return { priority: "1.0", changefreq: "weekly" };
   }
-  if (route === "/services" || route === "/work" || route === "/products") {
+  if (route === "/services" || route === "/work" || route === "/products" || route === "/blog") {
     return { priority: "0.9", changefreq: "weekly" };
   }
   if (route.startsWith("/services/")) {
+    return { priority: "0.85", changefreq: "weekly" };
+  }
+  if (route.startsWith("/blog/")) {
     return { priority: "0.85", changefreq: "weekly" };
   }
   if (route.startsWith("/work/")) {
@@ -42,12 +45,13 @@ function getRouteMetadata(route) {
 }
 
 /**
- * Dynamically extract all routes from App.jsx, CaseStudyDetail.jsx, and Products.jsx
+ * Dynamically extract all routes from App.jsx, CaseStudyDetail.jsx, Products.jsx, and blog data
  */
 export function extractSiteRoutes() {
   const appPath = path.join(rootDir, "src", "App.jsx");
   const caseStudyPath = path.join(rootDir, "src", "pages", "work", "CaseStudyDetail.jsx");
   const productsPath = path.join(rootDir, "src", "pages", "products", "Products.jsx");
+  const blogDir = path.join(rootDir, "src", "data", "blog");
 
   const appContent = fs.existsSync(appPath) ? fs.readFileSync(appPath, "utf8") : "";
   const caseStudyContent = fs.existsSync(caseStudyPath) ? fs.readFileSync(caseStudyPath, "utf8") : "";
@@ -91,18 +95,38 @@ export function extractSiteRoutes() {
     }
   }
 
+  // 4. Dynamic blog slugs from src/data/blog/*.js
+  const blogRoutes = [];
+  if (fs.existsSync(blogDir)) {
+    const blogFiles = fs.readdirSync(blogDir).filter((f) => f.endsWith(".js") && f !== "index.js");
+    for (const file of blogFiles) {
+      const filePath = path.join(blogDir, file);
+      const content = fs.readFileSync(filePath, "utf8");
+      const slugMatch = /slug:\s*["']([a-z0-9\-]+)["']/.exec(content);
+      if (slugMatch && slugMatch[1]) {
+        const bRoute = `/blog/${slugMatch[1]}`;
+        if (!blogRoutes.includes(bRoute)) {
+          blogRoutes.push(bRoute);
+        }
+      }
+    }
+  }
+
   // Combine and order logically
   const allRoutes = [
     "/",
     "/services",
     "/work",
     "/products",
+    "/blog",
     "/about",
     "/contact",
     "/cyp",
     "/join-our-team",
     // Services
     ...Array.from(staticRoutes).filter((r) => r.startsWith("/services/")),
+    // Blog articles
+    ...blogRoutes,
     // Case studies
     ...caseStudyRoutes,
     // Products

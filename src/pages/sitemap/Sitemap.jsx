@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSEO } from "../../hooks/useSEO";
+import { blogPosts } from "../../data/blog/index.js";
 
 const Sitemap = () => {
   useSEO({
     title: "Sitemap",
-    description: "Sitemap of Achaia Labs - Complete directory of services, portfolio, company, and legal pages.",
+    description: "Sitemap of Achaia Labs - Complete directory of services, portfolio, blog articles, company, and legal pages.",
     path: "/sitemap",
   });
 
@@ -32,9 +33,9 @@ const Sitemap = () => {
           </h1>
         </div>
 
-        {/* Multi-column open editorial link directory - exactly matching micro1 inspiration */}
+        {/* Multi-column open editorial link directory */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 sm:gap-16 lg:gap-24">
-          {/* Column 1 */}
+          {/* Column 1: Services & Case Studies */}
           <div className="space-y-12">
             <div>
               <h2 className="text-base sm:text-lg font-medium text-[#F5F5F3] mb-5">
@@ -92,25 +93,31 @@ const Sitemap = () => {
             </div>
           </div>
 
-          {/* Column 2 */}
+          {/* Column 2: Blog & Technical Articles */}
           <div className="space-y-12">
             <div>
-              <h2 className="text-base sm:text-lg font-medium text-[#F5F5F3] mb-5">
-                Company
-              </h2>
-              <div className="space-y-3.5 text-sm sm:text-base">
-                <Link to="/about" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
-                  About Us
+              <div className="flex items-center justify-between mb-5">
+                <h2 className="text-base sm:text-lg font-medium text-[#F5F5F3]">
+                  Engineering Blog
+                </h2>
+                <Link to="/blog" className="text-xs font-mono text-[#315EFB] hover:underline">
+                  Hub →
                 </Link>
-                <Link to="/contact" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
-                  Contact Us
+              </div>
+              <div className="space-y-3 text-xs sm:text-sm">
+                <Link to="/blog" className="block text-[#F5F5F3] font-medium hover:text-[#315EFB] transition-colors">
+                  All Blog Articles Overview
                 </Link>
-                <Link to="/cyp" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
-                  Project Estimator
-                </Link>
-                <Link to="/join-our-team" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
-                  Careers & Hiring
-                </Link>
+                {blogPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    to={`/blog/${post.slug}`}
+                    className="block text-[#888888] hover:text-[#F5F5F3] transition-colors line-clamp-1"
+                    title={post.title}
+                  >
+                    {post.title}
+                  </Link>
+                ))}
               </div>
             </div>
 
@@ -133,27 +140,36 @@ const Sitemap = () => {
                 </Link>
               </div>
             </div>
-
-            <div>
-              <h2 className="text-base sm:text-lg font-medium text-[#F5F5F3] mb-5">
-                Inquiries
-              </h2>
-              <div className="space-y-3.5 text-sm sm:text-base">
-                <Link to="/cyp" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
-                  Discuss a Project
-                </Link>
-                <Link to="/contact" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
-                  General Inquiries
-                </Link>
-              </div>
-            </div>
           </div>
 
-          {/* Column 3 */}
+          {/* Column 3: Company, Legal & Contact */}
           <div className="space-y-12">
             <div>
               <h2 className="text-base sm:text-lg font-medium text-[#F5F5F3] mb-5">
-                Other
+                Company
+              </h2>
+              <div className="space-y-3.5 text-sm sm:text-base">
+                <Link to="/about" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
+                  About Us
+                </Link>
+                <Link to="/contact" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
+                  Contact Us
+                </Link>
+                <Link to="/blog" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
+                  Blog & Editorial
+                </Link>
+                <Link to="/cyp" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
+                  Project Estimator
+                </Link>
+                <Link to="/join-our-team" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
+                  Careers & Hiring
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-base sm:text-lg font-medium text-[#F5F5F3] mb-5">
+                Legal & Governance
               </h2>
               <div className="space-y-3.5 text-sm sm:text-base">
                 <Link to="/privacy" className="block text-[#888888] hover:text-[#F5F5F3] transition-colors">
@@ -170,7 +186,7 @@ const Sitemap = () => {
 
             <div>
               <h2 className="text-base sm:text-lg font-medium text-[#F5F5F3] mb-5">
-                Support
+                Direct Contact
               </h2>
               <div className="space-y-3.5 text-sm sm:text-base">
                 <a
@@ -178,6 +194,12 @@ const Sitemap = () => {
                   className="block text-[#888888] hover:text-[#F5F5F3] transition-colors"
                 >
                   contact@achaialabs.tech
+                </a>
+                <a
+                  href="tel:+916202589421"
+                  className="block text-[#888888] hover:text-[#F5F5F3] transition-colors"
+                >
+                  +91 6202589421
                 </a>
               </div>
             </div>
