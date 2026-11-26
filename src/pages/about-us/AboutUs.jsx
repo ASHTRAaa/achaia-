@@ -1,37 +1,110 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import aboutHeroImg from "/team-assets/about-hero.png";
-import teamShowcaseImg from "/team-assets/team.webp";
-import manishPhoto from "/team-assets/manish.webp";
-import gurujeetPhoto from "/team-assets/gurujeet.webp";
-import ayushPhoto from "/team-assets/ayush.webp";
-import sushantPhoto from "/team-assets/sushant.webp";
 import { useSEO } from "../../hooks/useSEO";
 import MulticolorConversion from "../../components/home/MulticolorConversion";
-import Team from "@/components/ui/team-01";
 import "./AboutUs.css";
 
 const AboutUs = () => {
   useSEO({
     title: "About Achaia Labs — Product Engineering & Automation Team",
     description:
-      "Meet the founding team behind Achaia Labs. Hands-on product engineering, custom ERPs, Shopify e-commerce, and AI workflow automation with direct ownership.",
+      "Learn how Achaia Labs operates — a focused engineering team delivering high-ownership Shopify stores, custom ERPs, mobile apps, and AI automations directly with clients.",
     path: "/about",
   });
 
   const [activeStep, setActiveStep] = useState(0);
-  const [expanded, setExpanded] = useState({ gurujeet: false, manish: false, ayush: false, sushant: false });
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const toggleExpand = (id) => {
-    setExpanded((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
+  const companyFacts = [
+    {
+      label: "Team",
+      value: "4-person",
+    },
+    {
+      label: "Client Model",
+      value: "Direct, frontfoot collaboration",
+    },
+    {
+      label: "Based in",
+      value: "Kolkata, West Bengal, India",
+    },
+    {
+      label: "Works with",
+      value: "Businesses worldwide",
+    },
+  ];
+
+  const capabilities = [
+    {
+      title: "Shopify & E-Commerce",
+      desc: "Custom Liquid storefronts, mobile-first conversion UX, regional payment & logistics sync, and scalable digital catalogs.",
+      href: "/services/shopify",
+    },
+    {
+      title: "ERP & Business Systems",
+      desc: "Centralized governance portals, role-based dashboards, and relational backends replacing disconnected spreadsheets.",
+      href: "/services/erp",
+    },
+    {
+      title: "Application Development",
+      desc: "Production Android and cross-platform applications engineered for offline resilience, local caching, and responsive speed.",
+      href: "/services/apps",
+    },
+    {
+      title: "AI & Workflow Automation",
+      desc: "End-to-end API pipelines, document extraction, and human-in-the-loop automations built with Python, n8n, and LLMs.",
+      href: "/services/ai-automation",
+    },
+  ];
+
+  const industries = [
+    { label: "Retail, D2C & E-Commerce", icon: "storefront" },
+    { label: "Education, Trusts & Non-Profits", icon: "school" },
+    { label: "Wholesale, Textiles & B2B Supply", icon: "inventory_2" },
+    { label: "Media, Agencies & Professional Services", icon: "campaign" },
+  ];
+
+  const techStack = [
+    "React",
+    "Next.js",
+    "Node.js",
+    "Python",
+    "FastAPI",
+    "PostgreSQL",
+    "Supabase",
+    "Shopify Liquid",
+    "Android / Kotlin",
+    "Tailwind CSS",
+    "LangChain",
+    "LangGraph",
+    "Claude",
+    "n8n",
+    "Zapier",
+    "AWS",
+    "GCP",
+  ];
+
+  const howWeWork = [
+    {
+      title: "High engineering ownership",
+      desc: "We don't pass your project down a chain of account managers or junior contractors. The engineers architecting your system own it from discovery to production.",
+    },
+    {
+      title: "Direct, frontfoot collaboration",
+      desc: "You communicate directly with the builders every week — fast decisions, clear trade-offs, and proactive problem solving without layers of bureaucracy.",
+    },
+    {
+      title: "Fixed scope, clear milestones",
+      desc: "We align on deliverables, technical architecture, and pricing before work starts, backed by working staging builds you can test every week.",
+    },
+    {
+      title: "You own the code & systems",
+      desc: "Everything lives in your repositories and cloud accounts from week one. No proprietary lock-in, and clear ongoing maintenance agreements post-launch.",
+    },
+  ];
 
   const timelineSteps = [
     {
@@ -56,62 +129,19 @@ const AboutUs = () => {
     },
   ];
 
-  const teamData = [
-    {
-      name: "Manish Kumar",
-      role: "Client Outreach Head",
-      bio: "Leads client partnerships, project strategy, and commercial operations. Focuses on aligning engineering deliverables with measurable business outcomes.",
-      image: manishPhoto,
-      socials: {
-        linkedin: "https://www.linkedin.com/in/manish-k-06a2003b1/",
-        x: "https://x.com/hitwicket_hogya",
-      },
-    },
-    {
-      name: "Gurujeet Kumar",
-      role: "Business Operations Head",
-      bio: "Manages financial planning, project operations, and search discoverability. Ensures client delivery timelines remain grounded in operational discipline.",
-      image: gurujeetPhoto,
-      socials: {
-        linkedin: "https://www.linkedin.com/in/imgurujeet/",
-        x: "https://x.com/imgurujeet",
-      },
-    },
-    {
-      name: "Ayush Aman",
-      role: "Technical Operations Head",
-      bio: "Leads software architecture, AI automation pipelines, mobile development, and cloud DevOps. Passionate about building resilient, low-latency production systems.",
-      image: ayushPhoto,
-      socials: {
-        linkedin: "https://www.linkedin.com/in/ayushaman24/",
-        x: "https://x.com/aman_ayush4",
-      },
-    },
-    {
-      name: "Sushant Kumar",
-      role: "Marketing Head",
-      bio: "Drives inbound strategy, growth positioning, and market outreach for both client platforms and in-house software products.",
-      image: sushantPhoto,
-      socials: {
-        linkedin: "https://www.linkedin.com/in/sushant-kumar-9a85ab251/",
-        x: "https://x.com/Sushant18857491",
-      },
-    },
-  ];
-
   return (
     <div className="font-body-md text-[#F5F5F3] bg-[#111111] min-h-screen">
       {/* ── SECTION 1 — HERO ── */}
-      <section className="pt-16 pb-16 sm:pt-20 md:pt-24 px-4 sm:px-6 md:px-margin-desktop max-w-7xl mx-auto">
+      <section className="pt-16 pb-14 sm:pt-20 md:pt-24 px-4 sm:px-6 md:px-margin-desktop max-w-7xl mx-auto">
         <div className="max-w-3xl space-y-6">
           <span className="text-[#315EFB] font-mono text-xs uppercase tracking-widest block font-semibold">
             About Achaia Labs
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-[#F5F5F3] tracking-tight leading-[1.1]">
-            Engineering software around real business problems.
+            Engineering Software around real business problems.
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-[#A6A6A6] leading-relaxed">
-            Most digital projects falter because they solve imagined problems with bloated features. At Achaia Labs, we build, integrate, deploy, and maintain software systems designed around how businesses actually operate.
+            Most digital projects falter because they solve imagined problems with bloated layers. At Achaia Labs, we build, integrate, deploy, and maintain software systems designed around how businesses actually operate.
           </p>
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <Link
@@ -131,27 +161,145 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* ── SECTION 2 — APPROACH & DELIVERY MODEL ── */}
+      {/* ── SECTION 2 — COMPANY FACTS ── */}
+      <section className="pb-12 md:pb-16 px-4 sm:px-6 md:px-margin-desktop max-w-7xl mx-auto">
+        <div className="rounded-3xl bg-[#161616] border border-[#2A2A2A] p-7 sm:p-10">
+          <h2 className="text-xl sm:text-2xl font-semibold text-[#F5F5F3] mb-8 tracking-tight">
+            Company facts
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {companyFacts.map((fact) => (
+              <div key={fact.label} className="space-y-1.5">
+                <p className="text-xs font-mono uppercase tracking-wider text-[#777777]">
+                  {fact.label}
+                </p>
+                <p className="text-base sm:text-lg font-semibold text-[#F5F5F3]">
+                  {fact.value}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 3 — WHAT WE DO ── */}
+      <section className="pb-12 md:pb-16 px-4 sm:px-6 md:px-margin-desktop max-w-7xl mx-auto">
+        <div className="rounded-3xl bg-[#161616] border border-[#2A2A2A] p-7 sm:p-10">
+          <h2 className="text-xl sm:text-2xl font-semibold text-[#F5F5F3] mb-8 tracking-tight">
+            What we do
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {capabilities.map((cap) => (
+              <div
+                key={cap.title}
+                className="rounded-2xl bg-[#1C1C1F] border border-[#2D2D32] hover:border-[#3D3D45] p-6 sm:p-7 flex flex-col justify-between transition-colors"
+              >
+                <div className="space-y-2.5 mb-5">
+                  <h3 className="text-base sm:text-lg font-semibold text-[#F5F5F3]">
+                    {cap.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#A6A6A6] leading-relaxed">
+                    {cap.desc}
+                  </p>
+                </div>
+                <div>
+                  <Link
+                    to={cap.href}
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#F5F5F3] hover:text-[#315EFB] underline underline-offset-4 decoration-[#444444] hover:decoration-[#315EFB] transition-colors"
+                  >
+                    <span>See the work</span>
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 4 — INDUSTRIES & TECHNOLOGY ── */}
+      <section className="pb-12 md:pb-16 px-4 sm:px-6 md:px-margin-desktop max-w-7xl mx-auto">
+        <div className="rounded-3xl bg-[#161616] border border-[#2A2A2A] p-7 sm:p-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+            {/* Industries */}
+            <div className="lg:col-span-5 space-y-5">
+              <h2 className="text-xl sm:text-2xl font-semibold text-[#F5F5F3] tracking-tight">
+                Industries
+              </h2>
+              <ul className="space-y-3.5">
+                {industries.map((ind) => (
+                  <li key={ind.label} className="flex items-center gap-3 text-sm text-[#A6A6A6]">
+                    <span className="material-symbols-outlined text-lg text-[#777777]">
+                      {ind.icon}
+                    </span>
+                    <span>{ind.label}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Technology */}
+            <div className="lg:col-span-7 space-y-5">
+              <h2 className="text-xl sm:text-2xl font-semibold text-[#F5F5F3] tracking-tight">
+                Technology
+              </h2>
+              <div className="flex flex-wrap gap-2.5">
+                {techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3.5 py-1.5 rounded-full bg-[#1C1C1F] border border-[#2E2E34] text-xs sm:text-sm text-[#CCCCCC] font-medium"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 5 — HOW WE WORK ── */}
+      <section className="pb-16 md:pb-24 px-4 sm:px-6 md:px-margin-desktop max-w-7xl mx-auto">
+        <div className="rounded-3xl bg-[#161616] border border-[#2A2A2A] p-7 sm:p-10">
+          <h2 className="text-xl sm:text-2xl font-semibold text-[#F5F5F3] mb-8 tracking-tight">
+            How we work
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+            {howWeWork.map((item) => (
+              <div key={item.title} className="space-y-2">
+                <h3 className="text-base font-semibold text-[#F5F5F3]">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#A6A6A6] leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 6 — 4-PHASE DELIVERY JOURNEY ── */}
       <section className="py-16 md:py-24 bg-[#141414] border-y border-[#262626]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-margin-desktop">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 space-y-6">
               <span className="text-[#315EFB] font-mono text-xs uppercase tracking-widest block font-semibold">
-                Our Philosophy
+                Delivery Process
               </span>
               <h2 className="text-3xl sm:text-4xl font-semibold text-[#F5F5F3] leading-tight">
-                Direct ownership. <br />No layers of bureaucracy.
+                Direct ownership. <br />From discovery to production.
               </h2>
               <div className="space-y-4 text-[#A6A6A6] leading-relaxed text-sm sm:text-base">
                 <p>
-                  We are not an agency that hands your project off to junior freelancers. When you work with Achaia Labs, you collaborate directly with the engineers and strategists building your software.
+                  Every engagement is led by a dedicated cross-functional pod of builders — product engineers, backend architects, and automation specialists working side-by-side with your operators.
                 </p>
                 <div className="p-5 rounded-2xl bg-[#181818] border border-[#303030] border-l-4 border-l-[#315EFB] space-y-2">
-                  <p className="font-semibold text-[#F5F5F3] text-sm">Our Core Principles:</p>
+                  <p className="font-semibold text-[#F5F5F3] text-sm">What this means for you:</p>
                   <ul className="space-y-1.5 text-xs sm:text-sm text-[#CCCCCC]">
-                    <li>• Understand the operational bottleneck before choosing technology</li>
-                    <li>• Build around real workflows, not rigid vendor templates</li>
-                    <li>• Agree on ongoing maintenance and ownership before launch</li>
+                    <li>• Zero handoffs to unvetted third-party freelancers</li>
+                    <li>• Weekly staging demos with transparent progress</li>
+                    <li>• Long-term SLA and maintenance clarity agreed upfront</li>
                   </ul>
                 </div>
               </div>
@@ -159,7 +307,9 @@ const AboutUs = () => {
 
             {/* Interactive Timeline */}
             <div className="lg:col-span-7 space-y-4">
-              <p className="text-xs font-mono font-semibold text-[#777777] uppercase tracking-wider mb-2">Our 4-Phase Delivery Journey</p>
+              <p className="text-xs font-mono font-semibold text-[#777777] uppercase tracking-wider mb-2">
+                Our 4-Phase Delivery Journey
+              </p>
               <div className="space-y-3">
                 {timelineSteps.map((step, idx) => (
                   <div
@@ -172,9 +322,11 @@ const AboutUs = () => {
                     }`}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                        idx === activeStep ? "bg-[#315EFB] text-white" : "bg-[#252525] text-[#A6A6A6]"
-                      }`}>
+                      <div
+                        className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                          idx === activeStep ? "bg-[#315EFB] text-white" : "bg-[#252525] text-[#A6A6A6]"
+                        }`}
+                      >
                         <span className="material-symbols-outlined text-lg">{step.icon}</span>
                       </div>
                       <h3 className="font-semibold text-base text-[#F5F5F3]">{step.title}</h3>
@@ -188,16 +340,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* ── SECTION 3 — FOUNDING TEAM SHOWCASE (team-01) ── */}
-      <Team
-        badge="Founding Engineering Team"
-        heading="The builders behind Achaia Labs."
-        subtitle="A focused team of engineers, operators, and strategists working directly on your systems."
-        teamData={teamData}
-        className="border-b border-[#262626]"
-      />
-
-      {/* ── SECTION 4 — MICRO1-INSPIRED MULTICOLOR CLAYMORPHISM CTA ── */}
+      {/* ── SECTION 7 — CONVERSION CTA ── */}
       <MulticolorConversion
         title="Ready to partner on your next software build?"
         description="Let's evaluate your operational requirements and engineer a solution designed for dependable long-term performance."
