@@ -14,7 +14,7 @@ export const caseStudiesData = {
     subtitle:
       "We designed and built a mobile-first Shopify e-commerce presence for a boutique children's fashion brand, featuring custom festive collection lookbooks, age/size variant filters, and domestic payment integrations.",
     heroImg: "/work-assets/mnm_home2.webp",
-    liveUrl: "https://achaialabs.tech",
+    liveUrl: "https://momsnmoon.com",
     context:
       "Moms & Moon designs handcrafted festive and occasion wear for children. The business was expanding from bespoke boutique orders to a direct-to-consumer online brand. They needed a digital storefront that captured the elegance of their garments while delivering frictionless checkout on mobile devices.",
     objectives: [
@@ -69,6 +69,28 @@ export const caseStudiesData = {
       side2: "/work-assets/mnm_vusang.webp",
       side3: "/work-assets/mnm_trends.webp",
     },
+    galleryItems: [
+      {
+        title: "Hero Storefront & Stylist Entry",
+        caption: "Full-bleed kids occasion wear hero banner pairing direct collection shopping with customized dress stylist inquiries.",
+        thumbnail: "/work-assets/mnm_home.webp",
+      },
+      {
+        title: "New Arrivals & Filterable Catalog",
+        caption: "Structured product grid with availability and price filters across 19+ new festive pieces and INR pricing.",
+        thumbnail: "/work-assets/mnm_arrivals.webp",
+      },
+      {
+        title: "Vusang Handloom Editorial Story",
+        caption: "Dedicated storytelling layout celebrating Bengal, Jharkhand, and Odisha handloom craftsmanship alongside curated apparel.",
+        thumbnail: "/work-assets/mnm_vusang.webp",
+      },
+      {
+        title: "Shop by Occasion Bento Grid",
+        caption: "Visual occasion-based discovery cards guiding parents directly to Festival, Wedding, Party, and Gifting collections.",
+        thumbnail: "/work-assets/mnm_trends.webp",
+      },
+    ],
   },
 
   "skmt-trust": {
@@ -80,8 +102,8 @@ export const caseStudiesData = {
     title: "SKMT Trust: Custom Academic & Institutional Governance ERP Portal",
     subtitle:
       "We built a centralized governance portal replacing disconnected spreadsheets to manage fellowship tracks, affiliated institute records, student enrollment cohorts, and institutional compliance.",
-    heroImg: "/work-assets/skmt_erp_tablet.webp",
-    liveUrl: "https://achaialabs.tech",
+    heroImg: "/work-assets/skmt.webp",
+    liveUrl: "https://skmttrust.com",
     context:
       "SKMT Trust oversees multiple affiliated educational institutes and specialized fellowship programs. Leadership and program coordinators were managing student cohorts, attendance records, fee status, and institute affiliations across dozens of manual Google Sheets, creating data discrepancy risks and heavy manual administrative burden.",
     objectives: [
@@ -131,11 +153,33 @@ export const caseStudiesData = {
     galleryTitle: "Governance Interface",
     gallerySubtitle: "Structured metrics and student management engineered for educational administration.",
     gallery: {
-      main: "/work-assets/skmt_erp_tablet.webp",
-      side1: "/work-assets/hero_devices_composition.webp",
-      side2: "/work-assets/skmt_erp_tablet.webp",
-      side3: "/work-assets/achaia_showcase_poster.png",
+      main: "/work-assets/skmt_gallery.webp",
+      side1: "/work-assets/skmt_notice.webp",
+      side2: "/work-assets/skmt_notice2.webp",
+      side3: "/work-assets/skmt_2.webp",
     },
+    galleryItems: [
+      {
+        title: "Campus Life & Community Showcase",
+        caption: "Visual highlight reel covering Student Life & Training, Workshops & Seminars, and Volunteering & Welfare initiatives.",
+        thumbnail: "/work-assets/skmt_gallery.webp",
+      },
+      {
+        title: "Pinned Notices & Institutional Affiliations",
+        caption: "Front-page announcement feed for internship batch circulars paired with verified skill mission and council partner badges.",
+        thumbnail: "/work-assets/skmt_notice.webp",
+      },
+      {
+        title: "Searchable Official Notice Board",
+        caption: "Filterable circular archive allowing students and colleges to search and read reference-tagged Academic, Exam, and Announcement notices.",
+        thumbnail: "/work-assets/skmt_notice2.webp",
+      },
+      {
+        title: "Super Admin Governance Dashboard",
+        caption: "Centralized administrative console tracking affiliated institutes, active student enrollments, program tracks, and audit logs in real time.",
+        thumbnail: "/work-assets/skmt_2.webp",
+      },
+    ],
   },
 
   "gaurav-synthetics": {
@@ -202,6 +246,28 @@ export const caseStudiesData = {
       side2: "/work-assets/gs_coll.webp",
       side3: "/work-assets/gs_blogs.webp",
     },
+    galleryItems: [
+      {
+        title: "Exclusive Ramraj Cotton Showroom Hub",
+        caption: "Dedicated distributor showcase for the Patna showroom with direct wholesale pricing requests and Bihar & Jharkhand coverage highlights.",
+        thumbnail: "/work-assets/gs_ramraj.webp",
+      },
+      {
+        title: "Multi-Category Textile Directory",
+        caption: "Clean 8-category visual index covering Shirting, Suiting, Suit Length Combos, Men's Dhotis, Bamboo Towels, Kids Wear, and Kurtas.",
+        thumbnail: "/work-assets/gs_cat.webp",
+      },
+      {
+        title: "Filterable Wholesale Catalog & WhatsApp Inquiry",
+        caption: "Multi-brand B2B catalog with brand and category sidebar filters enabling retailers to enquire directly via WhatsApp.",
+        thumbnail: "/work-assets/gs_coll.webp",
+      },
+      {
+        title: "Regional SEO & Textile Insights Blog",
+        caption: "Editorial hub publishing regional wholesale fabric guides and showroom resources to drive organic B2B search discovery.",
+        thumbnail: "/work-assets/gs_blogs.webp",
+      },
+    ],
   },
 
   "fox-wing-media": {
@@ -267,6 +333,28 @@ export const caseStudiesData = {
       side2: "/work-assets/foxwing_gal.webp",
       side3: "/work-assets/foxwing_side2.webp",
     },
+    galleryItems: [
+      {
+        title: "Client Trust & PR Delivery Metrics",
+        caption: "Social proof bar of partner brands paired with key agency track-record counters: 6+ years, 2,000+ PR deliverables, and 50+ projects.",
+        thumbnail: "/work-assets/foxwing_main.webp",
+      },
+      {
+        title: "Founder Authority & Credentials Profile",
+        caption: "Executive spotlight detailing founder credentials, TEDx appearances, and national media coverage to build immediate prospect trust.",
+        thumbnail: "/work-assets/foxwing_side1.webp",
+      },
+      {
+        title: "Media & Stage Appearance Gallery",
+        caption: "Curated visual proof of Entrepreneurs Conclave awards, press interviews, and TEDx keynote appearances.",
+        thumbnail: "/work-assets/foxwing_gal.webp",
+      },
+      {
+        title: "Global Media Publication Network",
+        caption: "Publication showcase highlighting 500+ editorial placement opportunities across Forbes, Outlook, Mid-Day, ABP Live, and MENAFN.",
+        thumbnail: "/work-assets/foxwing_side2.webp",
+      },
+    ],
   },
 
   "divine-enterprises": {
@@ -279,7 +367,7 @@ export const caseStudiesData = {
     subtitle:
       "We built a trust-led digital platform for a regional supply business serving education, office, industrial, textile, and manpower procurement needs.",
     heroImg: "/work-assets/divineEnt.webp",
-    liveUrl: "https://achaialabs.tech",
+    liveUrl: "https://divineenterprisesgroup.in/",
     context:
       "Divine Enterprises is a multi-category institutional supplier based in Bihar, fulfilling government, university, and commercial procurement orders for office furniture, uniform textiles, industrial supplies, and facility manpower. Institutional buyers needed a structured digital portal to verify the firm's supply credentials, browse product categories, and request tender quotations.",
     objectives: [
@@ -327,11 +415,33 @@ export const caseStudiesData = {
     galleryTitle: "Procurement Touchpoints",
     gallerySubtitle: "Structured category architecture built to support serious institutional procurement decisions.",
     gallery: {
-      main: "/work-assets/divineEnt.webp",
-      side1: "/work-assets/divineEnt.webp",
-      side2: "/work-assets/hero_devices_composition.webp",
-      side3: "/work-assets/divineEnt.webp",
+      main: "/work-assets/divine_print.webp",
+      side1: "/work-assets/divine_cat.webp",
+      side2: "/work-assets/divineEnt.webp",
+      side3: "/work-assets/divine_quote.webp",
     },
+    galleryItems: [
+      {
+        title: "Commercial & Offset Printing Division",
+        caption: "Dedicated Patna printing portal covering bulk digital and offset runs for hospital files, institutional stationery, and GST-billed orders.",
+        thumbnail: "/work-assets/divine_print.webp",
+      },
+      {
+        title: "Searchable Enterprise Supply Catalogue",
+        caption: "B2B product directory spanning education essentials, cotton handloom dari/rugs, industrial safety gear, and institutional mementos.",
+        thumbnail: "/work-assets/divine_cat.webp",
+      },
+      {
+        title: "Institutional Supply Hero & Bulk Ordering",
+        caption: "Primary landing slider engineered to route corporate and government buyers directly to the catalogue or bulk procurement specialists.",
+        thumbnail: "/work-assets/divineEnt.webp",
+      },
+      {
+        title: "Structured Institutional RFQ Funnel",
+        caption: "Dedicated quotation workflow capturing organization details, product categories, and bulk quantities with full GST invoicing clarity.",
+        thumbnail: "/work-assets/divine_quote.webp",
+      },
+    ],
   },
 
   "helios": {
@@ -343,7 +453,7 @@ export const caseStudiesData = {
     title: "Helios: High-Speed Mobile Application & AI Prompt Workflow Platform",
     subtitle:
       "We engineered an Android application and creative workflow organizer allowing prompt engineers and marketing teams to discover, parameterize, and execute AI workflows with zero friction.",
-    heroImg: "/work-assets/helios_mobile.webp",
+    heroImg: "/work-assets/helios_main.webp",
     liveUrl: "https://heliosai.achaialabs.tech/",
     context:
       "As generative AI models expanded across text, code, marketing, and design, power users faced fragmented workflows — prompts scattered across notes apps, lost parameter sliders, and inconsistent outputs. Helios was conceived as a dedicated mobile and web client to organize, test, and execute AI workflows seamlessly.",
@@ -393,11 +503,33 @@ export const caseStudiesData = {
     galleryTitle: "Application Interface",
     gallerySubtitle: "High-speed mobile screens and prompt organization tools.",
     gallery: {
-      main: "/work-assets/helios_mobile.webp",
-      side1: "/work-assets/hero_devices_composition.webp",
-      side2: "/work-assets/helios_mobile.webp",
-      side3: "/work-assets/achaia_showcase_poster.png",
+      main: "/work-assets/helios_data.webp",
+      side1: "/work-assets/helios_app1.webp",
+      side2: "/work-assets/helios_app2.webp",
+      side3: "/work-assets/helios_abt.webp",
     },
+    galleryItems: [
+      {
+        title: "Google Play Data Safety & Account Management",
+        caption: "Transparent user data governance and account deletion portal built to satisfy mobile app store compliance requirements.",
+        thumbnail: "/work-assets/helios_data.webp",
+      },
+      {
+        title: "Prompt Categories & Creative Use Cases",
+        caption: "Visual showcase of six core prompt workflows spanning Product Ads, Posters, Lifestyle Edits, Filters, and Daily Use templates.",
+        thumbnail: "/work-assets/helios_app1.webp",
+      },
+      {
+        title: "Loved Prompts & One-Tap Mobile Vault",
+        caption: "In-app mobile interface demonstrating one-tap prompt saving, organized collections, and quick-access favorites navigation.",
+        thumbnail: "/work-assets/helios_app2.webp",
+      },
+      {
+        title: "Product Vision & Play Store Distribution",
+        caption: "Mobile product landing footer connecting Android Play Store distribution with multi-model compatibility across ChatGPT, Claude, and Gemini.",
+        thumbnail: "/work-assets/helios_abt.webp",
+      },
+    ],
   },
 
   "mandala-good-vibes": {
@@ -410,7 +542,7 @@ export const caseStudiesData = {
     subtitle:
       "We engineered a modern Shopify e-commerce presence and directory for healing crystals and certified gemstones, featuring rapid collection filtering, fast local caching, and seamless domestic checkout.",
     heroImg: "/work-assets/mandala.webp",
-    liveUrl: "https://achaialabs.tech",
+    liveUrl: "https://mandalagoodvibes.com/",
     context:
       "Mandala Good Vibes specializes in authentic energized crystals, gemstone bracelets, and spiritual wellness artifacts. They required a fast, visually captivating online store that could organize hundreds of gemstone variants, provide clear spiritual attributes and certification details, and offer frictionless mobile purchasing.",
     objectives: [
@@ -459,11 +591,33 @@ export const caseStudiesData = {
     galleryTitle: "Storefront Touchpoints",
     gallerySubtitle: "High-trust crystal catalog presentation engineered for smooth mobile commerce.",
     gallery: {
-      main: "/work-assets/mandala.webp",
-      side1: "/work-assets/mandala.webp",
-      side2: "/work-assets/hero_devices_composition.webp",
-      side3: "/work-assets/achaia_showcase_poster.png",
+      main: "/work-assets/mandala_sound.webp",
+      side1: "/work-assets/mandala_prod3.webp",
+      side2: "/work-assets/mandala_cat.webp",
+      side3: "/work-assets/mandala_prod2.webp",
     },
+    galleryItems: [
+      {
+        title: "The Frequency Sanctuary Hero Experience",
+        caption: "Immersive audio-visual hero introducing healing sound frequencies alongside energized crystals and top-level stone navigation.",
+        thumbnail: "/work-assets/mandala_sound.webp",
+      },
+      {
+        title: "Intention-Filtered Gemstone Bracelets",
+        caption: "Filterable bracelet catalog pairing bead and 925 silver specifications with energetic intention tags, price sliders, and stock filters.",
+        thumbnail: "/work-assets/mandala_prod3.webp",
+      },
+      {
+        title: "Lifestyle Split: For Him & For Her",
+        caption: "Editorial dual-column showcase routing shoppers directly into curated men's rings and women's crystal bracelet collections.",
+        thumbnail: "/work-assets/mandala_cat.webp",
+      },
+      {
+        title: "Certified Pendants & Necklaces Catalog",
+        caption: "High-clarity product grid for crystal pendants and necklaces with wavelength tags, promotional badges, and INR pricing.",
+        thumbnail: "/work-assets/mandala_prod2.webp",
+      },
+    ],
   },
 };
 
@@ -683,68 +837,47 @@ const CaseStudyDetail = () => {
 
         {/* Interactive LayoutGrid */}
         {(() => {
-          const galleryCards = [
+          const items = cs.galleryItems || [
             {
-              id: 1,
-              content: (
-                <div>
-                  <p className="font-bold md:text-3xl text-xl text-white">
-                    {cs.galleryTitle || "Storefront & Primary Interface"}
-                  </p>
-                  <p className="font-normal text-xs md:text-sm my-2 max-w-lg text-neutral-300 leading-relaxed">
-                    {cs.gallerySubtitle || cs.subtitle}
-                  </p>
-                </div>
-              ),
-              className: "md:col-span-2",
-              thumbnail: cs.gallery?.main || "/work-assets/moni_monu_laptop.webp",
+              title: cs.galleryTitle || "Storefront & Primary Interface",
+              caption: cs.gallerySubtitle || cs.subtitle,
+              thumbnail: cs.gallery?.main || "/work-assets/mnm_home.webp",
             },
             {
-              id: 2,
-              content: (
-                <div>
-                  <p className="font-bold md:text-2xl text-lg text-white">
-                    {cs.outcomes?.[0]?.title || "Multi-Device Presentation"}
-                  </p>
-                  <p className="font-normal text-xs md:text-sm my-2 max-w-lg text-neutral-300 leading-relaxed">
-                    {cs.outcomes?.[0]?.desc || "Responsive workflows and performance optimized across all device classes."}
-                  </p>
-                </div>
-              ),
-              className: "col-span-1",
+              title: cs.deliverables?.[0]?.title || "Multi-Device Presentation",
+              caption: cs.deliverables?.[0]?.desc || "Responsive workflows and performance optimized across all device classes.",
               thumbnail: cs.gallery?.side1 || "/work-assets/hero_devices_composition.webp",
             },
             {
-              id: 3,
-              content: (
-                <div>
-                  <p className="font-bold md:text-2xl text-lg text-white">
-                    {cs.outcomes?.[1]?.title || "Workflow & Conversion"}
-                  </p>
-                  <p className="font-normal text-xs md:text-sm my-2 max-w-lg text-neutral-300 leading-relaxed">
-                    {cs.outcomes?.[1]?.desc || "Engineered for high-trust customer interactions and rapid engagement."}
-                  </p>
-                </div>
-              ),
-              className: "col-span-1",
-              thumbnail: cs.gallery?.side2 || "/work-assets/moni_monu_laptop.webp",
+              title: cs.deliverables?.[1]?.title || "Workflow & Conversion",
+              caption: cs.deliverables?.[1]?.desc || "Engineered for high-trust customer interactions and rapid engagement.",
+              thumbnail: cs.gallery?.side2 || "/work-assets/mnm_home.webp",
             },
             {
-              id: 4,
-              content: (
-                <div>
-                  <p className="font-bold md:text-3xl text-xl text-white">
-                    {cs.outcomes?.[2]?.title || "Operational Scale & Support"}
-                  </p>
-                  <p className="font-normal text-xs md:text-sm my-2 max-w-lg text-neutral-300 leading-relaxed">
-                    {cs.outcomes?.[2]?.desc || cs.ongoingOwnership || "Production-ready systems driving measurable, long-term business performance."}
-                  </p>
-                </div>
-              ),
-              className: "md:col-span-2",
+              title: cs.deliverables?.[2]?.title || "Operational Scale & Support",
+              caption: cs.deliverables?.[2]?.desc || cs.ongoingOwnership || "Production-ready systems driving measurable, long-term business performance.",
               thumbnail: cs.gallery?.side3 || "/work-assets/achaia_showcase_poster.png",
             },
           ];
+
+          const colSpans = ["md:col-span-2", "col-span-1", "col-span-1", "md:col-span-2"];
+          const titleSizes = ["md:text-3xl text-xl", "md:text-2xl text-lg", "md:text-2xl text-lg", "md:text-3xl text-xl"];
+
+          const galleryCards = items.map((item, idx) => ({
+            id: idx + 1,
+            content: (
+              <div>
+                <p className={`font-bold ${titleSizes[idx] || "text-xl"} text-white`}>
+                  {item.title}
+                </p>
+                <p className="font-normal text-xs md:text-sm my-2 max-w-lg text-neutral-300 leading-relaxed">
+                  {item.caption}
+                </p>
+              </div>
+            ),
+            className: colSpans[idx] || "col-span-1",
+            thumbnail: item.thumbnail,
+          }));
 
           return <LayoutGrid cards={galleryCards} />;
         })()}
